@@ -1,21 +1,52 @@
+// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'dart:convert';
 
+/// The Customer model at YouCan.
 class Customer {
+  /// Returns identifier ( UUID ) of the customer.
   final String id;
+
+  /// Returns the customer email.
   final String email;
+
+  /// Returns the customer password.
   final String? password;
+
+  /// Returns the customer first name.
   final String? firstName;
+
+  /// Returns the customer last name.
   final String? lastName;
+
+  /// Returns the customer phone.
   final String? phone;
+
+  /// Returns the customer country.
   final String? country;
+
+  /// Returns the customer region.
   final String? region;
+
+  /// Returns the customer city.
   final String? city;
+
+  /// Returns the customer notes.
   final String? notes;
-  final String? created_at;
-  final String? updated_at;
-  final String? deleted_at;
-  final String? last_activity;
-  final String store_id;
+
+  /// Returns the customer created date.
+  final String? createdAt;
+
+  /// Returns the customer updated at.
+  final String? updatedAt;
+
+  /// Returns the customer deleted at.
+  final String? deletedAt;
+
+  /// Returns the customer last activity.
+  final String? lastActivity;
+
+  /// Returns the customer store id.
+  final String storeId;
 
   @override
   int get hashCode {
@@ -29,11 +60,11 @@ class Customer {
         region.hashCode ^
         city.hashCode ^
         notes.hashCode ^
-        created_at.hashCode ^
-        updated_at.hashCode ^
-        deleted_at.hashCode ^
-        last_activity.hashCode ^
-        store_id.hashCode;
+        createdAt.hashCode ^
+        updatedAt.hashCode ^
+        deletedAt.hashCode ^
+        lastActivity.hashCode ^
+        storeId.hashCode;
   }
 
   Customer({
@@ -47,11 +78,11 @@ class Customer {
     this.region,
     this.city,
     this.notes,
-    this.created_at,
-    this.updated_at,
-    this.deleted_at,
-    this.last_activity,
-    required this.store_id,
+    this.createdAt,
+    this.updatedAt,
+    this.deletedAt,
+    this.lastActivity,
+    required this.storeId,
   });
 
   factory Customer.fromMap(Map<String, dynamic> map) {
@@ -66,15 +97,12 @@ class Customer {
       region: map['region'] != null ? map['region'] as String : null,
       city: map['city'] != null ? map['city'] as String : null,
       notes: map['notes'] != null ? map['notes'] as String : null,
-      created_at:
-          map['created_at'] != null ? map['created_at'] as String : null,
-      updated_at:
-          map['updated_at'] != null ? map['updated_at'] as String : null,
-      deleted_at:
-          map['deleted_at'] != null ? map['deleted_at'] as String : null,
-      last_activity:
+      createdAt: map['created_at'] != null ? map['created_at'] as String : null,
+      updatedAt: map['updated_at'] != null ? map['updated_at'] as String : null,
+      deletedAt: map['deleted_at'] != null ? map['deleted_at'] as String : null,
+      lastActivity:
           map['last_activity'] != null ? map['last_activity'] as String : null,
-      store_id: map['store_id'] as String,
+      storeId: map['store_id'] as String,
     );
   }
   factory Customer.fromJson(String source) =>
@@ -92,11 +120,11 @@ class Customer {
       'region': region,
       'city': city,
       'notes': notes,
-      'created_at': created_at,
-      'updated_at': updated_at,
-      'deleted_at': deleted_at,
-      'last_activity': last_activity,
-      'store_id': store_id,
+      'createdAt': createdAt,
+      'updated_at': updatedAt,
+      'deleted_at': deletedAt,
+      'last_activity': lastActivity,
+      'store_id': storeId,
     };
   }
 
@@ -116,10 +144,15 @@ class Customer {
         other.region == region &&
         other.city == city &&
         other.notes == notes &&
-        other.created_at == created_at &&
-        other.updated_at == updated_at &&
-        other.deleted_at == deleted_at &&
-        other.last_activity == last_activity &&
-        other.store_id == store_id;
+        other.createdAt == createdAt &&
+        other.updatedAt == updatedAt &&
+        other.deletedAt == deletedAt &&
+        other.lastActivity == lastActivity &&
+        other.storeId == storeId;
+  }
+
+  @override
+  String toString() {
+    return 'Customer(id: $id, email: $email, password: $password, firstName: $firstName, lastName: $lastName, phone: $phone, country: $country, region: $region, city: $city, notes: $notes, createdAt: $createdAt, updatedAt: $updatedAt, deletedAt: $deletedAt, lastActivity: $lastActivity, storeId: $storeId)';
   }
 }
