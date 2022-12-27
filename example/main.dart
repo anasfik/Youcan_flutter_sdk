@@ -1,5 +1,9 @@
-import 'package:youcan_flutter_sdk/src/instance/youcan_instance.dart';
+import 'package:youcan_flutter_sdk/src/store_front/instance/youcan_instance.dart';
 
-void main() {
-  YouCan.instance.apiLink = 'https://example.youcan.shop/';
+void main() async {
+  YouCan.instance.storeLink = 'https://example.youcan.shop';
+
+  final example = await YouCan.instance.allProducts();
+
+  print(example.map((e) => e.name).toList());
 }
