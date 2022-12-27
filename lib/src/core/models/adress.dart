@@ -1,3 +1,4 @@
+// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'dart:convert';
 
 /// Address model at YouCan.
@@ -55,6 +56,28 @@ class Address {
 
   /// Returns the addressable deleted at.
   final String? deleted_at;
+
+  @override
+  int get hashCode {
+    return id.hashCode ^
+        firstName.hashCode ^
+        lastName.hashCode ^
+        firstLine.hashCode ^
+        secondLine.hashCode ^
+        phone.hashCode ^
+        region.hashCode ^
+        zip_code.hashCode ^
+        city.hashCode ^
+        country_code.hashCode ^
+        state.hashCode ^
+        company.hashCode ^
+        addressable_type.hashCode ^
+        addressable_id.hashCode ^
+        is_default.hashCode ^
+        created_at.hashCode ^
+        updated_at.hashCode ^
+        deleted_at.hashCode;
+  }
 
   factory Address.fromMap(Map<String, dynamic> map) {
     return Address(
@@ -131,4 +154,28 @@ class Address {
   }
 
   String toJson() => json.encode(toMap());
+
+  @override
+  bool operator ==(covariant Address other) {
+    if (identical(this, other)) return true;
+
+    return other.id == id &&
+        other.firstName == firstName &&
+        other.lastName == lastName &&
+        other.firstLine == firstLine &&
+        other.secondLine == secondLine &&
+        other.phone == phone &&
+        other.region == region &&
+        other.zip_code == zip_code &&
+        other.city == city &&
+        other.country_code == country_code &&
+        other.state == state &&
+        other.company == company &&
+        other.addressable_type == addressable_type &&
+        other.addressable_id == addressable_id &&
+        other.is_default == is_default &&
+        other.created_at == created_at &&
+        other.updated_at == updated_at &&
+        other.deleted_at == deleted_at;
+  }
 }
