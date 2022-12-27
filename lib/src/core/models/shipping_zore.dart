@@ -1,8 +1,8 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'dart:convert';
 
-/// The ShippingCore model at YouCan.
-class ShippingCore {
+/// The ShippingZone model at YouCan.
+class ShippingZone {
   /// Returns identifier of shipping core ( UUID ).
   final String id;
 
@@ -35,8 +35,8 @@ class ShippingCore {
         rateType.hashCode;
   }
 
-  /// The ShippingCore model at YouCan.
-  ShippingCore({
+  /// The ShippingZone model at YouCan.
+  ShippingZone({
     required this.id,
     required this.name,
     required this.displayName,
@@ -46,8 +46,8 @@ class ShippingCore {
     required this.rateType,
   });
 
-  factory ShippingCore.fromMap(Map<String, dynamic> map) {
-    return ShippingCore(
+  factory ShippingZone.fromMap(Map<String, dynamic> map) {
+    return ShippingZone(
       id: map['id'] as String,
       name: map['name'] as String,
       displayName: map['display_name'] as String,
@@ -58,8 +58,8 @@ class ShippingCore {
     );
   }
 
-  factory ShippingCore.fromJson(String source) =>
-      ShippingCore.fromMap(json.decode(source) as Map<String, dynamic>);
+  factory ShippingZone.fromJson(String source) =>
+      ShippingZone.fromMap(json.decode(source) as Map<String, dynamic>);
 
   Map<String, dynamic> toMap() {
     return <String, dynamic>{
@@ -76,7 +76,7 @@ class ShippingCore {
   String toJson() => json.encode(toMap());
 
   @override
-  bool operator ==(covariant ShippingCore other) {
+  bool operator ==(covariant ShippingZone other) {
     if (identical(this, other)) return true;
 
     return other.id == id &&
@@ -90,6 +90,6 @@ class ShippingCore {
 
   @override
   String toString() {
-    return 'ShippingCore(id: $id, name: $name, displayName: $displayName, countries: $countries, isFree: $isFree, isActive: $isActive, rateType: $rateType)';
+    return 'ShippingZone(id: $id, name: $name, displayName: $displayName, countries: $countries, isFree: $isFree, isActive: $isActive, rateType: $rateType)';
   }
 }
