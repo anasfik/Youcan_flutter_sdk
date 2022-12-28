@@ -1,4 +1,5 @@
 import 'package:youcan_flutter_sdk/src/store_front/http_requests/extensions/list_products.dart';
+import 'package:youcan_flutter_sdk/src/store_front/http_requests/extensions/search_query_products.dart';
 
 import '../core/exception/store_link_not_found.dart';
 import '../core/models/product/product.dart';
@@ -41,11 +42,6 @@ class YouCan {
     _internalStoreLink = newStoreLink;
   }
 
-  /// Returns all the products of the store.
-  Future<List<Product>> allProducts() async {
-    return await _httpRequests.listProducts();
-  }
-
   /// YouCan is a singleton class, so you can't instantiate it, you can only use the predefined [instance].
   ///
   /// Example:
@@ -53,6 +49,16 @@ class YouCan {
   /// YouCan.instance
   /// ```
   YouCan._();
+
+  /// Returns all the products of the store as a [List] of [Product].
+  Future<List<Product>> allProducts() async {
+    return await _httpRequests.listProducts();
+  }
+
+  /// Returns all the products of the store as a [List] of [Product] that match the [searchQuery].
+  Future<List<Product>> searchProducts(String searchQuery) async {
+    return await _httpRequests.listProductsWithSearch(searchQuery);
+  }
 }
 
 extension _asApi on String {

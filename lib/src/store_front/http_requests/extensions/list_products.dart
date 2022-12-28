@@ -7,12 +7,18 @@ import '../http_requests.dart';
 import 'package:http/http.dart' as http;
 
 extension ListProducts on HttpRequests {
-  Future<List<Product>> listProducts() async {
+  Future<List<Product>> listProducts({
+    String searchQuery = "",
+  }) async {
+    final productsEndPoint =
+        "$storeApiLink${searchQuery.isEmpty ? '/products' : '/products?q=$searchQuery'}";
+    print(productsEndPoint);
     final response = await http.get(
-      Uri.parse('$storeApiLink/products'),
+      Uri.parse(productsEndPoint),
       headers: {
-        'Content-Type': 'application/json',
+        'Content-Type': 'application/x-www-form-urlencoded',
         'Accept': 'application/json',
+        'accept-charset': 'utf-8',
       },
     );
     final body = response.body;
