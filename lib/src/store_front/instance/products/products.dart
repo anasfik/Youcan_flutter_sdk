@@ -7,13 +7,14 @@ import 'package:youcan_flutter_sdk/src/store_front/instance/products/extensions/
 import 'package:youcan_flutter_sdk/src/store_front/instance/products/extensions/pagination.dart';
 import 'package:youcan_flutter_sdk/src/store_front/instance/products/extensions/search.dart';
 
-import '../../../../youcan_flutter_sdk.dart';
 import '../../core/api_links/api_link_builder/api_link_builder.dart';
 import '../../core/api_links/const/const.dart';
+import '../../core/base/products_base.dart';
+import '../../core/mixins/requests_client.dart';
 import '../../core/models/product/product.dart';
 import '../youcan_instance.dart';
 
-class Products with RequestsClient implements ApiEntriesBase<Product> {
+class Products with RequestsClient implements ProductsBase<Product> {
   int? page;
   String? searchQuery;
   int? limitQuery;

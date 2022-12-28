@@ -22,8 +22,9 @@ class YouCan {
         Please set the store link using : YouCan.instance.apiLink = 'your link'
         """,
       );
+    } else {
+      return _internalStoreLink!;
     }
-    return _internalStoreLink!;
   }
 
   /// The public api link of the store.
