@@ -1,17 +1,17 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 // To parse this JSON data, do
 //
-//     final welcome = welcomeFromMap(jsonString);
+//     final Product = ProductFromMap(jsonString);
 
 import 'dart:convert';
 
 import 'package:meta/meta.dart';
 
-List<Product> welcomeFromMap(String str) =>
-    List<Product>.from(json.decode(str).map((x) => Product.fromMap(x)));
+List<Product> ProductFromMap(String str) =>
+    List<Product>.from(json.decode(str).map((x) => Product.fromJson(x)));
 
-String welcomeToMap(List<Product> data) =>
-    json.encode(List<dynamic>.from(data.map((x) => x.toMap())));
+String ProductToMap(List<Product> data) =>
+    json.encode(List<dynamic>.from(data.map((x) => x.toJson())));
 
 class Product {
   Product({
@@ -28,8 +28,6 @@ class Product {
     required this.variantOptions,
     required this.trackInventory,
     required this.meta,
-    required this.hasRelatedProducts,
-    required this.relatedProducts,
     required this.images,
   });
 
@@ -43,14 +41,12 @@ class Product {
   final dynamic compareAtPrice;
   final bool hasVariants;
   final int variantsCount;
-  final List<dynamic> variantOptions;
+  final List<VariantOption> variantOptions;
   final bool trackInventory;
   final Meta meta;
-  final bool hasRelatedProducts;
-  final List<dynamic> relatedProducts;
-  final List<WelcomeImage> images;
+  final List<Image> images;
 
-  factory Product.fromMap(Map<String, dynamic> json) => Product(
+  factory Product.fromJson(Map<String, dynamic> json) => Product(
         id: json["id"],
         name: json["name"],
         slug: json["slug"],
@@ -61,18 +57,14 @@ class Product {
         compareAtPrice: json["compare_at_price"],
         hasVariants: json["has_variants"],
         variantsCount: json["variants_count"],
-        variantOptions:
-            List<dynamic>.from(json["variant_options"].map((x) => x)),
+        variantOptions: List<VariantOption>.from(
+            json["variant_options"].map((x) => VariantOption.fromJson(x))),
         trackInventory: json["track_inventory"],
-        meta: Meta.fromMap(json["meta"]),
-        hasRelatedProducts: json["has_related_products"],
-        relatedProducts:
-            List<dynamic>.from(json["related_products"].map((x) => x)),
-        images: List<WelcomeImage>.from(
-            json["images"].map((x) => WelcomeImage.fromMap(x))),
+        meta: Meta.fromJson(json["meta"]),
+        images: List<Image>.from(json["images"].map((x) => Image.fromJson(x))),
       );
 
-  Map<String, dynamic> toMap() => {
+  Map<String, dynamic> toJson() => {
         "id": id,
         "name": name,
         "slug": slug,
@@ -83,22 +75,16 @@ class Product {
         "compare_at_price": compareAtPrice,
         "has_variants": hasVariants,
         "variants_count": variantsCount,
-        "variant_options": List<dynamic>.from(variantOptions.map((x) => x)),
+        "variant_options":
+            List<dynamic>.from(variantOptions.map((x) => x.toJson())),
         "track_inventory": trackInventory,
-        "meta": meta.toMap(),
-        "has_related_products": hasRelatedProducts,
-        "related_products": List<dynamic>.from(relatedProducts.map((x) => x)),
-        "images": List<dynamic>.from(images.map((x) => x.toMap())),
+        "meta": meta.toJson(),
+        "images": List<dynamic>.from(images.map((x) => x.toJson())),
       };
-
-  @override
-  String toString() {
-    return 'Product(id: $id, name: $name, slug: $slug, publicUrl: $publicUrl, thumbnail: $thumbnail, description: $description, price: $price, compareAtPrice: $compareAtPrice, hasVariants: $hasVariants, variantsCount: $variantsCount, variantOptions: $variantOptions, trackInventory: $trackInventory, meta: $meta, hasRelatedProducts: $hasRelatedProducts, relatedProducts: $relatedProducts, images: $images)';
-  }
 }
 
-class WelcomeImage {
-  WelcomeImage({
+class Image {
+  Image({
     required this.id,
     required this.name,
     required this.type,
@@ -114,22 +100,22 @@ class WelcomeImage {
   final int order;
   final Variations variations;
 
-  factory WelcomeImage.fromMap(Map<String, dynamic> json) => WelcomeImage(
+  factory Image.fromJson(Map<String, dynamic> json) => Image(
         id: json["id"],
         name: json["name"],
         type: json["type"],
         url: json["url"],
         order: json["order"],
-        variations: Variations.fromMap(json["variations"]),
+        variations: Variations.fromJson(json["variations"]),
       );
 
-  Map<String, dynamic> toMap() => {
+  Map<String, dynamic> toJson() => {
         "id": id,
         "name": name,
         "type": type,
         "url": url,
         "order": order,
-        "variations": variations.toMap(),
+        "variations": variations.toJson(),
       };
 }
 
@@ -146,14 +132,14 @@ class Variations {
   final String md;
   final String lg;
 
-  factory Variations.fromMap(Map<String, dynamic> json) => Variations(
+  factory Variations.fromJson(Map<String, dynamic> json) => Variations(
         original: json["original"],
         sm: json["sm"],
         md: json["md"],
         lg: json["lg"],
       );
 
-  Map<String, dynamic> toMap() => {
+  Map<String, dynamic> toJson() => {
         "original": original,
         "sm": sm,
         "md": md,
@@ -170,38 +156,41 @@ class Meta {
 
   final String title;
   final String description;
-  final List<MetaImage> images;
+  final List<dynamic> images;
 
-  factory Meta.fromMap(Map<String, dynamic> json) => Meta(
+  factory Meta.fromJson(Map<String, dynamic> json) => Meta(
         title: json["title"],
         description: json["description"],
-        images: List<MetaImage>.from(
-            json["images"].map((x) => MetaImage.fromMap(x))),
+        images: List<dynamic>.from(json["images"].map((x) => x)),
       );
 
-  Map<String, dynamic> toMap() => {
+  Map<String, dynamic> toJson() => {
         "title": title,
         "description": description,
-        "images": List<dynamic>.from(images.map((x) => x.toMap())),
+        "images": List<dynamic>.from(images.map((x) => x)),
       };
 }
 
-class MetaImage {
-  MetaImage({
-    required this.path,
-    required this.link,
+class VariantOption {
+  VariantOption({
+    required this.name,
+    required this.type,
+    required this.values,
   });
 
-  final String path;
-  final String link;
+  final String name;
+  final int type;
+  final List<String> values;
 
-  factory MetaImage.fromMap(Map<String, dynamic> json) => MetaImage(
-        path: json["path"],
-        link: json["link"],
+  factory VariantOption.fromJson(Map<String, dynamic> json) => VariantOption(
+        name: json["name"],
+        type: json["type"],
+        values: List<String>.from(json["values"].map((x) => x)),
       );
 
-  Map<String, dynamic> toMap() => {
-        "path": path,
-        "link": link,
+  Map<String, dynamic> toJson() => {
+        "name": name,
+        "type": type,
+        "values": List<dynamic>.from(values.map((x) => x)),
       };
 }

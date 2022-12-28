@@ -18,4 +18,5 @@ class ApiLinkBuilder {
     this.apiEndpoint = "",
     this.searchQuery = "",
   });
+  
 }

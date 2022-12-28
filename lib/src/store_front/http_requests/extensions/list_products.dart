@@ -33,7 +33,7 @@ extension ListProducts on HttpRequests {
     // I'm not sure about this, but we should get the data with it's key one step more !
     List<dynamic> productsAsMaps = decodedBody['data'];
     if (response.statusCode == 200) {
-      return productsAsMaps.map((e) => Product.fromMap(e)).toList();
+      return productsAsMaps.map((e) => Product.fromJson(e)).toList();
     } else if (response.statusCode == 404) {
       throw NotFoundException('No products found');
     } else if (response.statusCode == 500) {
