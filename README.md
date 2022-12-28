@@ -1,39 +1,40 @@
-<!-- 
-This README describes the package. If you publish this package to pub.dev,
-this README's contents appear on the landing page for your package.
+<br>
+<p align='center' >
+<img src="docs/assets/banner-logo.png" width='300px'/>
+<h1 align='center'>YouCan API </h1>
+</p>
 
-For information about how to write a good package README, see the guide for
-[writing package pages](https://dart.dev/guides/libraries/writing-package-pages). 
+<p align='center'>A wrappers into the YouCan platform API that enables developers to extend it's features inside a Dart/Flutter project</p>
 
-For general information about developing packages, see the Dart guide for
-[creating packages](https://dart.dev/guides/libraries/create-library-packages)
-and the Flutter guide for
-[developing packages and plugins](https://flutter.dev/developing-packages). 
--->
+<br>
 
-TODO: Put a short description of the package here that helps potential users
-know whether this package might be useful for them.
+## Motivation
 
-## Features
+Well, we might need a flexible and easy way to exchange requests form this api to our project, this could get developers to more unnecessary extra work such as dealing with configuring and using the API's multiple endpoints, loose types of the data, the http requests, modeling data...
+<br>
+<br>
 
-TODO: List what your package can do. Maybe include images, gifs, or videos.
-
-## Getting started
-
-TODO: List prerequisites and provide or point to information on how to
-start using the package.
+This library aims to cover the developers from all those sides, and provide easy call methods that bring them to the goal.
 
 ## Usage
 
-TODO: Include short and useful examples for package users. Add longer examples
-to `/example` folder. 
+### Store configuration
+
+To configure this library to get the data directly from your store, you will need to set it like this:
 
 ```dart
-const like = 'sample';
+void main() {
+  YouCan.instance.storeLink = 'https://example.youcan.shop'; // change it with your store's link
+}
 ```
 
-## Additional information
+<br>
 
-TODO: Tell users more about the package: where to find more information, how to 
-contribute to the package, how to file issues, what response they can expect 
-from the package authors, and more.
+### Products
+
+To get a `List<Product>` with all your store's product :
+
+```dart
+  List<Product> products = await YouCan.instance.allProducts();
+
+```
