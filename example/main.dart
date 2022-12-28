@@ -19,4 +19,10 @@ void main() async {
   final example4 = await YouCan.instance.categories.all();
 
   print(example4.map((e) => e.name).toList());
+
+  final exampleProductId = example4.first.id;
+
+  final example5 = await YouCan.instance.categories.one(exampleProductId);
+
+  print(example5.name);
 }
