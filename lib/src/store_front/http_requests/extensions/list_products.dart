@@ -16,7 +16,7 @@ extension ListProducts on HttpRequests {
     String searchQuery = "",
   }) async {
     final productsEndPoint = ApiLinkBuilder(api: storeApiLink)
-        .endpoint(EndPoints.products)
+        .endpoint(EndPoints.products())
         .search(searchQuery);
 
     final response = await http.get(

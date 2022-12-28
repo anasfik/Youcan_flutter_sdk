@@ -1,3 +1,4 @@
+import 'package:youcan_flutter_sdk/src/store_front/http_requests/extensions/fetch_product.dart';
 import 'package:youcan_flutter_sdk/src/store_front/http_requests/extensions/list_products.dart';
 import 'package:youcan_flutter_sdk/src/store_front/http_requests/extensions/search_query_products.dart';
 
@@ -58,6 +59,11 @@ class YouCan {
   /// Returns all the products of the store as a [List] of [Product] that match the [searchQuery].
   Future<List<Product>> searchProducts(String searchQuery) async {
     return await _httpRequests.listProductsWithSearch(searchQuery);
+  }
+
+  /// Returns the product with the given [productId] as a [Product].
+  Future<Product> product(String productId) async {
+    return await _httpRequests.fetchProduct(productId);
   }
 }
 

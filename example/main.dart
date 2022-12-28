@@ -10,4 +10,10 @@ void main() async {
   final example2 = await YouCan.instance.searchProducts("الخامس");
 
   print(example2.map((e) => e.name).toList());
+
+  final exampleProductId = example.first.id;
+
+  final example3 = await YouCan.instance.product(exampleProductId);
+
+  print(example3.name);
 }
