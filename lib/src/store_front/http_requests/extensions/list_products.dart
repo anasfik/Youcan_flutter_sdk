@@ -4,6 +4,7 @@ import 'package:youcan_flutter_sdk/src/store_front/core/api_links/api_link_build
 import 'package:youcan_flutter_sdk/src/store_front/core/api_links/api_link_builder/extensions/search.dart';
 
 import '../../core/api_links/api_link_builder/api_link_builder.dart';
+import '../../core/api_links/const/const.dart';
 import '../../core/exception/not_found.dart';
 import '../../core/exception/service_not_available.dart';
 import '../../core/models/product/product.dart';
@@ -15,7 +16,7 @@ extension ListProducts on HttpRequests {
     String searchQuery = "",
   }) async {
     final productsEndPoint = ApiLinkBuilder(api: storeApiLink)
-        .endpoint("/products")
+        .endpoint(EndPoints.products)
         .search(searchQuery);
 
     final response = await http.get(
