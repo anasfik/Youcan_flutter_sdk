@@ -36,5 +36,4 @@ To get a `List<Product>` with all your store's product :
 
 ```dart
   List<Product> products = await YouCan.instance.allProducts();
-
 ```

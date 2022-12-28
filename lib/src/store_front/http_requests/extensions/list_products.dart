@@ -1,6 +1,7 @@
 import 'dart:convert';
 
 import 'package:youcan_flutter_sdk/src/store_front/core/api_links/api_link_builder/extensions/endpoint.dart';
+import 'package:youcan_flutter_sdk/src/store_front/core/api_links/api_link_builder/extensions/pagination.dart';
 import 'package:youcan_flutter_sdk/src/store_front/core/api_links/api_link_builder/extensions/search.dart';
 
 import '../../core/api_links/api_link_builder/api_link_builder.dart';
@@ -13,12 +14,13 @@ import 'package:http/http.dart' as http;
 
 extension ListProducts on HttpRequests {
   Future<List<Product>> listProducts({
+    int? page ,
     String searchQuery = "",
   }) async {
     final productsEndPoint = ApiLinkBuilder(api: storeApiLink)
         .endpoint(EndPoints.products())
-        .search(searchQuery);
-
+        .search(searchQuery)
+        .pagination(page);
     final response = await http.get(
       Uri.parse(productsEndPoint.fullApiLink),
       headers: {

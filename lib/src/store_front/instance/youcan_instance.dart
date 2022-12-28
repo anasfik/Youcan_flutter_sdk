@@ -5,6 +5,7 @@ import 'package:youcan_flutter_sdk/src/store_front/http_requests/extensions/sear
 import '../core/exception/store_link_not_found.dart';
 import '../core/models/product/product.dart';
 import '../http_requests/http_requests.dart';
+import 'products/products.dart';
 
 class YouCan {
   /// The internal instance of [HttpRequests].
@@ -51,20 +52,10 @@ class YouCan {
   /// ```
   YouCan._();
 
-  /// Returns all the products of the store as a [List] of [Product].
-  Future<List<Product>> allProducts() async {
-    return await _httpRequests.listProducts();
-  }
+  final Products products = Products();
 
-  /// Returns all the products of the store as a [List] of [Product] that match the [searchQuery].
-  Future<List<Product>> searchProducts(String searchQuery) async {
-    return await _httpRequests.listProductsWithSearch(searchQuery);
-  }
+ 
 
-  /// Returns the product with the given [productId] as a [Product].
-  Future<Product> product(String productId) async {
-    return await _httpRequests.fetchProduct(productId);
-  }
 }
 
 extension _asApi on String {
