@@ -1,8 +1,10 @@
 import '../core/exception/store_link_not_found.dart';
+import 'categories/categories.dart';
 import 'products/products.dart';
 
 class YouCan {
   final Products products = Products();
+  final Categories categories = Categories();
 
   /// Internal singleton instance of [YouCan].
   static YouCan _instance = YouCan._();
