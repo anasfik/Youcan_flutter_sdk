@@ -1,5 +1,9 @@
 import 'dart:convert';
 
+import 'package:youcan_flutter_sdk/src/store_front/core/api_links/api_link_builder/extensions/endpoint.dart';
+import 'package:youcan_flutter_sdk/src/store_front/core/api_links/api_link_builder/extensions/search.dart';
+
+import '../../core/api_links/api_link_builder/api_link_builder.dart';
 import '../../core/exception/not_found.dart';
 import '../../core/exception/service_not_available.dart';
 import '../../core/models/product/product.dart';
@@ -10,11 +14,12 @@ extension ListProducts on HttpRequests {
   Future<List<Product>> listProducts({
     String searchQuery = "",
   }) async {
-    final productsEndPoint =
-        "$storeApiLink${searchQuery.isEmpty ? '/products' : '/products?q=$searchQuery'}";
-    print(productsEndPoint);
+    final productsEndPoint = ApiLinkBuilder(api: storeApiLink)
+        .endpoint("/products")
+        .search(searchQuery);
+
     final response = await http.get(
-      Uri.parse(productsEndPoint),
+      Uri.parse(productsEndPoint.fullApiLink),
       headers: {
         'Content-Type': 'application/x-www-form-urlencoded',
         'Accept': 'application/json',
