@@ -13,6 +13,7 @@ import '../http_requests.dart';
 import 'package:http/http.dart' as http;
 
 extension ListProducts on HttpRequests {
+  
   Future<List<Product>> listProducts({
     int? page,
     String? searchQuery = "",

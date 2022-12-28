@@ -1,7 +1,7 @@
 import '../products.dart';
 
 extension Pagination on Products {
-  Products pagination(int page) {
+  Products paginationExtension(int page) {
     this.page = page;
 
     return this;

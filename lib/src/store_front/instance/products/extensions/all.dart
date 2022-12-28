@@ -5,7 +5,7 @@ import '../../../core/models/product/product.dart';
 
 extension AllExtension on Products {
   /// Returns all the products of the store as a [List] of [Product].
-  Future<List<Product>> all() async {
+  Future<List<Product>> allExtension() async {
     return await httpRequests.listProducts(
       page: page,
       searchQuery: searchQuery,
