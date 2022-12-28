@@ -6,6 +6,7 @@ abstract class ApiEntriesBase<T> {
   int? limitQuery;
   String? get endPoint;
   Future<List<T>> all();
+  Future<T> one(String id);
   Future<List<T>> search(String search);
   ApiEntriesBase pagination(int page);
   ApiEntriesBase limit(int page);

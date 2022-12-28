@@ -1,15 +1,12 @@
 import 'package:test/test.dart';
 import 'package:youcan_flutter_sdk/src/store_front/core/exception/store_link_not_found.dart';
 import 'package:youcan_flutter_sdk/src/store_front/core/models/product/product.dart';
-import 'package:youcan_flutter_sdk/src/store_front/instance/product/product.dart';
 import 'package:youcan_flutter_sdk/src/store_front/instance/products/products.dart';
 import 'package:youcan_flutter_sdk/src/store_front/instance/youcan_instance.dart';
 
 import 'constants.dart';
 
 void main() {
-
-
   group(
     "Products test",
     () {
