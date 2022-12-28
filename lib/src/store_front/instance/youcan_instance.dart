@@ -1,15 +1,8 @@
-import 'package:youcan_flutter_sdk/src/store_front/http_requests/extensions/fetch_product.dart';
-import 'package:youcan_flutter_sdk/src/store_front/http_requests/extensions/list_products.dart';
-import 'package:youcan_flutter_sdk/src/store_front/http_requests/extensions/search_query_products.dart';
-
 import '../core/exception/store_link_not_found.dart';
-import '../core/models/product/product.dart';
-import '../http_requests/http_requests.dart';
 import 'products/products.dart';
 
 class YouCan {
-  /// The internal instance of [HttpRequests].
-  HttpRequests get _httpRequests => HttpRequests();
+  final Products products = Products();
 
   /// Internal singleton instance of [YouCan].
   static YouCan _instance = YouCan._();
@@ -51,11 +44,6 @@ class YouCan {
   /// YouCan.instance
   /// ```
   YouCan._();
-
-  final Products products = Products();
-
- 
-
 }
 
 extension _asApi on String {

@@ -9,6 +9,7 @@ extension AllExtension on Products {
     return await httpRequests.listProducts(
       page: page,
       searchQuery: searchQuery,
+      limit: limitQuery,
     );
   }
 }
