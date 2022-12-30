@@ -1,11 +1,10 @@
 import 'dart:convert';
-
-import 'package:youcan_flutter_sdk/src/store_front/core/api_links/api_link_builder/extensions/endpoint.dart';
-import 'package:youcan_flutter_sdk/src/store_front/core/api_links/api_link_builder/extensions/pagination.dart';
-import 'package:youcan_flutter_sdk/src/store_front/core/api_links/api_link_builder/extensions/search.dart';
-
-import '../../core/api_links/api_link_builder/api_link_builder.dart';
+import 'package:youcan_flutter_sdk/src/store_front/core/api_links/products_api_link_builder/extensions/cetegory.dart';
+import 'package:youcan_flutter_sdk/src/store_front/core/api_links/products_api_link_builder/extensions/endpoint.dart';
+import 'package:youcan_flutter_sdk/src/store_front/core/api_links/products_api_link_builder/extensions/pagination.dart';
+import 'package:youcan_flutter_sdk/src/store_front/core/api_links/products_api_link_builder/extensions/search.dart';
 import '../../core/api_links/const/const.dart';
+import '../../core/api_links/products_api_link_builder/products_api_link_builder.dart';
 import '../../core/exception/not_found.dart';
 import '../../core/exception/service_not_available.dart';
 import '../../core/models/product/product.dart';
@@ -13,17 +12,21 @@ import '../http_requests.dart';
 import 'package:http/http.dart' as http;
 
 extension ListProducts on HttpRequests {
-  
   Future<List<Product>> listProducts({
+    String? categoryId,
     int? page,
     String? searchQuery = "",
     int? limit,
   }) async {
-    final productsEndPoint = ApiLinkBuilder(api: storeApiLink)
+    final productsEndPoint = ProductsApiLinkBuilder(
+      api: storeApiLink,
+    )
+        .category(EndPoints.categories(), categoryId)
         .endpoint(EndPoints.products())
         .search(searchQuery)
         .pagination(page);
 
+    print(productsEndPoint.fullApiLink);
     final response = await http.get(
       Uri.parse(productsEndPoint.fullApiLink),
       headers: {

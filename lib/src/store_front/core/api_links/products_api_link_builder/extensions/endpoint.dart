@@ -1,12 +1,13 @@
 import 'package:youcan_flutter_sdk/src/store_front/core/api_links/api_link_builder/api_link_builder.dart';
 
-extension a on ApiLinkBuilder {
+import '../products_api_link_builder.dart';
+
+extension a on ProductsApiLinkBuilder {
   /// This is the endpoint that you want to use.
-  ApiLinkBuilder endpoint(String endpoint) {
+  ProductsApiLinkBuilder endpoint(String endpoint) {
     apiEndpoint = endpoint.startsWith('/') ? endpoint : '/$endpoint';
 
-    return ApiLinkBuilder(
-      api: api,
+    return this.copyWith(
       apiEndpoint: apiEndpoint,
     );
   }
