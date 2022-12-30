@@ -1,22 +1,22 @@
 ---
-sidebar_position: 5
+sidebar_position: 4
 ---
 
-# Querying With Search
+# Querying By Categories
 
-You can get a list of products with a search query using the `search()` method which is a `Future<List<Product>>`, and you can use it like this:
+besides that you can query your products for the whole store, you can also query with specific category in your store using `category()`, like this:
 
 #### Using `await`/`async` :
 
 ```dart
-YouCan.instance.products.search("SEARCH TEXT HERE");
+List<Product> allProducts = await YouCan.instance.categories.category('YOUR CATEGORY ID').products.all();
 ```
 
 #### Using A `FutureBuilder` :
 
 ```dart
 FutureBuilder<List<Product>>(
-    future: YouCan.instance.products.search("SEARCH TEXT HERE").all(),
+    future: YouCan.instance.categories.category('YOUR CATEGORY ID').products.all(),
     builder: (context, snapshot) {
       if (snapshot.hasData) {
         return Text(snapshot.data);

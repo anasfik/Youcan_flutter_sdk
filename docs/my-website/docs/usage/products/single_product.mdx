@@ -1,19 +1,15 @@
 ---
-sidebar_position: 2
+sidebar_position: 1
 ---
 
-# Get Products
+# Get One Product
 
-You can get all your store products, using the `all()` method which is a a `Future<List<Product>>` :
-
-:::note
-The `Product` object is a prebuilt class model that contains a single product informations such as name, price, description...
-:::
+There is some cases when you will need to fetch only one `Product`, without getting a whole `List<Product>`, for this you can use the `one()` method with the product **Id**, like this :
 
 #### Using `await`/`async` :
 
 ```dart
-List<Product> allProducts = await YouCan.instance.products.all();
+Product oneProduct = await YouCan.instance.products.one("YOUR PRODUCT ID");
 ```
 
 #### Using A `FutureBuilder` :
@@ -33,7 +29,3 @@ FutureBuilder<List<Product>>(
   ),
 
 ```
-
-:::note
-if no products are found, the `all()` will return an empty list `[]`
-:::

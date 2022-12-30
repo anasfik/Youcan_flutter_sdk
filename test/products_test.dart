@@ -58,7 +58,8 @@ void main() {
         YouCan.instance.products.search(searchText),
         isA<Future<List<Product>>>(),
       );
-      final allProducts = await YouCan.instance.products.search(searchText);
+      final allProducts =
+          await YouCan.instance.products.search(searchText).all();
       expect(allProducts, isA<List<Product>>());
       expect(allProducts.first, isA<Product>());
       expect(allProducts.first.name, isA<String>());

@@ -1,5 +1,5 @@
 ---
-sidebar_position: 5
+sidebar_position: 7
 ---
 
 # Combining Multiple Querying Methods
@@ -14,6 +14,8 @@ List<Product> twoProductsFromThirdPage = await YouCan.instance.products.paginati
 List<Product> firstProductWithTitleStartingWithA = await YouCan.instance.products.search("A").limit(1).all();
 
 List<Product> threeProductsFromPage5WithTitleStartingWithB = await YouCan.instance.products.pagination(5).search("B").limit(3).all();
+
+List<Product> fourProductsOfOneCategory = await YouCan.instance.products.category("CATEGORY ID").limit(4).all();
 ```
 
 ## Keep In Mind

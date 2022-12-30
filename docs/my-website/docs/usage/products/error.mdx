@@ -1,0 +1,35 @@
+---
+sidebar_position: 8
+---
+
+# Error Handling
+
+Well, there is some points that you should know and be aware of when using this library
+
+### Exception when calling the `all()` and `one()` methods
+
+There is two exceptions that you can catch when using the `all()` and `one()` :
+
+#### NotFoundException
+
+Will be throw if the target query response don't exists, not found ( when a **400** status code is got )
+
+#### ServiceNotAvailable
+
+Will be thrown when the YouCan service is unavailable ( when a **500** status code is got )
+
+<br />
+
+You can catch them using `try catch` like this:
+
+```dart
+try {
+  final response = await YouCan.instance.products.all();
+} on NotFoundException catch(e) {
+  /*...*/
+} on ServiceNotAvailable catch(e) {
+  /*...*/
+} catch(e) {
+  /*...*/
+}
+```
