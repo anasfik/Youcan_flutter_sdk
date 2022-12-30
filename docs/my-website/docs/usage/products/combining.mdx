@@ -1,0 +1,31 @@
+---
+sidebar_position: 5
+---
+
+# Combining Multiple Querying Methods
+
+You can also use query with multiple methods based on your needs, by combining the previous methods like those examples :
+
+#### Examples :
+
+```dart
+List<Product> twoProductsFromThirdPage = await YouCan.instance.products.pagination(3).limit(2).all();
+
+List<Product> firstProductWithTitleStartingWithA = await YouCan.instance.products.search("A").limit(1).all();
+
+List<Product> threeProductsFromPage5WithTitleStartingWithB = await YouCan.instance.products.pagination(5).search("B").limit(3).all();
+```
+
+## Keep In Mind
+
+Before calling tha `all()` on your query code, the order of the query methods doesn't really matter, those following query are the same, and will return the same result:
+
+```dart
+List<Product> firstQuery = await YouCan.instance.products.pagination(13).search("B").limit(3).all();
+
+List<Product> secondQuery = await YouCan.instance.products.search("B").limit(3).pagination(13).all();
+```
+
+## Limitations
+
+Well, queries that combines `search()` and `pagination()` are not allowed, and will throw an error if they are combined.
