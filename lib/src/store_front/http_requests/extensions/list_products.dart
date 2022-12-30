@@ -38,9 +38,11 @@ extension ListProducts on HttpRequests {
     final Map<String, dynamic> decodedBody = jsonDecode(body);
 
     // I'm not sure about this, but we should get the data with it's key one step more !
-    List<dynamic> productsAsMaps = decodedBody['data'];
+    final productsAsMaps =
+        decodedBody['data'] is List ? decodedBody['data'] as List : [];
     if (response.statusCode == 200) {
-      final resultList = productsAsMaps.map((e) => Product.fromJson(e));
+      final resultList =
+          productsAsMaps.map((e) => Product.fromJson(e)).toList();
 
       return limit == null
           ? resultList.toList()

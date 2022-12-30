@@ -3,3 +3,21 @@ sidebar_position: 1
 ---
 
 # Usage
+
+In order to configuring the library with your <a href='https://youcan.shop/en/'>YouCan</a> store, you need to set `storeLink` to you store link like this:
+
+```dart title="main.dart"
+void main() {
+  YouCan.instance.storeLink = "https://example.youcan.shop"; // change it with your store's link
+  runApp(myApp());
+}
+
+```
+
+That's it! you can now use all the methods provided from the api directly in your app.
+
+<br />
+
+:::tip
+We recommend setting your store link in the `main()` before the `runApp()` is called, so it makes it easy to change it in the future.
+:::
