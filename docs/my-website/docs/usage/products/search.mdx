@@ -1,0 +1,33 @@
+---
+sidebar_position: 2
+---
+
+# Search Products
+
+## Getting A List Of Products
+
+You can get a list of products with a search query using the `search()` method which is a `Future<List<Product>>`, and you can use it like this:
+
+#### Using `await`/`async` :
+
+```dart
+YouCan.instance.products.search("SEARCH TEXT HERE");
+```
+
+#### Using A `FutureBuilder` :
+
+```dart
+FutureBuilder<List<Product>>(
+    future: YouCan.instance.products.search("SEARCH TEXT HERE").all(),
+    builder: (context, snapshot) {
+      if (snapshot.hasData) {
+        return Text(snapshot.data);
+      } else if (snapshot.hasError) {
+        return Text("Error: ${snapshot.error}");
+      } else {
+        return CircularProgressIndicator();
+      }
+    },
+  ),
+
+```

@@ -1,0 +1,41 @@
+---
+sidebar_position: 1
+---
+
+# Get Products
+
+## Getting A List Of Products
+
+You can get all your store products, using the `all()` method which is a a `Future<List<Product>>` :
+
+:::note
+The `Product` object is a prebuilt class model that contains a single product informations such as name, price, description...
+:::
+
+#### Using `await`/`async` :
+
+```dart
+List<Product> allProducts = await YouCan.instance.products.all();
+```
+
+#### Using A `FutureBuilder` :
+
+```dart
+FutureBuilder<List<Product>>(
+    future: YouCan.instance.products.all(),
+    builder: (context, snapshot) {
+      if (snapshot.hasData) {
+        return Text(snapshot.data);
+      } else if (snapshot.hasError) {
+        return Text("Error: ${snapshot.error}");
+      } else {
+        return CircularProgressIndicator();
+      }
+    },
+  ),
+
+```
+
+:::note
+if no products are found, the `all()` will return an empty list `[]`
+:::

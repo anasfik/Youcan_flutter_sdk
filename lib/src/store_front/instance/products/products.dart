@@ -35,23 +35,21 @@ class Products with RequestsClient implements ProductsBase<Product> {
         .fullApiLink;
   }
 
-  Products({this.categoryId}) {
-    print(categoryId);
-  }
+  Products({this.categoryId});
 
   /// This method is used to get all the products.
   Future<List<Product>> all() async {
     return await allExtension();
   }
 
-  /// This method is used to search for products.
-  Future<List<Product>> search(String searchQuery) async {
-    return await searchExtension(searchQuery);
-  }
-
   /// Returns the product with the given [productId] as a [Product].
   Future<Product> one(String productId) async {
     return await oneExtension(productId);
+  }
+
+  /// This method is used to search for products.
+  Products search(String searchQuery) {
+    return searchExtension(searchQuery);
   }
 
   /// This method is used to paginate the products, as from the API.

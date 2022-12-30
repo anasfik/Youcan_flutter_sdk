@@ -4,8 +4,17 @@ import 'package:youcan_flutter_sdk/src/store_front/instance/products/products.da
 import '../../../core/models/product/product.dart';
 
 extension SearchExt on Products {
-  Future<List<Product>> searchExtension(String searchQuery) async {
+  Products searchExtension(String search) {
+    this.searchQuery = search;
+
+    return this;
+  }
+
+  Future<List<Product>> ssearchExtension(String searchQuery) async {
     return await httpRequests.listProducts(
+      page: page,
+      categoryId: categoryId,
+      limit: limitQuery,
       searchQuery: searchQuery,
     );
   }

@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'package:youcan_flutter_sdk/src/store_front/core/api_links/api_link_builder/api_link_builder.dart';
 import 'package:youcan_flutter_sdk/src/store_front/core/api_links/products_api_link_builder/extensions/cetegory.dart';
 import 'package:youcan_flutter_sdk/src/store_front/core/api_links/products_api_link_builder/extensions/endpoint.dart';
 import 'package:youcan_flutter_sdk/src/store_front/core/api_links/products_api_link_builder/extensions/pagination.dart';
@@ -18,16 +19,31 @@ extension ListProducts on HttpRequests {
     String? searchQuery = "",
     int? limit,
   }) async {
-    final productsEndPoint = ProductsApiLinkBuilder(
-      api: storeApiLink,
-    )
-        .category(EndPoints.categories(), categoryId)
-        .endpoint(EndPoints.products())
-        .search(searchQuery)
-        .pagination(page);
+    ProductsApiLinkBuilder apiLinkBuilder =
+        ProductsApiLinkBuilder(api: storeApiLink)
+          ..endpoint(
+            EndPoints.products(),
+          );
+
+    if (categoryId != null) {
+      apiLinkBuilder =
+          apiLinkBuilder.category(EndPoints.categories(), categoryId);
+    }
+    if (searchQuery != null) {
+      apiLinkBuilder = apiLinkBuilder.search(searchQuery);
+    }
+
+    if (page != null) {
+      if (searchQuery != null) {
+        throw Exception(
+          'You can\'t use pagination with search query, please remove one of them',
+        );
+      }
+      apiLinkBuilder = apiLinkBuilder.pagination(page);
+    }
 
     final response = await http.get(
-      Uri.parse(productsEndPoint.fullApiLink),
+      Uri.parse(apiLinkBuilder.fullApiLink),
       headers: {
         'Content-Type': 'application/x-www-form-urlencoded',
         'Accept': 'application/json',

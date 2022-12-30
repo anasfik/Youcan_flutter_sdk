@@ -1,0 +1,37 @@
+---
+sidebar_position: 1
+---
+
+# Querying Products With Limits
+
+This is a internal query method in the library that limits the number of products retrieved from another query like this :
+
+```dart
+YouCan.instance.products.limit(15);
+```
+
+Now you can fetch for this specific query using the `all()`, in this example, let's say we want to get only 5 product from all owr store's products :
+
+#### Using `await`/`async` :
+
+```dart
+List<Product> secondPageProducts = await YouCan.instance.products.limit(5).all();
+```
+
+#### Using A `FutureBuilder` :
+
+```dart
+FutureBuilder<List<Product>>(
+    future: YouCan.instance.products.limit(5).all(),
+    builder: (context, snapshot) {
+      if (snapshot.hasData) {
+        return Text(snapshot.data);
+      } else if (snapshot.hasError) {
+        return Text("Error: ${snapshot.error}");
+      } else {
+        return CircularProgressIndicator();
+      }
+    },
+  ),
+
+```
