@@ -6,7 +6,7 @@ import '../../core/mixins/requests_client.dart';
 import '../../core/models/category/category.dart';
 
 class Categories with RequestsClient implements CategoriesBase {
-  Products? products;
+  Products products = Products();
 
   Future<List<Category>> all() async {
     return await allExtension();

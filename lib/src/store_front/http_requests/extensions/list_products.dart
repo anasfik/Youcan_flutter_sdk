@@ -26,7 +26,6 @@ extension ListProducts on HttpRequests {
         .search(searchQuery)
         .pagination(page);
 
-    print(productsEndPoint.fullApiLink);
     final response = await http.get(
       Uri.parse(productsEndPoint.fullApiLink),
       headers: {
