@@ -1,6 +1,7 @@
 import 'package:youcan_flutter_sdk/src/store_front/instance/youcan_instance.dart';
 
 void main() async {
+  YouCan.instance.storeLink = 'https://example.youcan.shop';
   // final example = await YouCan.instance.products.pagination(1).limit(2).all();
 
   // print(example.map((e) => e.name).toList());
@@ -18,12 +19,9 @@ void main() async {
 
   // print(example4.map((e) => e.name).toList());
 
-  YouCan.instance.storeLink = 'https://example.youcan.shop';
-
-  final example5 = YouCan.instance.products
-      .search("الثاني")
-      .pagination(5)
-      .pagination(10)
-      .pagination(100);
-  print(example5.endPoint);
+  final allProducts = await YouCan.instance.products.all();
+  final firstProduct = allProducts.first;
+  final reviews = firstProduct.reviews;
+  print(reviews.endPoint);
+  print(await reviews.all());
 }

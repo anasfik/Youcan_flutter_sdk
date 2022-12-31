@@ -6,6 +6,11 @@
 import 'dart:convert';
 
 import 'package:meta/meta.dart';
+import 'package:youcan_flutter_sdk/src/store_front/core/mixins/requests_client.dart';
+import 'package:youcan_flutter_sdk/src/store_front/instance/reviews/extensions/reviews_extension.dart';
+import 'package:youcan_flutter_sdk/src/store_front/instance/reviews/reviews.dart';
+
+import '../review/review.dart';
 
 List<Product> ProductFromMap(String str) =>
     List<Product>.from(json.decode(str).map((x) => Product.fromJson(x)));
@@ -13,7 +18,24 @@ List<Product> ProductFromMap(String str) =>
 String ProductToMap(List<Product> data) =>
     json.encode(List<dynamic>.from(data.map((x) => x.toJson())));
 
-class Product {
+class Product with RequestsClient {
+  final String id;
+  final String name;
+  final String slug;
+  final String publicUrl;
+  final String thumbnail;
+  final String description;
+  final double price;
+  final dynamic compareAtPrice;
+  final bool hasVariants;
+  final int variantsCount;
+  final List<VariantOption> variantOptions;
+  final bool trackInventory;
+  final Meta meta;
+  final List<Image> images;
+
+  Reviews get reviews => Reviews(id: id);
+
   Product({
     required this.id,
     required this.name,
@@ -30,21 +52,6 @@ class Product {
     required this.meta,
     required this.images,
   });
-
-  final String id;
-  final String name;
-  final String slug;
-  final String publicUrl;
-  final String thumbnail;
-  final String description;
-  final double price;
-  final dynamic compareAtPrice;
-  final bool hasVariants;
-  final int variantsCount;
-  final List<VariantOption> variantOptions;
-  final bool trackInventory;
-  final Meta meta;
-  final List<Image> images;
 
   factory Product.fromJson(Map<String, dynamic> json) => Product(
         id: json["id"],
@@ -84,6 +91,13 @@ class Product {
 }
 
 class Image {
+  final String id;
+  final String name;
+  final int type;
+  final String url;
+  final int order;
+  final Variations variations;
+
   Image({
     required this.id,
     required this.name,
@@ -92,13 +106,6 @@ class Image {
     required this.order,
     required this.variations,
   });
-
-  final String id;
-  final String name;
-  final int type;
-  final String url;
-  final int order;
-  final Variations variations;
 
   factory Image.fromJson(Map<String, dynamic> json) => Image(
         id: json["id"],
@@ -120,18 +127,17 @@ class Image {
 }
 
 class Variations {
+  final String original;
+  final String sm;
+  final String md;
+  final String lg;
+
   Variations({
     required this.original,
     required this.sm,
     required this.md,
     required this.lg,
   });
-
-  final String original;
-  final String sm;
-  final String md;
-  final String lg;
-
   factory Variations.fromJson(Map<String, dynamic> json) => Variations(
         original: json["original"],
         sm: json["sm"],
@@ -148,15 +154,15 @@ class Variations {
 }
 
 class Meta {
+  final String title;
+  final String description;
+  final List<dynamic> images;
+
   Meta({
     required this.title,
     required this.description,
     required this.images,
   });
-
-  final String title;
-  final String description;
-  final List<dynamic> images;
 
   factory Meta.fromJson(Map<String, dynamic> json) => Meta(
         title: json["title"],
@@ -172,15 +178,15 @@ class Meta {
 }
 
 class VariantOption {
+  final String name;
+  final int type;
+  final List<String> values;
+
   VariantOption({
     required this.name,
     required this.type,
     required this.values,
   });
-
-  final String name;
-  final int type;
-  final List<String> values;
 
   factory VariantOption.fromJson(Map<String, dynamic> json) => VariantOption(
         name: json["name"],

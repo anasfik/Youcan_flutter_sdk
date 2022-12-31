@@ -4,4 +4,7 @@ class EndPoints {
 
   static String categories() => '/categories';
   static String category(String id) => '${categories()}/$id';
+
+  static String review() => '/reviews';
+  static String productReviews(String id) => '${product(id)}${review()}';
 }
