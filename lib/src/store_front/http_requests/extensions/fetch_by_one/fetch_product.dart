@@ -4,10 +4,10 @@ import 'package:youcan_flutter_sdk/src/store_front/core/api_links/api_link_build
 import 'package:youcan_flutter_sdk/src/store_front/core/api_links/const/const.dart';
 import 'package:youcan_flutter_sdk/src/store_front/http_requests/http_requests.dart';
 
-import '../../core/api_links/products_api_link_builder/products_api_link_builder.dart';
-import '../../core/exception/not_found.dart';
-import '../../core/exception/service_not_available.dart';
-import '../../core/models/product/product.dart';
+import '../../../core/api_links/products_api_link_builder/products_api_link_builder.dart';
+import '../../../core/exception/not_found.dart';
+import '../../../core/exception/service_not_available.dart';
+import '../../../core/models/product/product.dart';
 import 'package:http/http.dart' as http;
 
 extension FetchProductExt on HttpRequests {

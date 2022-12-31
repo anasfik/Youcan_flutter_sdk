@@ -1,4 +1,4 @@
-import 'package:youcan_flutter_sdk/src/store_front/http_requests/extensions/list_categories.dart';
+import 'package:youcan_flutter_sdk/src/store_front/http_requests/extensions/fetch_by_collection/list_categories.dart';
 import 'package:youcan_flutter_sdk/src/store_front/instance/categories/categories.dart';
 
 import '../../../core/models/category/category.dart';

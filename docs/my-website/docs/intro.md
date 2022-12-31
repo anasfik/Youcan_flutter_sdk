@@ -4,7 +4,7 @@ slug: /
 sidebar_position: 1
 ---
 
-# What is this ?
+# What Is This ?
 
 <br />
 

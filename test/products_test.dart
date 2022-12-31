@@ -12,7 +12,7 @@ void main() {
     () {
       test("check the error when the store link is not set", () async {
         try {
-          await YouCan.instance.products.all();
+          final example = await YouCan.instance.products.all();
         } catch (e) {
           expect(e, isA<StoreLinkNotFoundException>());
         }

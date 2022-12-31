@@ -1,17 +1,24 @@
-// To parse this JSON data, do
-//
-//     final category = categoryFromJson(jsonString);
-
-import 'package:meta/meta.dart';
 import 'dart:convert';
 
-List<Category> categoryFromJson(String str) =>
-    List<Category>.from(json.decode(str).map((x) => Category.fromJson(x)));
-
-String categoryToJson(List<Category> data) =>
-    json.encode(List<dynamic>.from(data.map((x) => x.toJson())));
-
 class Category {
+  final String id;
+  final String name;
+  final String image;
+  final String slug;
+  final bool showOnCollection;
+  final String publicUrl;
+  final String description;
+  final bool hasParent;
+  final dynamic parentId;
+  final bool isDefault;
+  final Images images;
+  final int depth;
+  final Meta meta;
+  final DateTime createdAt;
+  final DateTime updatedAt;
+  final dynamic deletedAt;
+  final List<dynamic> parent;
+
   Category({
     required this.id,
     required this.name,
@@ -31,24 +38,6 @@ class Category {
     required this.deletedAt,
     required this.parent,
   });
-
-  final String id;
-  final String name;
-  final String image;
-  final String slug;
-  final bool showOnCollection;
-  final String publicUrl;
-  final String description;
-  final bool hasParent;
-  final dynamic parentId;
-  final bool isDefault;
-  final Images images;
-  final int depth;
-  final Meta meta;
-  final DateTime createdAt;
-  final DateTime updatedAt;
-  final dynamic deletedAt;
-  final List<dynamic> parent;
 
   factory Category.fromJson(Map<String, dynamic> json) => Category(
         id: json["id"],

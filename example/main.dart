@@ -20,7 +20,10 @@ void main() async {
 
   YouCan.instance.storeLink = 'https://example.youcan.shop';
 
-  final example5 = YouCan.instance.products.search("الثاني");
+  final example5 = YouCan.instance.products
+      .search("الثاني")
+      .pagination(5)
+      .pagination(10)
+      .pagination(100);
   print(example5.endPoint);
-  print(await example5.all());
 }

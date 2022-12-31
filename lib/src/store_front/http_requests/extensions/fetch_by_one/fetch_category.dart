@@ -2,12 +2,12 @@ import 'dart:convert';
 
 import 'package:youcan_flutter_sdk/src/store_front/http_requests/http_requests.dart';
 
-import '../../core/api_links/api_link_builder/api_link_builder.dart';
-import '../../core/api_links/const/const.dart';
-import '../../core/api_links/products_api_link_builder/products_api_link_builder.dart';
-import '../../core/exception/not_found.dart';
-import '../../core/exception/service_not_available.dart';
-import '../../core/models/category/category.dart';
+import '../../../core/api_links/api_link_builder/api_link_builder.dart';
+import '../../../core/api_links/const/const.dart';
+import '../../../core/api_links/products_api_link_builder/products_api_link_builder.dart';
+import '../../../core/exception/not_found.dart';
+import '../../../core/exception/service_not_available.dart';
+import '../../../core/models/category/category.dart';
 import 'package:http/http.dart' as http;
 
 extension FetchCategoryExt on HttpRequests {

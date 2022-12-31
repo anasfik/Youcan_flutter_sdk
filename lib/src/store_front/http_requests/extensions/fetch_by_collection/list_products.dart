@@ -4,12 +4,12 @@ import 'package:youcan_flutter_sdk/src/store_front/core/api_links/products_api_l
 import 'package:youcan_flutter_sdk/src/store_front/core/api_links/products_api_link_builder/extensions/endpoint.dart';
 import 'package:youcan_flutter_sdk/src/store_front/core/api_links/products_api_link_builder/extensions/pagination.dart';
 import 'package:youcan_flutter_sdk/src/store_front/core/api_links/products_api_link_builder/extensions/search.dart';
-import '../../core/api_links/const/const.dart';
-import '../../core/api_links/products_api_link_builder/products_api_link_builder.dart';
-import '../../core/exception/not_found.dart';
-import '../../core/exception/service_not_available.dart';
-import '../../core/models/product/product.dart';
-import '../http_requests.dart';
+import '../../../core/api_links/const/const.dart';
+import '../../../core/api_links/products_api_link_builder/products_api_link_builder.dart';
+import '../../../core/exception/not_found.dart';
+import '../../../core/exception/service_not_available.dart';
+import '../../../core/models/product/product.dart';
+import '../../http_requests.dart';
 import 'package:http/http.dart' as http;
 
 extension ListProducts on HttpRequests {

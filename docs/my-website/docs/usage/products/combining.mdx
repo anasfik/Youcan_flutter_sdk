@@ -20,6 +20,8 @@ List<Product> fourProductsOfOneCategory = await YouCan.instance.products.categor
 
 ## Keep In Mind
 
+#### Query Methods Order Don't Matter.
+
 Before calling tha `all()` on your query code, the order of the query methods doesn't really matter, those following query are the same, and will return the same result:
 
 ```dart
@@ -27,6 +29,18 @@ List<Product> firstQuery = await YouCan.instance.products.pagination(13).search(
 
 List<Product> secondQuery = await YouCan.instance.products.search("B").limit(3).pagination(13).all();
 ```
+
+<br />
+
+#### Calling Same Query Methods Will Take The Last One Only.
+
+Trying to call a querying method multiples times on the same query code will takes only the last method and ignore the previous ones
+
+```dart
+final example5 = YouCan.instance.products.pagination(5).pagination(10).pagination(100);
+```
+
+the example above will consider the last `pagination()` and return a query on the page 100, and it will not throw an error for previous ones, it will just ignore them.
 
 ## Limitations
 
