@@ -28,7 +28,6 @@ void main() {
 }
 ```
 
-<br>
 
 ### Get Products
 
