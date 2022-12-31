@@ -9,18 +9,18 @@ import '../../core/mixins/requests_client.dart';
 import '../../core/models/review/review.dart';
 
 class Reviews with RequestsClient implements ReviewsBase {
-  final String id;
+  final String productId;
 
   @override
   String? get endPoint {
     final String storeApiLink = YouCan.instance.storeApiLink;
 
     return ReviewsApiLinkBuilder(api: storeApiLink)
-        .endpoint(EndPoints.productReviews(id))
+        .endpoint(EndPoints.productReviews(productId))
         .fullApiLink;
   }
 
-  Reviews({required this.id});
+  Reviews({required this.productId});
 
   Future<List<Review>> all() async {
     return await allExtension();

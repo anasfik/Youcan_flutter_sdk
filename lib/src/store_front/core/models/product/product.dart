@@ -34,7 +34,7 @@ class Product with RequestsClient {
   final Meta meta;
   final List<Image> images;
 
-  Reviews get reviews => Reviews(id: id);
+  Reviews get reviews => Reviews(productId: id);
 
   Product({
     required this.id,

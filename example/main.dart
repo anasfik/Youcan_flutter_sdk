@@ -23,5 +23,6 @@ void main() async {
   final firstProduct = allProducts.first;
   final reviews = firstProduct.reviews;
   print(reviews.endPoint);
+  print(reviews.productId);
   print(await reviews.all());
 }
