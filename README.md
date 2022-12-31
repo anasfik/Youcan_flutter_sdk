@@ -5,6 +5,9 @@
 </p>
 
 <p align='center'>A wrapper into the YouCan platform API that enables developers to extend its features inside a Dart/Flutter project</p>
+<br>
+
+**You can help this open source project grows with a star ✨✨**
 
 <br>
 
