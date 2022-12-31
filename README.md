@@ -2,14 +2,18 @@
 <p align='center' >
 <img src="docs/assets/banner-logo.png" width='300px'/>
 <h1 align='center'>YouCan API </h1>
-</p>
+<br>
+<p align="center"><img alt="GitHub" src="https://img.shields.io/github/license/anasfik/Youcan_Flutter_SDK?style=for-the-badge" />
+<img alt="GitHub top language" src="https://img.shields.io/github/languages/top/anasfik/Youcan_Flutter_SDK?style=for-the-badge" />
+<img alt="GitHub language count" src="https://img.shields.io/github/languages/count/anasfik/Youcan_Flutter_SDK?style=for-the-badge">
+</p></p>
 
-<p align='center'>A wrapper into the YouCan platform API that enables developers to extend its features inside a Dart/Flutter project</p>
+<h3><p align='center'>A wrapper into the YouCan platform API that enables developers to extend its features inside a Dart/Flutter project</p></h3>
 <br>
 
 **You can help this open source project grows with a star ✨✨**
 
-<br>
+<br><br>
 
 ## Motivation
 
