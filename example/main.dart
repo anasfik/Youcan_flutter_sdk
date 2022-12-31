@@ -24,5 +24,5 @@ void main() async {
   final reviews = firstProduct.reviews;
   print(reviews.endPoint);
   print(reviews.productId);
-  print(await reviews.all());
+  print(await reviews.limit(5).all());
 }
