@@ -18,6 +18,8 @@ This library aims to cover the developers from all those sides and provide easy 
 
 ## Usage
 
+NOTE: this still under devllopment
+
 ### Store configuration
 
 To configure this library to get the data directly from your store, you will need to set it like this:
@@ -55,7 +57,7 @@ Search queries are also made easy:
 
 # Documentation
 
-Get full documentation of all that this library offers <a href="">from this link </a>
+Get full documentation of all that this library offers <a href="https://anasfik.github.io/Youcan_Flutter_SDK/usage">from this link </a>
 
 ### Contributing
 
