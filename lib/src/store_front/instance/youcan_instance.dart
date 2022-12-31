@@ -3,7 +3,7 @@ import 'categories/categories.dart';
 import 'products/products.dart';
 
 class YouCan {
-  final Products products = Products();
+  Products get products => Products();
   Categories get categories => Categories();
 
   /// Internal singleton instance of [YouCan].

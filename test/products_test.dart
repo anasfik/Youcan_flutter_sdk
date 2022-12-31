@@ -28,55 +28,57 @@ void main() {
         expect(allProducts.first, isA<Product>());
         expect(allProducts.first.name, isA<String>());
       });
-    },
-  );
-  test(
-    'check the pagination() method with all() with it',
-    () async {
-      expect(YouCan.instance.products.pagination(1), isA<Products>());
-      final allProducts = await YouCan.instance.products.pagination(1).all();
-      expect(allProducts, isA<List<Product>>());
-      expect(allProducts.first, isA<Product>());
-      expect(allProducts.first.name, isA<String>());
-    },
-  );
-  test(
-    'check the pagination() method with limit() with all() with it',
-    () async {
-      expect(YouCan.instance.products.pagination(1).limit(3), isA<Products>());
-      final allProducts =
-          await YouCan.instance.products.pagination(1).limit(3).all();
-      expect(allProducts, isA<List<Product>>());
-      expect(allProducts.first, isA<Product>());
-      expect(allProducts.first.name, isA<String>());
-    },
-  );
-  test(
-    'check the search() method',
-    () async {
-      expect(
-        YouCan.instance.products.search(searchText),
-        isA<Future<List<Product>>>(),
+      test(
+        'check the pagination() method with all() with it',
+        () async {
+          expect(YouCan.instance.products.pagination(1), isA<Products>());
+          final allProducts =
+              await YouCan.instance.products.pagination(1).all();
+          expect(allProducts, isA<List<Product>>());
+          expect(allProducts.first, isA<Product>());
+          expect(allProducts.first.name, isA<String>());
+        },
       );
-      final allProducts =
-          await YouCan.instance.products.search(searchText).all();
-      expect(allProducts, isA<List<Product>>());
-      expect(allProducts.first, isA<Product>());
-      expect(allProducts.first.name, isA<String>());
-    },
-  );
-  test(
-    'check the one() method',
-    () async {
-      final allProducts = await YouCan.instance.products.all();
-      final id = allProducts.first.id;
-      expect(
-        YouCan.instance.products.one(id),
-        isA<Future<Product>>(),
+      test(
+        'check the pagination() method with limit() with all() with it',
+        () async {
+          expect(
+              YouCan.instance.products.pagination(1).limit(3), isA<Products>());
+          final allProducts =
+              await YouCan.instance.products.pagination(1).limit(3).all();
+          expect(allProducts, isA<List<Product>>());
+          expect(allProducts.first, isA<Product>());
+          expect(allProducts.first.name, isA<String>());
+        },
       );
-      final product = await YouCan.instance.products.one(id);
-      expect(product, isA<Product>());
-      expect(product.name, isA<String>());
+      test(
+        'check the search() method',
+        () async {
+          expect(
+            YouCan.instance.products.search(searchText).all(),
+            isA<Future<List<Product>>>(),
+          );
+          final allProducts =
+              await YouCan.instance.products.search(searchText).all();
+          expect(allProducts, isA<List<Product>>());
+          expect(allProducts.first, isA<Product>());
+          expect(allProducts.first.name, isA<String>());
+        },
+      );
+      test(
+        'check the one() method',
+        () async {
+          final allProducts = await YouCan.instance.products.all();
+          final id = allProducts.first.id;
+          expect(
+            YouCan.instance.products.one(id),
+            isA<Future<Product>>(),
+          );
+          final product = await YouCan.instance.products.one(id);
+          expect(product, isA<Product>());
+          expect(product.name, isA<String>());
+        },
+      );
     },
   );
 }
