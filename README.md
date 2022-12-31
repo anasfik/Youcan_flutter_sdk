@@ -54,11 +54,12 @@ Search queries are also made easy:
   List<Product> products = await YouCan.instance.products.search("YOUR SEARCH TEXT").limit(1).all();
 ```
 
-## Documentation
+# Documentation
 
 Get full documentation of all that this library offers <a href="">from this link </a>
 
-Contributing
+### Contributing
+
 Our open-source project is making a difference in the E-commerce/Flutter community and we need your help to continue improving and expanding it. any kind of contribution is welcome.
 
 **Thank you!**
