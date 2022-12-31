@@ -4,10 +4,10 @@ import 'package:youcan_flutter_sdk/src/store_front/http_requests/extensions/fetc
 import '../reviews.dart';
 
 extension ReviewExtension on Reviews {
-  Future<List<Review>> allExtension({int? limit}) async {
+  Future<List<Review>> allExtension() async {
     return await httpRequests.fetchReviews(
       productId: productId,
-      limit: limit,
+      limit: limitQuery,
     );
   }
 }
