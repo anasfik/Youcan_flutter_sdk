@@ -2,10 +2,8 @@ import '../core/exception/store_link_not_found.dart';
 import 'categories/categories.dart';
 import 'products/products.dart';
 
+export 'categories/categories.dart';
 class YouCan {
-  Products get products => Products();
-  Categories get categories => Categories();
-
   /// Internal singleton instance of [YouCan].
   static YouCan _instance = YouCan._();
 
@@ -14,6 +12,12 @@ class YouCan {
 
   /// The singleton instance of [YouCan].
   static YouCan get instance => _instance;
+
+  /// The public products instance, use this when you want to access the products api.
+  Products get products => Products();
+
+  /// The public categories instance, use this when you want to access the categories api.
+  Categories get categories => Categories();
 
   /// The public store link.
   String get storeLink {
@@ -49,6 +53,7 @@ class YouCan {
   YouCan._();
 }
 
+// This is a private extension on the api link of the [YouCan] class.
 extension _asApi on String {
   String asApi() {
     return '$this/api';
