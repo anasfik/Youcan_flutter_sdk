@@ -2,11 +2,18 @@
 <p align='center' >
 <img src="docs/assets/banner-logo.png" width='300px'/>
 <h1 align='center'>YouCan API </h1>
-</p>
-
-<p align='center'>A wrapper into the YouCan platform API that enables developers to extend its features inside a Dart/Flutter project</p>
-
 <br>
+<p align="center"><img alt="GitHub" src="https://img.shields.io/github/license/anasfik/Youcan_Flutter_SDK?style=for-the-badge" />
+<img alt="GitHub top language" src="https://img.shields.io/github/languages/top/anasfik/Youcan_Flutter_SDK?style=for-the-badge" />
+<img alt="GitHub language count" src="https://img.shields.io/github/languages/count/anasfik/Youcan_Flutter_SDK?style=for-the-badge">
+</p></p>
+
+<h3><p align='center'>A wrapper into the YouCan platform API that enables developers to extend its features inside a Dart/Flutter project</p></h3>
+<br>
+
+**You can help this open source project grows with a star ✨✨**
+
+<br><br>
 
 ## Motivation
 
@@ -18,6 +25,8 @@ This library aims to cover the developers from all those sides and provide easy 
 
 ## Usage
 
+NOTE: this still under devllopment
+
 ### Store configuration
 
 To configure this library to get the data directly from your store, you will need to set it like this:
@@ -28,7 +37,6 @@ void main() {
 }
 ```
 
-<br>
 
 ### Get Products
 
@@ -54,9 +62,12 @@ Search queries are also made easy:
   List<Product> products = await YouCan.instance.products.search("YOUR SEARCH TEXT").limit(1).all();
 ```
 
-Documentation: Get full documentation of all that this library offers <a href="">from this link </a>
+# Documentation
 
-Contributing
+Get full documentation of all that this library offers <a href="https://anasfik.github.io/Youcan_Flutter_SDK/usage">from this link </a>
+
+### Contributing
+
 Our open-source project is making a difference in the E-commerce/Flutter community and we need your help to continue improving and expanding it. any kind of contribution is welcome.
 
 **Thank you!**
