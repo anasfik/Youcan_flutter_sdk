@@ -4,6 +4,7 @@
 <h1 align='center'>YouCan API </h1>
 <br>
 <p align="center"><img alt="GitHub" src="https://img.shields.io/github/license/anasfik/Youcan_Flutter_SDK?style=for-the-badge" />
+<img alt="Star on GitHub" src="https://img.shields.io/github/stars/anasfik/Youcan_Flutter_SDK.svg?style=for-the-badge" />
 <img alt="GitHub top language" src="https://img.shields.io/github/languages/top/anasfik/Youcan_Flutter_SDK?style=for-the-badge" />
 <img alt="GitHub language count" src="https://img.shields.io/github/languages/count/anasfik/Youcan_Flutter_SDK?style=for-the-badge">
 </p></p>
