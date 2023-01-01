@@ -17,7 +17,6 @@ extension FetchProductExt on HttpRequests {
       api: storeApiLink,
       apiEndpoint: productEndpoint,
     );
-    print(apiLinkBuilder.fullApiLink);
     final response = await http.get(
       Uri.parse(apiLinkBuilder.fullApiLink),
       headers: {

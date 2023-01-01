@@ -8,8 +8,8 @@ const darkCodeTheme = require("prism-react-renderer/themes/dracula");
 const config = {
   title: "YouCan API - Flutter",
   tagline: "YouCan API - Flutter",
-  url: "https://anasfik.github.io/",
-  baseUrl: "/",
+  url: "https://anasfik.github.io",
+  baseUrl: "/Youcan_Flutter_SDK/",
   onBrokenLinks: "throw",
   onBrokenMarkdownLinks: "warn",
   favicon: "img/favicon.ico",
@@ -18,7 +18,7 @@ const config = {
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
   organizationName: "anasfik", // Usually your GitHub org/user name.
-  projectName: "YouCan Flutter SDK docs", // Usually your repo name.
+  projectName: "Youcan_Flutter_SDK", // Usually your repo name.
 
   // Even if you don't use internalization, you can use this field to set useful
   // metadata like html lang. For example, if your site is Chinese, you may want
