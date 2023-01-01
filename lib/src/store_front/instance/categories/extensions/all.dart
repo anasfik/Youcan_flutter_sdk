@@ -5,6 +5,6 @@ import '../../../core/models/category/category.dart';
 
 extension AllExtension on Categories {
   Future<List<Category>> allExtension() async {
-    return await httpRequests.listCategories();
+    return await httpRequests.listCategories(limit: limitQuery);
   }
 }

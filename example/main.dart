@@ -15,8 +15,10 @@ void main() async {
 
   print(example3.name);
 
-  final example4 = await YouCan.instance.categories
-      .category("adf180de-b01a-4710-9379-5c26e865dccc")
+  final example4 = await YouCan.instance.categories.all();
+
+  final example5 = await YouCan.instance.categories
+      .category(example4.first.id)
       .products
       .all();
 

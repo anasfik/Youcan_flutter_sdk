@@ -1,0 +1,31 @@
+---
+sidebar_position: 2
+---
+
+# Get Categories
+
+You can get your store's registered categories as a `List<Category>`, list of categories with the calling `all()` on `categories` like this :
+
+#### Using `await`/`async` :
+
+```dart
+List<Category> allCategories = await YouCan.instance.categories.all();
+```
+
+#### Using a `FutureBuilder`:
+
+```dart
+FutureBuilder<List<Product>>(
+    future: YouCan.instance.categories.all(),
+    builder: (context, snapshot) {
+      if (snapshot.hasData) {
+        return Text(snapshot.data);
+      } else if (snapshot.hasError) {
+        return Text("Error: ${snapshot.error}");
+      } else {
+        return CircularProgressIndicator();
+      }
+    },
+  ),
+
+```

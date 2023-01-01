@@ -9,7 +9,9 @@ import '../../../core/exception/not_found.dart';
 import '../../../core/exception/service_not_available.dart';
 
 extension ListCategoriesExt on HttpRequests {
-  Future<List<Category>> listCategories() async {
+  Future<List<Category>> listCategories({
+    int? limit,
+  }) async {
     final categoriesEndPoint = ProductsApiLinkBuilder(api: storeApiLink)
         .endpoint(EndPoints.categories());
 
@@ -24,11 +26,13 @@ extension ListCategoriesExt on HttpRequests {
     final body = response.body;
     final Map<String, dynamic> decodedBody = jsonDecode(body);
 
-    final categoriesAsMaps = decodedBody['data'];
+    final categoriesAsMaps = decodedBody['data'] as List;
     if (response.statusCode == 200) {
       final resultList = categoriesAsMaps.map((e) => Category.fromJson(e));
 
-      return resultList.toList();
+      return limit == null
+          ? resultList.toList()
+          : resultList.take(limit).toList();
     } else if (response.statusCode == 404) {
       throw NotFoundException('No categories found');
     } else if (response.statusCode == 500) {

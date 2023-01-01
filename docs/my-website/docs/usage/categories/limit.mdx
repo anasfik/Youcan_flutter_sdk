@@ -1,0 +1,31 @@
+---
+sidebar_position: 2
+---
+
+# Querying By Limit
+
+You can limit the categories got from the request to a specific number using the `limit()`, in this example, let's say I need only the first 2 categories :
+
+#### Using `await`/`async` :
+
+```dart
+List<Category> twoCategories = await YouCan.instance.categories.limit(2).all();
+```
+
+#### Using A `FutureBuilder` :
+
+```dart
+FutureBuilder<List<Product>>(
+    future: YouCan.instance.categories.limit(2).all(),
+    builder: (context, snapshot) {
+      if (snapshot.hasData) {
+        return Text(snapshot.data);
+      } else if (snapshot.hasError) {
+        return Text("Error: ${snapshot.error}");
+      } else {
+        return CircularProgressIndicator();
+      }
+    },
+  ),
+
+```
