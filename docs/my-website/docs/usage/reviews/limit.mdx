@@ -1,0 +1,39 @@
+---
+sidebar_position: 2
+---
+
+# Querying by limit
+
+Like you saw and used in the `limit()` method of the <a href="../products/limit.mdx">products</a>, There is a `limit()` method that belongs to the reviews, and you can call it simply, in this example, this will limit the reviews obtained to 10 as maximum :
+
+#### Using `await`/`async` :
+
+```dart
+// we get by this all store's products
+List<Product> allProducts = await YouCan.instance.products.all(); //
+
+// we take the first one as example
+Product singleProduct = allProducts.first;
+
+// then we get it's reviews
+// highlight-next-line
+List<Review> singleProductReviews = await singleProduct.limit(10).reviews();
+```
+
+#### Using A `FutureBuilder` :
+
+```dart
+FutureBuilder<List<Product>>(
+    future: singleProduct.limit(10).reviews(),
+    builder: (context, snapshot) {
+      if (snapshot.hasData) {
+        return Text(snapshot.data);
+      } else if (snapshot.hasError) {
+        return Text("Error: ${snapshot.error}");
+      } else {
+        return CircularProgressIndicator();
+      }
+    },
+  ),
+
+```
