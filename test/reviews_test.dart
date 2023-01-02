@@ -7,7 +7,7 @@ import 'constants.dart';
 
 void main() {
   YouCan.instance.storeLink = testingStoreLink;
-  test("check the reviews()", () async {
+  test("check the reviews", () async {
     final example = await YouCan.instance.products.all();
     expect(example, isNotEmpty);
     expect(example.first.reviews, isA<Reviews>());
