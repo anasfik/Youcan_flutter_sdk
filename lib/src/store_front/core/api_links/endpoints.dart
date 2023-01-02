@@ -7,4 +7,6 @@ class EndPoints {
 
   static String review() => '/reviews';
   static String productReviews(String id) => '${product(id)}${review()}';
+
+  static String pages() => '/pages';
 }

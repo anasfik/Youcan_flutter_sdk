@@ -1,24 +1,7 @@
-// ignore_for_file: public_member_api_docs, sort_constructors_first
-// To parse this JSON data, do
-//
-//     final Product = ProductFromMap(jsonString);
-
-import 'dart:convert';
-
 import 'package:collection/collection.dart';
-import 'package:meta/meta.dart';
 
 import 'package:youcan_flutter_sdk/src/store_front/core/mixins/requests_client.dart';
-import 'package:youcan_flutter_sdk/src/store_front/instance/reviews/extensions/reviews_extension.dart';
 import 'package:youcan_flutter_sdk/src/store_front/instance/reviews/reviews.dart';
-
-import '../review/review.dart';
-
-List<Product> ProductFromMap(String str) =>
-    List<Product>.from(json.decode(str).map((x) => Product.fromJson(x)));
-
-String ProductToMap(List<Product> data) =>
-    json.encode(List<dynamic>.from(data.map((x) => x.toJson())));
 
 class Product with RequestsClient {
   final String id;
@@ -33,7 +16,7 @@ class Product with RequestsClient {
   final int variantsCount;
   final List<VariantOption> variantOptions;
   final bool trackInventory;
-  final Meta meta;
+  final ProductMeta meta;
   final List<Image> images;
 
   Reviews get reviews => Reviews(productId: id);
@@ -87,7 +70,7 @@ class Product with RequestsClient {
         variantOptions: List<VariantOption>.from(
             json["variant_options"].map((x) => VariantOption.fromJson(x))),
         trackInventory: json["track_inventory"],
-        meta: Meta.fromJson(json["meta"]),
+        meta: ProductMeta.fromJson(json["meta"]),
         images: List<Image>.from(json["images"].map((x) => Image.fromJson(x))),
       );
 
@@ -144,6 +127,16 @@ class Image {
   final int order;
   final Variations variations;
 
+  @override
+  int get hashCode {
+    return id.hashCode ^
+        name.hashCode ^
+        type.hashCode ^
+        url.hashCode ^
+        order.hashCode ^
+        variations.hashCode;
+  }
+
   Image({
     required this.id,
     required this.name,
@@ -170,6 +163,23 @@ class Image {
         "order": order,
         "variations": variations.toJson(),
       };
+
+  @override
+  bool operator ==(covariant Image other) {
+    if (identical(this, other)) return true;
+
+    return other.id == id &&
+        other.name == name &&
+        other.type == type &&
+        other.url == url &&
+        other.order == order &&
+        other.variations == variations;
+  }
+
+  @override
+  String toString() {
+    return 'Image(id: $id, name: $name, type: $type, url: $url, order: $order, variations: $variations)';
+  }
 }
 
 class Variations {
@@ -199,18 +209,21 @@ class Variations {
       };
 }
 
-class Meta {
+class ProductMeta {
   final String title;
   final String description;
   final List<dynamic> images;
 
-  Meta({
+  @override
+  int get hashCode => title.hashCode ^ description.hashCode ^ images.hashCode;
+
+  ProductMeta({
     required this.title,
     required this.description,
     required this.images,
   });
 
-  factory Meta.fromJson(Map<String, dynamic> json) => Meta(
+  factory ProductMeta.fromJson(Map<String, dynamic> json) => ProductMeta(
         title: json["title"],
         description: json["description"],
         images: List<dynamic>.from(json["images"].map((x) => x)),
@@ -221,12 +234,29 @@ class Meta {
         "description": description,
         "images": List<dynamic>.from(images.map((x) => x)),
       };
+
+  @override
+  bool operator ==(covariant ProductMeta other) {
+    if (identical(this, other)) return true;
+    final listEquals = const DeepCollectionEquality().equals;
+
+    return other.title == title &&
+        other.description == description &&
+        listEquals(other.images, images);
+  }
+
+  @override
+  String toString() =>
+      'ProductMeta(title: $title, description: $description, images: $images)';
 }
 
 class VariantOption {
   final String name;
   final int type;
   final List<String> values;
+
+  @override
+  int get hashCode => name.hashCode ^ type.hashCode ^ values.hashCode;
 
   VariantOption({
     required this.name,
@@ -245,4 +275,18 @@ class VariantOption {
         "type": type,
         "values": List<dynamic>.from(values.map((x) => x)),
       };
+
+  @override
+  bool operator ==(covariant VariantOption other) {
+    if (identical(this, other)) return true;
+    final listEquals = const DeepCollectionEquality().equals;
+
+    return other.name == name &&
+        other.type == type &&
+        listEquals(other.values, values);
+  }
+
+  @override
+  String toString() =>
+      'VariantOption(name: $name, type: $type, values: $values)';
 }

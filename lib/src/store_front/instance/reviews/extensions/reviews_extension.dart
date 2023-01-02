@@ -5,7 +5,7 @@ import '../reviews.dart';
 
 extension ReviewExtension on Reviews {
   Future<List<Review>> allExtension() async {
-    return await httpRequests.fetchReviews(
+    return await httpRequests.listReviews(
       productId: productId,
       limit: limitQuery,
     );

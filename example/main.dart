@@ -3,9 +3,10 @@ import 'package:youcan_flutter_sdk/youcan_flutter_sdk.dart';
 void main() async {
   YouCan.instance.storeLink = 'https://example.youcan.shop';
 
-  final products = await YouCan.instance.products.all();
+  final pagesQuery =  YouCan.instance.pages;
+  print(pagesQuery.endPoint);
+  print(await pagesQuery.all());
 
-  print(products);
   // final example = await YouCan.instance.products.pagination(1).limit(2).all();
 
   // print(example.map((e) => e.name).toList());

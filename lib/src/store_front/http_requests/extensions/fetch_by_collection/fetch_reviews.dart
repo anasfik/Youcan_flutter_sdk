@@ -13,7 +13,7 @@ import '../../http_requests.dart';
 import "package:http/http.dart" as http;
 
 extension FetchReviews on HttpRequests {
-  Future<List<Review>> fetchReviews({
+  Future<List<Review>> listReviews({
     required String productId,
     int? limit,
   }) async {
