@@ -104,10 +104,18 @@ in brief, you can query your targets (products, reviews...) based on your store'
   List<Product> products = await YouCan.instance.categories.category("Category id").products.pagination(2).limit(15).all();
 ```
 
+### Contact
 
- ### Contact
+You can get in contact with your users using the `sendMessage()` :
 
- you can get in contact with your users using the `sendMessage()`
+```dart
+bool isSent = await YouCan.instance.contact.sendMessage(
+email: 'email',
+subject: 'subject',
+message: 'message',
+),
+```
+
 ### Contributing
 
 Our open-source project is making a difference in the E-commerce/Flutter community and we need your help to continue improving and expanding it. any kind of contribution is welcome.

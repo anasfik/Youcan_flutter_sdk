@@ -31,8 +31,6 @@ extension SendMessageExtension on HttpRequests {
       final data = jsonDecode(response.body);
 
       return true;
-    } else if (response.statusCode == 500) {
-      throw ServiceNotAvailable("Service not available");
     } else {
       throw Exception("Something went wrong");
     }
