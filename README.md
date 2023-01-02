@@ -11,11 +11,10 @@
 <img alt="GitHub language count" src="https://img.shields.io/github/languages/count/anasfik/Youcan_Flutter_SDK?style=for-the-badge">
 </p></p>
 
-
 <h3><p align='center'>A wrapper into the YouCan platform API that enables developers to extend its features inside a Dart/Flutter project</p></h3>
 <br>
 
-**YOU CAN HELP THIS PROJECT MAINTENED CONTINUOSLY BY THE AUTHOR WITH A STAR ✨✨**
+**YOU CAN HELP THIS PROJECT MAINTAINED CONTINUOUSLY BY THE AUTHOR WITH A STAR ✨✨**
 
 <br><br>
 
@@ -27,9 +26,13 @@ Well, we might need a flexible and easy way to exchange requests from this API t
 
 This library aims to cover the developers from all those sides and provide easy call methods that bring them to their goals.
 
-## Usage
+NOTE: This is still under development
 
-NOTE: this still under devllopment
+# Documentation
+
+Get the full documentation of all that this library offers <a href="https://anasfik.github.io/Youcan_Flutter_SDK/usage">from this link </a>
+
+## Usage
 
 ### Store configuration
 
@@ -40,7 +43,6 @@ void main() {
   YouCan.instance.storeLink = 'https://example.youcan.shop'; // change it with your store's link
 }
 ```
-
 
 ### Get Products
 
@@ -66,9 +68,23 @@ Search queries are also made easy:
   List<Product> products = await YouCan.instance.products.search("YOUR SEARCH TEXT").limit(1).all();
 ```
 
-# Documentation
+### Get Reviews
 
-Get full documentation of all that this library offers <a href="https://anasfik.github.io/Youcan_Flutter_SDK/usage">from this link </a>
+You can also get a product's reviews as `List<Review>` like this:
+
+```dart
+  List<Product> products = await YouCan.instance.products.all();
+  Product oneProduct = products.first;
+  List<Review> review = await oneProduct.reviews();
+```
+
+### Get Categories
+
+to get all your store's categories as `List<Category>`, you will need to do this:
+
+```dart
+  List<Category> categories = await YouCan.instance.categories.all();
+```
 
 ### Contributing
 
