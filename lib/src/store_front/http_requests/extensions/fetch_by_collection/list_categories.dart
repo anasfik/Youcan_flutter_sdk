@@ -2,7 +2,7 @@ import 'dart:convert';
 import 'package:youcan_flutter_sdk/src/store_front/core/api_links/products_api_link_builder/extensions/endpoint.dart';
 import 'package:youcan_flutter_sdk/src/store_front/core/models/category/category.dart';
 import 'package:youcan_flutter_sdk/src/store_front/http_requests/http_requests.dart';
-import '../../../core/api_links/const/const.dart';
+import '../../../core/api_links/endpoints.dart';
 import 'package:http/http.dart' as http;
 import '../../../core/api_links/products_api_link_builder/products_api_link_builder.dart';
 import '../../../core/exception/not_found.dart';

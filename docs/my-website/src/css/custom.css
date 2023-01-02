@@ -5,6 +5,8 @@
  */
 
 /* You can override the default Infima variables here. */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;600;700;800;900&display=swap");
+
 :root {
   --ifm-color-primary: #6c5ce7;
   --ifm-color-primary-dark: #5a4fb2;
@@ -27,4 +29,13 @@
   --ifm-color-primary-lighter: #6c5ce7;
   --ifm-color-primary-lightest: #7b6aff;
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Poppins", sans-serif;
 }

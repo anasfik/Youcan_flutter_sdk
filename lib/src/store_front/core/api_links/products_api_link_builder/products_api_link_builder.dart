@@ -1,6 +1,6 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 
-import '../api_link_builder/api_link_builder.dart';
+import '../../base/api_link_builder_base.dart';
 
 class ProductsApiLinkBuilder implements ApiLinkBuilder {
   final String api;

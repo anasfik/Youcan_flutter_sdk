@@ -1,4 +1,4 @@
-import 'package:youcan_flutter_sdk/src/store_front/core/api_links/api_link_builder/api_link_builder.dart';
+import 'package:youcan_flutter_sdk/src/store_front/core/base/api_link_builder_base.dart';
 
 import '../products_api_link_builder.dart';
 

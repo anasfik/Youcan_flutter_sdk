@@ -6,7 +6,7 @@ import 'package:youcan_flutter_sdk/src/store_front/instance/categories/extension
 import 'package:youcan_flutter_sdk/src/store_front/instance/products/products.dart';
 
 import '../../../../youcan_flutter_sdk.dart';
-import '../../core/api_links/const/const.dart';
+import '../../core/api_links/endpoints.dart';
 import '../../core/base/categories_base.dart';
 import '../../core/mixins/requests_client.dart';
 import '../../core/models/category/category.dart';

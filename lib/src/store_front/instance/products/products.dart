@@ -7,7 +7,7 @@ import 'package:youcan_flutter_sdk/src/store_front/instance/products/extensions/
 import 'package:youcan_flutter_sdk/src/store_front/instance/products/extensions/one.dart';
 import 'package:youcan_flutter_sdk/src/store_front/instance/products/extensions/pagination.dart';
 import 'package:youcan_flutter_sdk/src/store_front/instance/products/extensions/search.dart';
-import '../../core/api_links/const/const.dart';
+import '../../core/api_links/endpoints.dart';
 import '../../core/api_links/products_api_link_builder/products_api_link_builder.dart';
 import '../../core/base/products_base.dart';
 import '../../core/mixins/requests_client.dart';

@@ -5,7 +5,7 @@ import 'package:youcan_flutter_sdk/src/store_front/instance/reviews/extensions/l
 import 'package:youcan_flutter_sdk/src/store_front/instance/reviews/extensions/reviews_extension.dart';
 
 import '../../../../youcan_flutter_sdk.dart';
-import '../../core/api_links/const/const.dart';
+import '../../core/api_links/endpoints.dart';
 import '../../core/base/reviews_base.dart';
 import '../../core/mixins/requests_client.dart';
 import '../../core/models/review/review.dart';
