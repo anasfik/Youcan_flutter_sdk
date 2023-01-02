@@ -52,22 +52,6 @@ To get a `List<Product>` with all your store's products:
   List<Product> products = await YouCan.instance.products.all();
 ```
 
-### Querying Products
-
-in brief, you can query products based on your store's way, by categories, pages, limiting...
-
-```dart
-  List<Product> products = await YouCan.instance.categories.category("Category id").products.pagination(2).limit(15).all();
-```
-
-### Search
-
-Search queries are also made easy:
-
-```dart
-  List<Product> products = await YouCan.instance.products.search("YOUR SEARCH TEXT").limit(1).all();
-```
-
 ### Get Reviews
 
 You can also get a product's reviews as `List<Review>` like this:
@@ -86,8 +70,66 @@ to get all your store's categories as `List<Category>`, you will need to do this
   List<Category> categories = await YouCan.instance.categories.all();
 ```
 
+### Querying
+
+#### Search
+
+Search queries are made easy:
+
+```dart
+  List<Product> products = await YouCan.instance.products.search("YOUR SEARCH TEXT").all();
+```
+
+#### Pagination
+
+Pagination queries are also made easy, this example will get us the second page's products :
+
+```dart
+  List<Product> products = await YouCan.instance.products.pagination(2).all();
+```
+
+#### limit
+
+You can also limit the requested elements to a specific number
+
+```dart
+  List<Product> products = await YouCan.instance.products.limit(10).all();
+```
+
+### Combining Queries
+
+in brief, you can query your targets (products, reviews...) based on your store's implementation way, this means that you can query by categories, pages, and limiting elements... :
+
+```dart
+  List<Product> products = await YouCan.instance.categories.category("Category id").products.pagination(2).limit(15).all();
+```
+
 ### Contributing
 
 Our open-source project is making a difference in the E-commerce/Flutter community and we need your help to continue improving and expanding it. any kind of contribution is welcome.
 
 **Thank you!**
+
+### License
+
+MIT License
+
+Copyright (c) 2023 Gwhyyy
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
