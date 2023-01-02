@@ -88,7 +88,7 @@ Pagination queries are also made easy, this example will get us the second page'
   List<Product> products = await YouCan.instance.products.pagination(2).all();
 ```
 
-#### limit
+#### Limit
 
 You can also limit the requested elements to a specific number
 
