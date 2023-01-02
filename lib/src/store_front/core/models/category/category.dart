@@ -1,4 +1,5 @@
-import 'dart:convert';
+// ignore_for_file: public_member_api_docs, sort_constructors_first
+import 'package:collection/collection.dart';
 
 class Category {
   final String id;
@@ -18,6 +19,27 @@ class Category {
   final DateTime updatedAt;
   final dynamic deletedAt;
   final List<dynamic> parent;
+
+  @override
+  int get hashCode {
+    return id.hashCode ^
+        name.hashCode ^
+        image.hashCode ^
+        slug.hashCode ^
+        showOnCollection.hashCode ^
+        publicUrl.hashCode ^
+        description.hashCode ^
+        hasParent.hashCode ^
+        parentId.hashCode ^
+        isDefault.hashCode ^
+        images.hashCode ^
+        depth.hashCode ^
+        meta.hashCode ^
+        createdAt.hashCode ^
+        updatedAt.hashCode ^
+        deletedAt.hashCode ^
+        parent.hashCode;
+  }
 
   Category({
     required this.id,
@@ -78,6 +100,35 @@ class Category {
         "deleted_at": deletedAt,
         "parent": List<dynamic>.from(parent.map((x) => x)),
       };
+
+  @override
+  bool operator ==(covariant Category other) {
+    if (identical(this, other)) return true;
+    final listEquals = const DeepCollectionEquality().equals;
+
+    return other.id == id &&
+        other.name == name &&
+        other.image == image &&
+        other.slug == slug &&
+        other.showOnCollection == showOnCollection &&
+        other.publicUrl == publicUrl &&
+        other.description == description &&
+        other.hasParent == hasParent &&
+        other.parentId == parentId &&
+        other.isDefault == isDefault &&
+        other.images == images &&
+        other.depth == depth &&
+        other.meta == meta &&
+        other.createdAt == createdAt &&
+        other.updatedAt == updatedAt &&
+        other.deletedAt == deletedAt &&
+        listEquals(other.parent, parent);
+  }
+
+  @override
+  String toString() {
+    return 'Category(id: $id, name: $name, image: $image, slug: $slug, showOnCollection: $showOnCollection, publicUrl: $publicUrl, description: $description, hasParent: $hasParent, parentId: $parentId, isDefault: $isDefault, images: $images, depth: $depth, meta: $meta, createdAt: $createdAt, updatedAt: $updatedAt, deletedAt: $deletedAt, parent: $parent)';
+  }
 }
 
 class Images {

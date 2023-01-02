@@ -1,4 +1,4 @@
 abstract class PaginationImpl {
-  int? page;
+  int? get page;
   PaginationImpl pagination(int page);
 }

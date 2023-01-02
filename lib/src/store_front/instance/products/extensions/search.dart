@@ -13,7 +13,7 @@ extension SearchExt on Products {
   Future<List<Product>> ssearchExtension(String searchQuery) async {
     return await httpRequests.listProducts(
       page: page,
-      categoryId: categoryId,
+      categoryId: id,
       limit: limitQuery,
       searchQuery: searchQuery,
     );

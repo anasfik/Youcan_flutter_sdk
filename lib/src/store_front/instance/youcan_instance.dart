@@ -3,6 +3,7 @@ import 'categories/categories.dart';
 import 'products/products.dart';
 
 export 'categories/categories.dart';
+
 class YouCan {
   /// Internal singleton instance of [YouCan].
   static YouCan _instance = YouCan._();
@@ -19,7 +20,7 @@ class YouCan {
   /// The public categories instance, use this when you want to access the categories api.
   Categories get categories => Categories();
 
-  /// The public store link.
+  /// The public store link, if this is not set, it will throw an exception.
   String get storeLink {
     if (_internalStoreLink == null) {
       throw StoreLinkNotFoundException(

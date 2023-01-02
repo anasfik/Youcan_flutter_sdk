@@ -14,25 +14,42 @@ import '../../core/mixins/requests_client.dart';
 import '../../core/models/product/product.dart';
 import '../youcan_instance.dart';
 
-  class Products with RequestsClient implements ProductsBase<Product> {
+class Products with RequestsClient implements ProductsBase<Product> {
+  /// This is the page number of the products.
   int? page;
+
+  /// This is the search query of the products.
   String? searchQuery;
+
+  /// This is the limit query of the products.
   int? limitQuery;
-  String? categoryId;
+
+  /// This is the category id of the products, if you want to get the products of a specific category.
+  /// if this is not set, then the products will be from all categories.
+  String? id;
 
   /// This is the endpoint used to get the data of the products for your query.
   String? get endPoint {
     final String storeApiLink = YouCan.instance.storeApiLink;
 
     return ProductsApiLinkBuilder(api: storeApiLink)
-        .category(EndPoints.categories(), categoryId)
+        .category(EndPoints.categories(), id)
         .endpoint(EndPoints.products())
         .search(searchQuery)
         .pagination(page)
         .fullApiLink;
   }
 
-  Products({this.categoryId});
+  Products._({this.id});
+
+  factory Products({String? categoryId}) {
+    return Products._(id: categoryId);
+  }
+
+  /// This method is used to get the products of a specific category.
+  Products category(String id) {
+    return Products._(id: id);
+  }
 
   /// This method is used to get all the products.
   Future<List<Product>> all() async {

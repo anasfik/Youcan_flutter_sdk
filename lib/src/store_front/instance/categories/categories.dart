@@ -17,8 +17,9 @@ class Categories with RequestsClient implements CategoriesBase {
   // This an internal variable used to store the limit query.
   int? _limitQuery;
 
-// this is an internal categoryId variable, it's used to store the categoryId, and it's used to access the products api, of the category.
+  // This is an internal categoryId variable, it's used to store the categoryId, and it's used to access the products api, of the category.
   String? _categoryId;
+
   // This is an internal instance of [Products], it's used to access the products api.
   Products _internalProductsInstance = Products();
 
@@ -31,7 +32,7 @@ class Categories with RequestsClient implements CategoriesBase {
 
   /// This is the endpoint of the api, it's used to access the api.
   /// Note: the api don't allow access to endpoint of just the categories, you need to access it's products.
-  /// 
+  ///
   /// This api link is valid, but if you tries it in some web browser, it will show an error page  :
   ///
   /// `https://api.youcan.shop/v1/stores/{store_id}/categories/{category_id}`
@@ -42,7 +43,6 @@ class Categories with RequestsClient implements CategoriesBase {
   @override
   String? get endPoint {
     final String storeApiLink = YouCan.instance.storeApiLink;
-    // print("_categoryId $_categoryId");
 
     return CategoriesApiLinkBuilder(api: storeApiLink)
         .endpoint(EndPoints.category(_categoryId ?? ""))

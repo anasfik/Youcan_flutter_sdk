@@ -1,4 +1,4 @@
 abstract class SearchImpl<T> {
-  String? searchQuery;
+  String? get searchQuery;
   SearchImpl search(String search);
 }

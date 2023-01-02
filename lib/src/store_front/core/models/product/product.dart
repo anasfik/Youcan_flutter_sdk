@@ -5,7 +5,9 @@
 
 import 'dart:convert';
 
+import 'package:collection/collection.dart';
 import 'package:meta/meta.dart';
+
 import 'package:youcan_flutter_sdk/src/store_front/core/mixins/requests_client.dart';
 import 'package:youcan_flutter_sdk/src/store_front/instance/reviews/extensions/reviews_extension.dart';
 import 'package:youcan_flutter_sdk/src/store_front/instance/reviews/reviews.dart';
@@ -35,6 +37,24 @@ class Product with RequestsClient {
   final List<Image> images;
 
   Reviews get reviews => Reviews(productId: id);
+
+  @override
+  int get hashCode {
+    return id.hashCode ^
+        name.hashCode ^
+        slug.hashCode ^
+        publicUrl.hashCode ^
+        thumbnail.hashCode ^
+        description.hashCode ^
+        price.hashCode ^
+        compareAtPrice.hashCode ^
+        hasVariants.hashCode ^
+        variantsCount.hashCode ^
+        variantOptions.hashCode ^
+        trackInventory.hashCode ^
+        meta.hashCode ^
+        images.hashCode;
+  }
 
   Product({
     required this.id,
@@ -88,6 +108,32 @@ class Product with RequestsClient {
         "meta": meta.toJson(),
         "images": List<dynamic>.from(images.map((x) => x.toJson())),
       };
+
+  @override
+  bool operator ==(covariant Product other) {
+    if (identical(this, other)) return true;
+    final listEquals = const DeepCollectionEquality().equals;
+
+    return other.id == id &&
+        other.name == name &&
+        other.slug == slug &&
+        other.publicUrl == publicUrl &&
+        other.thumbnail == thumbnail &&
+        other.description == description &&
+        other.price == price &&
+        other.compareAtPrice == compareAtPrice &&
+        other.hasVariants == hasVariants &&
+        other.variantsCount == variantsCount &&
+        listEquals(other.variantOptions, variantOptions) &&
+        other.trackInventory == trackInventory &&
+        other.meta == meta &&
+        listEquals(other.images, images);
+  }
+
+  @override
+  String toString() {
+    return 'Product(id: $id, name: $name, slug: $slug, publicUrl: $publicUrl, thumbnail: $thumbnail, description: $description, price: $price, compareAtPrice: $compareAtPrice, hasVariants: $hasVariants, variantsCount: $variantsCount, variantOptions: $variantOptions, trackInventory: $trackInventory, meta: $meta, images: $images)';
+  }
 }
 
 class Image {

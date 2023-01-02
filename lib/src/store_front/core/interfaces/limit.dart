@@ -1,5 +1,4 @@
-
 abstract class LimitImpl {
-  int? limitQuery;
+  int? get limitQuery;
   LimitImpl limit(int page);
 }
