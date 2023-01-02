@@ -1,0 +1,37 @@
+---
+sidebar_position: 3
+---
+
+# Querying With Limits
+
+This is a internal query method in the library that limits the number of pages retrieved from another query like this :
+
+```dart
+YouCan.instance.pages.limit(2);
+```
+
+Now you can fetch for this specific query using the `all()`, in this example, let's say we want to get only 2 pages from all owr store's pages :
+
+#### Using `await`/`async` :
+
+```dart
+List<Page> twoPages = await YouCan.instance.pages.limit(2).all();
+```
+
+#### Using A `FutureBuilder` :
+
+```dart
+FutureBuilder<List<Page>>(
+    future: YouCan.instance.pages.limit(2).all(),
+    builder: (context, snapshot) {
+      if (snapshot.hasData) {
+        return Text(snapshot.data);
+      } else if (snapshot.hasError) {
+        return Text("Error: ${snapshot.error}");
+      } else {
+        return CircularProgressIndicator();
+      }
+    },
+  ),
+
+```

@@ -23,7 +23,7 @@ List<Review> singleProductReviews = await singleProduct.limit(10).reviews();
 #### Using A `FutureBuilder` :
 
 ```dart
-FutureBuilder<List<Product>>(
+FutureBuilder<List<Review>>(
     future: singleProduct.limit(10).reviews(),
     builder: (context, snapshot) {
       if (snapshot.hasData) {

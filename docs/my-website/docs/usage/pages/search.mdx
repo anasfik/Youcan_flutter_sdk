@@ -1,0 +1,37 @@
+---
+sidebar_position: 2
+---
+
+# Querying With Search
+
+You can get a list of pages with a search query using the `search()`, and you can use it like this:
+
+```dart
+YouCan.instance.pages.search("YOUR SEARCH TEXT HERE");
+```
+
+and you can make a request for it using all(), like the following.
+
+#### Using `await`/`async` :
+
+```dart
+final pagesStartingWithCo = await YouCan.instance.pages.search("co").all();
+```
+
+#### Using A `FutureBuilder` :
+
+```dart
+FutureBuilder<List<Page>>(
+    future: YouCan.instance.pages.search("co").all(),
+    builder: (context, snapshot) {
+      if (snapshot.hasData) {
+        return Text(snapshot.data);
+      } else if (snapshot.hasError) {
+        return Text("Error: ${snapshot.error}");
+      } else {
+        return CircularProgressIndicator();
+      }
+    },
+  ),
+
+```

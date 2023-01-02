@@ -27,7 +27,7 @@ List<Review> singleProductReviews = await singleProduct.reviews();
 #### Using A `FutureBuilder` :
 
 ```dart
-FutureBuilder<List<Product>>(
+FutureBuilder<List<Review>>(
     future: singleProduct.reviews(),
     builder: (context, snapshot) {
       if (snapshot.hasData) {

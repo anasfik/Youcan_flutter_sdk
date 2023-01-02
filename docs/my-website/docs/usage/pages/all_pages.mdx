@@ -1,0 +1,39 @@
+---
+sidebar_position: 1
+---
+
+# Get Pages
+
+You can get the pages from your store with the `all()` method on `pages`, it will return a `List<Page>`, like in this example :
+
+:::note
+The `Page` object is a prebuilt class model that contains a single product informations such as id, content, name...
+:::
+
+#### Using `await`/`async` :
+
+```dart
+List<Page> allPages = await YouCan.instance.pages.all();
+```
+
+#### Using A `FutureBuilder` :
+
+```dart
+FutureBuilder<List<Page>>(
+    future: YouCan.instance.pages.all(),
+    builder: (context, snapshot) {
+      if (snapshot.hasData) {
+        return Text(snapshot.data);
+      } else if (snapshot.hasError) {
+        return Text("Error: ${snapshot.error}");
+      } else {
+        return CircularProgressIndicator();
+      }
+    },
+  ),
+
+```
+
+:::note
+if no pages are found, the `all()` will return an empty list `[]`
+:::

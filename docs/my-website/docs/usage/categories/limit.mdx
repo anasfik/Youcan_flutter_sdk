@@ -15,7 +15,7 @@ List<Category> twoCategories = await YouCan.instance.categories.limit(2).all();
 #### Using A `FutureBuilder` :
 
 ```dart
-FutureBuilder<List<Product>>(
+FutureBuilder<List<Category>>(
     future: YouCan.instance.categories.limit(2).all(),
     builder: (context, snapshot) {
       if (snapshot.hasData) {
