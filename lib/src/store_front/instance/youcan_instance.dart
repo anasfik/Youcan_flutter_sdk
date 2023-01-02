@@ -2,6 +2,7 @@ import 'package:youcan_flutter_sdk/src/store_front/instance/pages/pages.dart';
 
 import '../core/exception/store_link_not_found.dart';
 import 'categories/categories.dart';
+import 'contact/contact.dart';
 import 'products/products.dart';
 
 export 'categories/categories.dart';
@@ -24,6 +25,9 @@ class YouCan {
 
   /// The public pages instance, use this when you want to access the pages api.
   Pages get pages => Pages();
+
+  /// The public contact instance, use this when you want to access the contact api.
+  Contact get contact => Contact();
 
   /// The public store link, if this is not set, it will throw an exception.
   String get storeLink {

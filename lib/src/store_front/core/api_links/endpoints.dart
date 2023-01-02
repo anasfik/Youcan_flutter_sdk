@@ -9,4 +9,6 @@ class EndPoints {
   static String productReviews(String id) => '${product(id)}${review()}';
 
   static String pages() => '/pages';
+
+  static String contact() => '/contact';
 }

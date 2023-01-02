@@ -3,20 +3,20 @@ import 'package:youcan_flutter_sdk/youcan_flutter_sdk.dart';
 void main() async {
   YouCan.instance.storeLink = 'https://example.youcan.shop';
 
-  final pagesQuery = YouCan.instance.pages;
+  // final pagesQuery = YouCan.instance.pages;
 
-  final pagesQuerywithSearch = YouCan.instance.pages.search("contact");
-  print(pagesQuerywithSearch.endPoint);
-  print(await pagesQuerywithSearch.all());
+  // final pagesQuerywithSearch = YouCan.instance.pages.search("contact");
+  // print(pagesQuerywithSearch.endPoint);
+  // print(await pagesQuerywithSearch.all());
 
-  final pagesQuerywithLimit = YouCan.instance.pages.limit(2);
-  print(pagesQuerywithLimit.endPoint);
-  print(await pagesQuerywithLimit.all());
+  // final pagesQuerywithLimit = YouCan.instance.pages.limit(2);
+  // print(pagesQuerywithLimit.endPoint);
+  // print(await pagesQuerywithLimit.all());
 
-  final pagesQuerywithSearchAndLimit =
-      YouCan.instance.pages.search("c").limit(2);
-  print(pagesQuerywithSearchAndLimit.endPoint);
-  print(await pagesQuerywithSearchAndLimit.all());
+  // final pagesQuerywithSearchAndLimit =
+  //     YouCan.instance.pages.search("c").limit(2);
+  // print(pagesQuerywithSearchAndLimit.endPoint);
+  // print(await pagesQuerywithSearchAndLimit.all());
 
   // final example = await YouCan.instance.products.pagination(1).limit(2).all();
 
@@ -45,4 +45,12 @@ void main() async {
   // final reviews = firstProduct.reviews;
   // print(reviews.endPoint);
   // print(await reviews.limit(5).all());
+
+  final send = await YouCan.instance.contact.sendMessage(
+    email: "ansgk@gmail.com",
+    message: "test",
+    subject: "test",
+  );
+
+  print(send);
 }

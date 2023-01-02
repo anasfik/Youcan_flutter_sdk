@@ -1,0 +1,41 @@
+---
+sidebar_position: 1
+---
+
+# Contact
+
+You can collect feedbacks, reviews, messages... from your users using the `sendMessage()` method which takes an email, message, subject as an argument, then sends it.
+
+It returns a `true` if the message is sent successfully, otherwise it throws an exception which you can catch.
+
+#### Using `await`/`async` :
+
+```dart
+final isSent = await YouCan.instance.contact.sendMessage(
+email: 'email',
+subject: 'subject',
+message: 'message',
+);
+```
+
+#### Using A `FutureBuilder` :
+
+```dart
+FutureBuilder<bool>(
+    future: YouCan.instance.contact.sendMessage(
+      email: 'email',
+      subject: 'subject',
+      message: 'message',
+    ),
+    builder: (context, snapshot) {
+      if (snapshot.hasData) {
+        return Text(snapshot.data);
+      } else if (snapshot.hasError) {
+        return Text("Error: ${snapshot.error}");
+      } else {
+        return CircularProgressIndicator();
+      }
+    },
+  ),
+
+```
