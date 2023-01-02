@@ -10,12 +10,12 @@ extension SearchExt on Products {
     return this;
   }
 
-  Future<List<Product>> ssearchExtension(String searchQuery) async {
-    return await httpRequests.listProducts(
-      page: page,
-      categoryId: id,
-      limit: limitQuery,
-      searchQuery: searchQuery,
-    );
-  }
+  // Future<List<Product>> ssearchExtension(String searchQuery) async {
+  //   return await httpRequests.listProducts(
+  //     page: page,
+  //     categoryId: id,
+  //     limit: limitQuery,
+  //     searchQuery: searchQuery,
+  //   );
+  // }
 }
