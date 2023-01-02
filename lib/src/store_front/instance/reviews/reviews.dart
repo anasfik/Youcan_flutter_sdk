@@ -11,9 +11,15 @@ import '../../core/mixins/requests_client.dart';
 import '../../core/models/review/review.dart';
 
 class Reviews with RequestsClient implements ReviewsBase {
+  /// The product id, which you want to get its reviews.
   final String productId;
+
+  /// The limit of reviews you want to get.
   int? limitQuery;
+
   @override
+
+  /// The endpoint of the reviews.
   String? get endPoint {
     final String storeApiLink = YouCan.instance.storeApiLink;
 
@@ -30,10 +36,12 @@ class Reviews with RequestsClient implements ReviewsBase {
     this.limitQuery,
   });
 
+  /// Get all reviews of the product.
   Future<List<Review>> all() async {
     return await allExtension();
   }
 
+  /// Get a specific limit number of reviews of the product.
   Reviews limit(int limit) {
     return limitExtension(limit);
   }
