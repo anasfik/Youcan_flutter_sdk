@@ -1,7 +1,7 @@
 import 'dart:convert';
 
 import 'package:youcan_flutter_sdk/src/store_front/core/api_links/products_api_link_builder/extensions/endpoint.dart';
-import 'package:youcan_flutter_sdk/src/store_front/core/api_links/reviews_api_link_builder/extensions/enfpoint.dart';
+import 'package:youcan_flutter_sdk/src/store_front/core/api_links/reviews_api_link_builder/extensions/endpoint.dart';
 
 import '../../../core/api_links/const/const.dart';
 import '../../../core/api_links/reviews_api_link_builder/reviews_api_link_builder.dart';

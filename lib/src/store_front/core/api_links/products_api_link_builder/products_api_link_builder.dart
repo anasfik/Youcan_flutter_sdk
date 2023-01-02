@@ -1,5 +1,4 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
-import 'dart:developer';
 
 import '../api_link_builder/api_link_builder.dart';
 
@@ -14,6 +13,15 @@ class ProductsApiLinkBuilder implements ApiLinkBuilder {
     final result = "$api$categoryEndPoint$apiEndpoint$page$searchQuery";
 
     return result;
+  }
+
+  @override
+  int get hashCode {
+    return api.hashCode ^
+        apiEndpoint.hashCode ^
+        searchQuery.hashCode ^
+        page.hashCode ^
+        categoryEndPoint.hashCode;
   }
 
   ProductsApiLinkBuilder({
@@ -38,5 +46,21 @@ class ProductsApiLinkBuilder implements ApiLinkBuilder {
       page: page ?? this.page,
       categoryEndPoint: categoryEndPoint ?? this.categoryEndPoint,
     );
+  }
+
+  @override
+  bool operator ==(covariant ProductsApiLinkBuilder other) {
+    if (identical(this, other)) return true;
+
+    return other.api == api &&
+        other.apiEndpoint == apiEndpoint &&
+        other.searchQuery == searchQuery &&
+        other.page == page &&
+        other.categoryEndPoint == categoryEndPoint;
+  }
+
+  @override
+  String toString() {
+    return 'ProductsApiLinkBuilder(api: $api, apiEndpoint: $apiEndpoint, searchQuery: $searchQuery, page: $page, categoryEndPoint: $categoryEndPoint)';
   }
 }

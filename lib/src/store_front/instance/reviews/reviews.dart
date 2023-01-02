@@ -1,5 +1,5 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
-import 'package:youcan_flutter_sdk/src/store_front/core/api_links/reviews_api_link_builder/extensions/enfpoint.dart';
+import 'package:youcan_flutter_sdk/src/store_front/core/api_links/reviews_api_link_builder/extensions/endpoint.dart';
 import 'package:youcan_flutter_sdk/src/store_front/core/api_links/reviews_api_link_builder/reviews_api_link_builder.dart';
 import 'package:youcan_flutter_sdk/src/store_front/instance/reviews/extensions/limitExtension.dart';
 import 'package:youcan_flutter_sdk/src/store_front/instance/reviews/extensions/reviews_extension.dart';

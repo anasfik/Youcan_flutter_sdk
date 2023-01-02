@@ -4,12 +4,18 @@ import '../api_link_builder/api_link_builder.dart';
 class ReviewsApiLinkBuilder implements ApiLinkBuilder {
   final String api;
   final String reviewsEndPoint;
+
   @override
+
+  /// This is the full api link, it's used to access the api.
   String get fullApiLink {
     final result = "$api$reviewsEndPoint";
 
     return result;
   }
+
+  @override
+  int get hashCode => api.hashCode ^ reviewsEndPoint.hashCode;
 
   ReviewsApiLinkBuilder({
     required this.api,
@@ -25,4 +31,15 @@ class ReviewsApiLinkBuilder implements ApiLinkBuilder {
       reviewsEndPoint: reviewsEndPoint ?? this.reviewsEndPoint,
     );
   }
+
+  @override
+  bool operator ==(covariant ReviewsApiLinkBuilder other) {
+    if (identical(this, other)) return true;
+
+    return other.api == api && other.reviewsEndPoint == reviewsEndPoint;
+  }
+
+  @override
+  String toString() =>
+      'ReviewsApiLinkBuilder(api: $api, reviewsEndPoint: $reviewsEndPoint)';
 }
