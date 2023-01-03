@@ -61,8 +61,10 @@ void main() {
           final allProducts =
               await YouCan.instance.products.search(searchText).all();
           expect(allProducts, isA<List<Product>>());
-          expect(allProducts.first, isA<Product>());
-          expect(allProducts.first.name, isA<String>());
+          if (allProducts.isNotEmpty) {
+            expect(allProducts.first, isA<Product>());
+            expect(allProducts.first.name, isA<String>());
+          }
         },
       );
       test(

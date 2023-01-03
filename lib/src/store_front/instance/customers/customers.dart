@@ -14,7 +14,7 @@ class Customers with RequestsClient implements CustomersBase {
   @override
 
   /// Login to the store, this will return a token that will be used in the future requests, or throw exception if the login failed.
-  Future login({
+  Future<String> login({
     required String email,
     required String password,
   }) async {

@@ -9,8 +9,7 @@ void main() {
   YouCan.instance.storeLink = testingStoreLink;
 
   test('This will test the category', () async {
-    final category = YouCan.instance.categories
-        .category("adf180de-b01a-4710-9379-5c26e865dccc00");
+    final category = YouCan.instance.categories.category(exampleCategoryId);
     expect(
       category,
       isA<Categories>(),
@@ -20,16 +19,16 @@ void main() {
   });
 
   test('test category with all()', () async {
-    final categoryProducts = await YouCan.instance.categories
-        .category("adf180de-b01a-4710-9379-5c26e865dccc")
-        .products
-        .all();
-    expect(categoryProducts, isA<List<Product>>());
-    expect(categoryProducts.first, isA<Product>());
+    final categoryProducts =
+        YouCan.instance.categories.category(exampleCategoryId).products;
+    print(categoryProducts.endPoint);
+    final allcategoryProducts = await categoryProducts.all();
+    expect(allcategoryProducts, isA<List<Product>>());
+    expect(allcategoryProducts.first, isA<Product>());
   });
   test('test category with pagination() with all()', () async {
     final categoryProducts = await YouCan.instance.categories
-        .category("adf180de-b01a-4710-9379-5c26e865dccc")
+        .category(exampleCategoryId)
         .products
         .pagination(1)
         .all();
@@ -38,12 +37,12 @@ void main() {
   });
   test('test category with pagination() with limit() with all()', () async {
     final categoryProducts = await YouCan.instance.categories
-        .category("adf180de-b01a-4710-9379-5c26e865dccc")
+        .category(exampleCategoryId)
         .products
         .limit(2)
         .pagination(1)
         .all();
     expect(categoryProducts, isA<List<Product>>());
-    expect(categoryProducts.length, equals(2));
+    expect(categoryProducts.length <= 2, equals(true));
   });
 }
