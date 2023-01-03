@@ -15,7 +15,7 @@ extension LoginExtension on HttpRequests {
   ) async {
     final customersApiLinkBuilder =
         CustomersApiLinkBuilder(api: storeApiLink).endpoint(EndPoints.login());
-
+    print(customersApiLinkBuilder.fullApiLink);
     http.Response response = await http.post(
       Uri.parse(customersApiLinkBuilder.fullApiLink),
       body: {

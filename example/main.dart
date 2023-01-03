@@ -54,10 +54,11 @@ void main() async {
 
   // print(send);
 
-  final token = await YouCan.instance.customers.login(
-    email: 'ffikhi.aanas@gmail.com',
-    password: 'password',
+  final res = await YouCan.instance.customers.create(
+    email: "ansgk.us@gmail.com",
+    password: "ansgk.us",
+    confirmPassword: "ansgk.us",
   );
 
-  print(token);
+  print(res);
 }

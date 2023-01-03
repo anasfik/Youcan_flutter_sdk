@@ -13,6 +13,5 @@ class EndPoints {
   static String contact() => '/contact';
 
   static String customers() => '/customers';
-
   static String login() => '${customers()}/login';
 }
