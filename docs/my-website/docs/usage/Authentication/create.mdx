@@ -1,18 +1,27 @@
 ---
-sidebar_position: 2
+sidebar_position: 3
 ---
 
-# Login
+# Create a new customer
 
-You can Authenticate you users and get a login token that you can use in future methods with the `login()` method like this:
+You can create ( sign up ) a new customer in your store using the `create()` method, it creates the customer in the store and return a `CustomerCreationResponse` which will contains all the new created user details.
 
 ## Using `await`/`async`:
 
 ```dart
-String loginToken = await YouCan.instance.customers.login(
+CustomerCreationResponse customerCreationResult = await YouCan.instance.customers.create(
         email: "YOUR EMAIL HERE",
         password: "YOUR PASSWORD HERE",
+        confirmPassword: "THE PASSWORD CONFIRMATION HERE",
+        optionalUserInformations: OptionalUserInformations(
+            firstName: 'FIRST NAME',
+            lastName: 'LAST NAME',
+            city: 'CITY',
+            country: 'COUNTRY',
+            notes: 'NOTES',
+            region: 'REGION',
+        ),
       );
 ```
 
-if the user with that email and password exists, a token will be returned to you, you can save it and use it to get the full user informations and manage it in the next methods.
+The `optionalUserInformations` is not required and you can ignore it if you don't need to collect those informations from your customers.
