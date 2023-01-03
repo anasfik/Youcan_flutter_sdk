@@ -30,7 +30,7 @@ NOTE: This is still under development
 
 # Documentation
 
-Get the full documentation of all that this library offers <a href="https://anasfik.github.io/Youcan_Flutter_SDK/usage">from this link </a>
+Get the full documentation of all that this library offers <a href="https://anasfik.github.io/Youcan_flutter_sdk">from this link </a>
 
 ## Usage
 
