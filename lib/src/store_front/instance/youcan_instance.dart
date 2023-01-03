@@ -1,3 +1,4 @@
+import 'package:youcan_flutter_sdk/src/store_front/instance/customers/customers.dart';
 import 'package:youcan_flutter_sdk/src/store_front/instance/pages/pages.dart';
 
 import '../core/exception/store_link_not_found.dart';
@@ -22,6 +23,9 @@ class YouCan {
 
   /// The public categories instance, use this when you want to access the categories api.
   Categories get categories => Categories();
+
+  /// The public customers instance, use this when you want to access the customers api.
+  Customers get customers => Customers();
 
   /// The public pages instance, use this when you want to access the pages api.
   Pages get pages => Pages();

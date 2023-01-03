@@ -1,8 +1,8 @@
+import 'package:youcan_flutter_sdk/src/store_front/core/exception/invalid_data.dart';
 import 'package:youcan_flutter_sdk/youcan_flutter_sdk.dart';
 
 void main() async {
   YouCan.instance.storeLink = 'https://example.youcan.shop';
-
   // final pagesQuery = YouCan.instance.pages;
 
   // final pagesQuerywithSearch = YouCan.instance.pages.search("contact");
@@ -46,11 +46,18 @@ void main() async {
   // print(reviews.endPoint);
   // print(await reviews.limit(5).all());
 
-  final send = await YouCan.instance.contact.sendMessage(
-    email: "ansgk@gmail.com",
-    message: "test",
-    subject: "test",
+  // final send = await YouCan.instance.contact.sendMessage(
+  //   email: "ansgk@gmail.com",
+  //   message: "test",
+  //   subject: "test",
+  // );
+
+  // print(send);
+
+  final token = await YouCan.instance.customers.login(
+    email: 'ffikhi.aanas@gmail.com',
+    password: 'password',
   );
 
-  print(send);
+  print(token);
 }
