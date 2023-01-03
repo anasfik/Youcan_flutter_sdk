@@ -48,7 +48,7 @@ extension CreateRequestExtension on HttpRequests {
       return CustomerCreationResponse.fromJson(mapBody);
     } else if (response.statusCode == 422) {
       throw InvalidDataException("The given data was invalid.");
-    } else if (response.statusCode == 401) {
+    } else if (response.statusCode == 401 || response.statusCode == 403) {
       throw UnauthorizedException("Unauthorized");
     } else {
       throw Exception("Error: ${response.statusCode}");

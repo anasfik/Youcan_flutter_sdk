@@ -2,7 +2,7 @@ import 'package:youcan_flutter_sdk/src/store_front/core/exception/invalid_data.d
 import 'package:youcan_flutter_sdk/youcan_flutter_sdk.dart';
 
 void main() async {
-  YouCan.instance.storeLink = 'https://example.youcan.shop';
+  YouCan.instance.storeLink = 'https://georgena.shop';
   // final pagesQuery = YouCan.instance.pages;
 
   // final pagesQuerywithSearch = YouCan.instance.pages.search("contact");
@@ -54,11 +54,17 @@ void main() async {
 
   // print(send);
 
-  final res = await YouCan.instance.customers.create(
+  // final res = await YouCan.instance.customers.create(
+  //   email: "ansgk.us@gmail.com",
+  //   password: "ansgk.us",
+  //   confirmPassword: "ansgk.us",
+  // );
+
+  // print(res);
+  final loginRes = await YouCan.instance.customers.login(
     email: "ansgk.us@gmail.com",
     password: "ansgk.us",
-    confirmPassword: "ansgk.us",
   );
 
-  print(res);
+  print(loginRes);
 }
