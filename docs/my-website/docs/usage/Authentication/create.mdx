@@ -1,0 +1,18 @@
+---
+sidebar_position: 2
+---
+
+# Login
+
+You can Authenticate you users and get a login token that you can use in future methods with the `login()` method like this:
+
+## Using `await`/`async`:
+
+```dart
+String loginToken = await YouCan.instance.customers.login(
+        email: "YOUR EMAIL HERE",
+        password: "YOUR PASSWORD HERE",
+      );
+```
+
+if the user with that email and password exists, a token will be returned to you, you can save it and use it to get the full user informations and manage it in the next methods.
