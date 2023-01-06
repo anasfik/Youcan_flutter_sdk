@@ -40,7 +40,12 @@ class Customers with RequestsClient implements CustomersBase {
     );
   }
 
-  Future<CustomerAccountInformations> customerAccount(String userToken) async {
+  /// This will return a [CustomerAccountInformations] that contains the details informations about the user such it's id, email, name, etc.
+  ///
+  /// This throws exception if the request failed.
+  Future<CustomerAccountInformations> customerAccount({
+    required String userToken,
+  }) async {
     return await customerAccountExtension(userToken);
   }
 }
