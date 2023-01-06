@@ -3,9 +3,10 @@ import 'package:youcan_flutter_sdk/src/store_front/core/base/api_link_builder_ba
 class CustomersApiLinkBuilder implements ApiLinkBuilder {
   final String api;
   final String customersEndpoint;
+  final String tokenQuery;
   @override
   String get fullApiLink {
-    final result = '$api$customersEndpoint';
+    final result = '$api$customersEndpoint$tokenQuery';
 
     return result;
   }
@@ -16,15 +17,18 @@ class CustomersApiLinkBuilder implements ApiLinkBuilder {
   CustomersApiLinkBuilder({
     required this.api,
     this.customersEndpoint = "",
+    this.tokenQuery = "",
   });
 
   CustomersApiLinkBuilder copyWith({
     String? api,
     String? customersEndpoint,
+    String? token,
   }) {
     return CustomersApiLinkBuilder(
       api: api ?? this.api,
       customersEndpoint: customersEndpoint ?? this.customersEndpoint,
+      tokenQuery: tokenQuery ?? this.tokenQuery,
     );
   }
 
