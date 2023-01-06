@@ -2,8 +2,10 @@ import 'package:youcan_flutter_sdk/src/store_front/core/api_links/customers_api_
 
 extension TokenExtension on CustomersApiLinkBuilder {
   CustomersApiLinkBuilder token(String token) {
+    final tokenQuery = "?token=$token";
+
     return this.copyWith(
-      token: token,
+      tokenQuery: tokenQuery,
     );
   }
 }

@@ -23,7 +23,7 @@ class CustomersApiLinkBuilder implements ApiLinkBuilder {
   CustomersApiLinkBuilder copyWith({
     String? api,
     String? customersEndpoint,
-    String? token,
+    String? tokenQuery,
   }) {
     return CustomersApiLinkBuilder(
       api: api ?? this.api,
