@@ -11,7 +11,7 @@ void main() {
   YouCan.instance.storeLink = testingStoreLink;
   String? userToken;
   group('check the customers', () {
-    final email = "dtedsdtdd10dsbdcvxdvxcdv@gmail.com";
+    final email = "dtedsdtdddddd10dsbdcvxdvxcdv@gmail.com";
 
     test('check the create() method', () async {
       final createResponse = await YouCan.instance.customers.create(

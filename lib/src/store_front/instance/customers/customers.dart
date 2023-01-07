@@ -4,15 +4,14 @@ import 'package:youcan_flutter_sdk/src/store_front/http_requests/extensions/auth
 import 'package:youcan_flutter_sdk/src/store_front/instance/customers/extensions/create_extension.dart';
 import 'package:youcan_flutter_sdk/src/store_front/instance/customers/extensions/customer_ccount_extension.dart';
 import 'package:youcan_flutter_sdk/src/store_front/instance/customers/extensions/login.dart';
+import 'package:youcan_flutter_sdk/src/store_front/instance/customers/extensions/update.dart';
 
 import '../../core/base/customers_base.dart';
 import '../../core/models/auth/customer_creation_response.dart';
+import '../../core/models/auth/new_user_data.dart';
 import '../../core/models/review/user_info.dart';
 
 class Customers with RequestsClient implements CustomersBase {
-  @override
-  String? get endPoint {}
-
   @override
 
   /// Login to the store, this will return a token that will be used in the future requests, or throw exception if the login failed.
@@ -47,5 +46,16 @@ class Customers with RequestsClient implements CustomersBase {
     required String userToken,
   }) async {
     return await customerAccountExtension(userToken);
+  }
+
+  /// This will update the user account informations, such as it's name, email, etc.
+  Future<void> updateCustomerAccount({
+    required String userToken,
+    required NewUserData newUserData,
+  }) async {
+    return await updateAccountInformationsExtension(
+      newUserData: newUserData,
+      userToken: userToken,
+    );
   }
 }

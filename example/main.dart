@@ -1,4 +1,5 @@
 import 'package:youcan_flutter_sdk/src/store_front/core/exception/invalid_data.dart';
+import 'package:youcan_flutter_sdk/src/store_front/core/models/auth/new_user_data.dart';
 import 'package:youcan_flutter_sdk/youcan_flutter_sdk.dart';
 
 void main() async {
@@ -69,8 +70,13 @@ void main() async {
 
   // print(loginRes);
 
-  final customerInformations = await YouCan.instance.customers.customerAccount(
-      userToken:
-          "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczpcL1wvZ2VvcmdlbmEuc2hvcFwvYXBpXC9jdXN0b21lcnNcL2xvZ2luIiwiaWF0IjoxNjczMDQwNDI0LCJleHAiOjE2ODA4MTY0MjQsIm5iZiI6MTY3MzA0MDQyNCwianRpIjoiVTRkc1VUUldndU8yM1EydyIsInN1YiI6IjIzNDllMWNiLTMwMzAtNDkxZS05YzVmLTY3ZmEyOGZlMjJkMyIsInBydiI6IjJmN2RmOWEzZWFhZDEyZTAxODY5MWU1YWI0OWI5MzViYmQ2NDMxNTUifQ.s9KD84uw3giibuURbkJiHcbx-A97u5mae3pYFU5cQms");
-  print(customerInformations);
+  // final customerInformations = await YouCan.instance.customers.customerAccount(
+  //     userToken:
+  //         "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczpcL1wvZ2VvcmdlbmEuc2hvcFwvYXBpXC9jdXN0b21lcnNcL2xvZ2luIiwiaWF0IjoxNjczMDQwNDI0LCJleHAiOjE2ODA4MTY0MjQsIm5iZiI6MTY3MzA0MDQyNCwianRpIjoiVTRkc1VUUldndU8yM1EydyIsInN1YiI6IjIzNDllMWNiLTMwMzAtNDkxZS05YzVmLTY3ZmEyOGZlMjJkMyIsInBydiI6IjJmN2RmOWEzZWFhZDEyZTAxODY5MWU1YWI0OWI5MzViYmQ2NDMxNTUifQ.s9KD84uw3giibuURbkJiHcbx-A97u5mae3pYFU5cQms");
+  // print(customerInformations);
+
+  await YouCan.instance.customers.updateCustomerAccount(
+    userToken: "",
+    newUserData: NewUserData(),
+  );
 }
