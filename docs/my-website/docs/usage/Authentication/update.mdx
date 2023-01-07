@@ -1,0 +1,19 @@
+---
+sidebar_position: 4
+---
+
+# Update Account Informations
+
+once a user is authenticated in your app and you got his user token, you can update his account informations using the `updateCustomerAccount()` method.
+
+#### Using `async`/`await`:
+
+```dart
+await YouCan.instance.customers.updateCustomerAccount(
+     userToken: "USER TOKEN HERE",
+     newUserData: NewUserData(
+       email: "NEW EMAIL AS EXAMPLE",
+       password: "NEW PASSWORD AS EXAMPLE",
+       ),
+     );
+```
