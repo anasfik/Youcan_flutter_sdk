@@ -62,4 +62,26 @@ class NewUserData {
       if (notes != null) 'notes': notes,
     };
   }
+
+  NewUserData copyWith({
+    String? email,
+    String? password,
+    String? firstName,
+    String? lastName,
+    String? country,
+    String? region,
+    String? city,
+    String? notes,
+  }) {
+    return NewUserData(
+      email: email ?? this.email,
+      password: password ?? this.password,
+      firstName: firstName ?? this.firstName,
+      lastName: lastName ?? this.lastName,
+      country: country ?? this.country,
+      region: region ?? this.region,
+      city: city ?? this.city,
+      notes: notes ?? this.notes,
+    );
+  }
 }

@@ -48,7 +48,7 @@ class Customers with RequestsClient implements CustomersBase {
     return await customerAccountExtension(userToken);
   }
 
-  /// This will update the user account informations, such as it's name, email, etc.
+  /// This is the global method to update the authenticated customer account informations.
   Future<void> updateCustomerAccount({
     required String userToken,
     required NewUserData newUserData,
