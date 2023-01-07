@@ -2,15 +2,17 @@
 class InvalidDataException implements Exception {
   final String message;
   final InvalidDataExceptionMeta meta;
-  InvalidDataException(this.message, this.meta);
+  late final String reason;
+
+  InvalidDataException(this.message, this.meta) {
+    reason = meta.extractedReasonsOfException.isEmpty
+        ? "No reason was provided."
+        : meta.extractedReasonsOfException.first;
+  }
 
   @override
   String toString() {
-    final firstReasonToShow = meta.extractedReasonsOfException.isEmpty
-        ? "No reason was provided."
-        : meta.extractedReasonsOfException.first;
-
-    return "InvalidDataException: $message, reason: ${firstReasonToShow}";
+    return "InvalidDataException: $message, reason: ${reason}";
   }
 }
 
