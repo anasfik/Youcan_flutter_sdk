@@ -7,3 +7,24 @@ sidebar_position: 1
 Before starting using this library, please, take a quick look over the <a href="https://developer.youcan.shop/store-front/introduction/query-filters.html">YouCan Developers</a> and get some ideas about what it contains, the endpoints it provides.
 
 This will really help you understand and get familiar with this library very quickly, since it's based on it.
+
+## What to expect from this library
+
+Well, the <a href="https://developer.youcan.shop">YouCan Developers</a> offers an <a href="https://developer.youcan.shop/store-admin/introduction/query-filters.html">admin store APIs</a> and <a href="https://developer.youcan.shop/store-front/introduction/query-filters.html">front store APIs</a>.
+Every part of the <a href="https://developer.youcan.shop/store-front/introduction/query-filters.html">front store API</a> is covered by this library including, authentication, products, customers, categories, reviews....
+
+## Example Of Working With The Library
+
+As **example**, if you wanted to get all your store's products, you can simply call an `all()` method on products like this:
+
+```dart
+List<Product> allProducts = await YouCan.instance.products.all();
+```
+
+Yep, only one line to get all of them as a `List<Product>` and every `Product` object will contain a product data from your store that you can use.
+
+Now let's say you wanted to search over them, you can simply create a new products query using `search()` then call `all()` like this:
+
+```dart
+List<Product> searchedProducts = await YouCan.instance.products.search("product 1").all();
+```

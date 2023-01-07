@@ -1,0 +1,62 @@
+---
+sidebar_position: 8
+---
+
+# Error Handling
+
+Well, there is some points about error and the way to handing them that you should know and be aware of when using this library since it will leads you to inform your users when something went wrong.
+
+## Exception when calling the `all()` and `one()` on queries.
+
+There is two exceptions that you can catch when using the `all()` and `one()` :
+
+### NotFoundException
+
+Will be throw if the target query response don't exists, not found ( when a **400** status code is got )
+Example:
+
+```
+try {
+  List<Products> categoryProducts = await YouCan.instance.categories.category("WRONG CATEGORY ID").products.all();
+} on NotFoundException catch (e) {
+  print(e.message);
+} catch (e){
+  print(e);
+}
+```
+
+In this example, we've put a wrong category id in the `category()`method, this will lead directly to throw an `NotFoundException` since there is category found with that id,and you can catch this easily with a `try catch` like above.
+
+### ServiceNotAvailable
+
+Will be thrown when the YouCan service is unavailable ( when a **500** status code is got )
+
+```
+try {
+  List<Products> categoryProducts = await YouCan.instance.products.all();
+} on ServiceNotAvailable catch (e) {
+  print(e.message);
+} catch (e){
+  print(e);
+}
+```
+
+We don't own and we don't have any kind of access to the YouCan server, if the server goes down as example and you tried to make a request, it will fail and a `ServiceNotAvailable` will be thrown, which you can catch like above.
+
+<br />
+
+You can use this snippet to make request and handle possible exceptions :
+
+```dart
+try {
+  final response = await YouCan.instance.products.all();
+} on NotFoundException catch(e) {
+  /*...*/
+} on ServiceNotAvailable catch(e) {
+  /*...*/
+} catch(e) {
+  /*...*/
+}
+```
+
+# Error Handling
