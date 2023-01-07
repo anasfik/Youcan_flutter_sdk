@@ -5,6 +5,7 @@ import '../core/exception/store_link_not_found.dart';
 import 'categories/categories.dart';
 import 'contact/contact.dart';
 import 'products/products.dart';
+import 'store/store.dart';
 
 export 'categories/categories.dart';
 
@@ -17,6 +18,9 @@ class YouCan {
 
   /// The singleton instance of [YouCan].
   static YouCan get instance => _instance;
+
+  /// The public store instance, use this when you want to access the store informations api.
+  Store get store => Store();
 
   /// The public products instance, use this when you want to access the products api.
   Products get products => Products();

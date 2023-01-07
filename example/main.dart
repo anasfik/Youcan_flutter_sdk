@@ -89,9 +89,13 @@ void main() async {
   //   ),
   // );
 
-  final orders = await YouCan.instance.customers.orders(
-    userToken:
-        "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczpcL1wvZ2VvcmdlbmEuc2hvcFwvYXBpXC9jdXN0b21lcnNcL2xvZ2luIiwiaWF0IjoxNjczMDQwNDI0LCJleHAiOjE2ODA4MTY0MjQsIm5iZiI6MTY3MzA0MDQyNCwianRpIjoiVTRkc1VUUldndU8yM1EydyIsInN1YiI6IjIzNDllMWNiLTMwMzAtNDkxZS05YzVmLTY3ZmEyOGZlMjJkMyIsInBydiI6IjJmN2RmOWEzZWFhZDEyZTAxODY5MWU1YWI0OWI5MzViYmQ2NDMxNTUifQ.s9KD84uw3giibuURbkJiHcbx-A97u5mae3pYFU5cQms",
-  );
-  print(orders);
+  // final orders = await YouCan.instance.customers.orders(
+  //   userToken:
+  //       "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczpcL1wvZ2VvcmdlbmEuc2hvcFwvYXBpXC9jdXN0b21lcnNcL2xvZ2luIiwiaWF0IjoxNjczMDQwNDI0LCJleHAiOjE2ODA4MTY0MjQsIm5iZiI6MTY3MzA0MDQyNCwianRpIjoiVTRkc1VUUldndU8yM1EydyIsInN1YiI6IjIzNDllMWNiLTMwMzAtNDkxZS05YzVmLTY3ZmEyOGZlMjJkMyIsInBydiI6IjJmN2RmOWEzZWFhZDEyZTAxODY5MWU1YWI0OWI5MzViYmQ2NDMxNTUifQ.s9KD84uw3giibuURbkJiHcbx-A97u5mae3pYFU5cQms",
+  // );
+  // print(orders);
+
+  final storeInfo = await YouCan.instance.store.allInformations();
+  print(storeInfo.currency);
+  print(storeInfo.name);
 }
