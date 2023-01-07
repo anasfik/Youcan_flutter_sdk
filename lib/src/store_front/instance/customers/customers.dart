@@ -61,6 +61,7 @@ class Customers with RequestsClient implements CustomersBase {
     );
   }
 
+  /// This should be used to get the authenticated customer's orders.
   Future<List<Order>> orders({
     required String userToken,
   }) async {
