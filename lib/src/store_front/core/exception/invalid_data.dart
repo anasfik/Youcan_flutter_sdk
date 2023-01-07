@@ -1,13 +1,13 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 class InvalidDataException implements Exception {
   final String message;
-  final InvalidDataExceptionMeta meta;
+  final InvalidDataExceptionMeta _meta;
   late final String reason;
 
-  InvalidDataException(this.message, this.meta) {
-    reason = meta.extractedReasonsOfException.isEmpty
+  InvalidDataException(this.message, this._meta) {
+    reason = _meta.extractedReasonsOfException.isEmpty
         ? "No reason was provided."
-        : meta.extractedReasonsOfException.first;
+        : _meta.extractedReasonsOfException.first;
   }
 
   @override
@@ -23,8 +23,7 @@ class InvalidDataExceptionMeta {
   });
 
   factory InvalidDataExceptionMeta.fromMap(Map<String, dynamic> map) {
-    List<List<dynamic>> fieldsReasons =
-        map.values.toList() as List<List<dynamic>>;
+    List fieldsReasons = map.values.toList();
 
     List<String> reasons = fieldsReasons
         .map(
