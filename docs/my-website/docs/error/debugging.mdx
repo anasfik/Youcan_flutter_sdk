@@ -1,0 +1,22 @@
+---
+sidebar_position: 2
+---
+
+# Debugging
+
+You can always check the api endpoint that the data will be requested from before making the actual call, by accessing the `endPoint` member on the query like this:
+
+```dart
+// This is the query
+final searchQuery = YouCan.instance.products.search("Product 1");
+
+// here we get the endpoint where the data will be requested
+String productsEndPoint = searchQuery.endPoint; // https://YOURSTORELINK.com/products?q=Product 1
+
+// and here we make the request on the query and get the actual data from store
+List<Product> searchedProducts = await searchQuery.all();
+```
+
+:::note
+This is valid on almost every other types of query.
+:::

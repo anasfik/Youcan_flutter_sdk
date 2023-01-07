@@ -1,12 +1,10 @@
 ---
-sidebar_position: 8
+sidebar_position: 1
 ---
 
 # Error Handling
 
-Well, there is some points about error and the way to handing them that you should know and be aware of when using this library since it will leads you to inform your users when something went wrong.
-
-## Exception when calling the `all()` and `one()` on queries.
+## Making all() and one() requests
 
 There is two exceptions that you can catch when using the `all()` and `one()` :
 
@@ -59,4 +57,29 @@ try {
 }
 ```
 
-# Error Handling
+<br />
+## Making request methods that requires inputs
+
+On the other hands, when you call methods that takes arguments and behave to update, add something to your store such as the `login()`, `createCustomer()`, `updateCustomerAccount()`..., there is some exceptions that you might want to aware of:
+
+### InvalidDataException
+
+Will be thrown when a field value is invalid to be used to complete the request, as example if wa wanted to update the customer account, we will use the `updateCustomerAccount()`, right? :
+
+```
+try {
+  List<Products> categoryProducts = await YouCan.instance.customers.updateCustomerAccount(
+    userTokeb: "CORRECT USER TOKEN",
+    newUserData: NewUserData(
+       email: "Text@", // not valid email
+      ),
+    );
+} on InvalidDataException catch (e) {
+  print(e.message);
+  print(e.reason); //
+} catch (e){
+  print(e);
+}
+```
+
+Now with this, when the code is executed, the `InvalidDataException` will be thrown because the email we put is invalid, you can catch it and get the reason exactly why it's thrown to fix it.
