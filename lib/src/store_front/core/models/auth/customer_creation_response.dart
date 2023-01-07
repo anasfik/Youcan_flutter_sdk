@@ -83,14 +83,14 @@ class CustomerCreationResponse {
 }
 
 class CustomerLinks {
-  final String edit;
+  final String? edit;
 
   CustomerLinks({
     required this.edit,
   });
 
   factory CustomerLinks.fromJson(Map<String, dynamic> json) => CustomerLinks(
-        edit: json["edit"] == null ? null : json["edit"],
+        edit: json["edit"],
       );
 
   Map<String, dynamic> toJson() => {

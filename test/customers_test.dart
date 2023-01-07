@@ -2,7 +2,7 @@ import 'package:test/scaffolding.dart';
 import 'package:test/test.dart';
 import 'package:youcan_flutter_sdk/src/store_front/core/models/auth/customer_creation_response.dart';
 import 'package:youcan_flutter_sdk/src/store_front/core/models/auth/optional_user_informations.dart';
-import 'package:youcan_flutter_sdk/src/store_front/core/models/review/user_info.dart';
+import 'package:youcan_flutter_sdk/src/store_front/core/models/auth/user_info.dart';
 import 'package:youcan_flutter_sdk/youcan_flutter_sdk.dart';
 
 import 'constants.dart';

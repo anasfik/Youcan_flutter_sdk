@@ -6,6 +6,15 @@ class StoreInformations {
   Currency? currency;
   String? logo;
 
+  @override
+  int get hashCode {
+    return slug.hashCode ^
+        name.hashCode ^
+        email.hashCode ^
+        currency.hashCode ^
+        logo.hashCode;
+  }
+
   StoreInformations({
     this.slug,
     this.name,
@@ -46,20 +55,14 @@ class StoreInformations {
         other.currency == currency &&
         other.logo == logo;
   }
-
-  @override
-  int get hashCode {
-    return slug.hashCode ^
-        name.hashCode ^
-        email.hashCode ^
-        currency.hashCode ^
-        logo.hashCode;
-  }
 }
 
 class Currency {
   String? code;
   String? symbol;
+
+  @override
+  int get hashCode => code.hashCode ^ symbol.hashCode;
 
   Currency({
     this.code,
@@ -82,9 +85,6 @@ class Currency {
 
     return other.code == code && other.symbol == symbol;
   }
-
-  @override
-  int get hashCode => code.hashCode ^ symbol.hashCode;
 
   @override
   String toString() => 'Currency(code: $code, symbol: $symbol)';

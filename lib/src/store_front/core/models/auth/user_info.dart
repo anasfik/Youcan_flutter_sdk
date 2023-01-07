@@ -1,17 +1,17 @@
 class CustomerAccountInformations {
-  final String? id;
-  final String? firstName;
-  final String? lastName;
-  final String? fullName;
-  final String? email;
-  final String? avatar;
-  final String? phone;
-  final String? country;
-  final String? region;
-  final String? city;
-  final String? notes;
-  final String? createdAt;
-  final String? updatedAt;
+  String? id;
+  String? firstName;
+  String? lastName;
+  String? fullName;
+  String? email;
+  String? avatar;
+  String? phone;
+  String? country;
+  String? region;
+  String? city;
+  String? notes;
+  String? createdAt;
+  String? updatedAt;
 
   @override
   int get hashCode {
@@ -31,19 +31,19 @@ class CustomerAccountInformations {
   }
 
   CustomerAccountInformations({
-    required this.id,
-    required this.firstName,
-    required this.lastName,
-    required this.fullName,
-    required this.email,
-    required this.avatar,
-    required this.phone,
-    required this.country,
-    required this.region,
-    required this.city,
-    required this.notes,
-    required this.createdAt,
-    required this.updatedAt,
+    this.id,
+    this.firstName,
+    this.lastName,
+    this.fullName,
+    this.email,
+    this.avatar,
+    this.phone,
+    this.country,
+    this.region,
+    this.city,
+    this.notes,
+    this.createdAt,
+    this.updatedAt,
   });
   factory CustomerAccountInformations.fromJson(Map<String, dynamic> json) =>
       CustomerAccountInformations(

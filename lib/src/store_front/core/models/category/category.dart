@@ -2,23 +2,23 @@
 import 'package:collection/collection.dart';
 
 class Category {
-  final String id;
-  final String name;
-  final String image;
-  final String slug;
-  final bool showOnCollection;
-  final String publicUrl;
-  final String description;
-  final bool hasParent;
-  final dynamic parentId;
-  final bool isDefault;
-  final Images images;
-  final int depth;
-  final Meta meta;
-  final DateTime createdAt;
-  final DateTime updatedAt;
-  final dynamic deletedAt;
-  final List<dynamic> parent;
+  final String? id;
+  final String? name;
+  final String? image;
+  final String? slug;
+  final bool? showOnCollection;
+  final String? publicUrl;
+  final String? description;
+  final bool? hasParent;
+  final dynamic? parentId;
+  final bool? isDefault;
+  final Images? images;
+  final int? depth;
+  final Meta? meta;
+  final String? createdAt;
+  final String? updatedAt;
+  final dynamic? deletedAt;
+  final List<dynamic>? parent;
 
   @override
   int get hashCode {
@@ -75,8 +75,8 @@ class Category {
         images: Images.fromJson(json["images"]),
         depth: json["depth"],
         meta: Meta.fromJson(json["meta"]),
-        createdAt: DateTime.parse(json["created_at"]),
-        updatedAt: DateTime.parse(json["updated_at"]),
+        createdAt: json["created_at"],
+        updatedAt: json["updated_at"],
         deletedAt: json["deleted_at"],
         parent: List<dynamic>.from(json["parent"].map((x) => x)),
       );
@@ -92,13 +92,13 @@ class Category {
         "has_parent": hasParent,
         "parent_id": parentId,
         "is_default": isDefault,
-        "images": images.toJson(),
+        "images": images?.toJson(),
         "depth": depth,
-        "meta": meta.toJson(),
-        "created_at": createdAt.toIso8601String(),
-        "updated_at": updatedAt.toIso8601String(),
+        "meta": meta?.toJson(),
+        "created_at": createdAt,
+        "updated_at": updatedAt,
         "deleted_at": deletedAt,
-        "parent": List<dynamic>.from(parent.map((x) => x)),
+        "parent": List<dynamic>.from(parent ?? []),
       };
 
   @override
@@ -132,17 +132,17 @@ class Category {
 }
 
 class Images {
+  final String? original;
+  final String? sm;
+  final String? md;
+  final String? lg;
+
   Images({
     required this.original,
     required this.sm,
     required this.md,
     required this.lg,
   });
-
-  final String original;
-  final String sm;
-  final String md;
-  final String lg;
 
   factory Images.fromJson(Map<String, dynamic> json) => Images(
         original: json["original"],
@@ -160,17 +160,17 @@ class Images {
 }
 
 class Meta {
+  final String? title;
+  final String? description;
+  final List<dynamic>? images;
+  final List<dynamic>? imagesUrls;
+
   Meta({
     required this.title,
     required this.description,
     required this.images,
     required this.imagesUrls,
   });
-
-  final String title;
-  final String description;
-  final List<dynamic> images;
-  final List<dynamic> imagesUrls;
 
   factory Meta.fromJson(Map<String, dynamic> json) => Meta(
         title: json["title"],
@@ -182,7 +182,7 @@ class Meta {
   Map<String, dynamic> toJson() => {
         "title": title,
         "description": description,
-        "images": List<dynamic>.from(images.map((x) => x)),
-        "images_urls": List<dynamic>.from(imagesUrls.map((x) => x)),
+        "images": List<dynamic>.from(images ?? []),
+        "images_urls": List<dynamic>.from(imagesUrls ?? []),
       };
 }

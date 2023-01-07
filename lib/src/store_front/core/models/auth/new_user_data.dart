@@ -1,12 +1,12 @@
 class NewUserData {
-  String? email;
-  String? password;
-  String? firstName;
-  String? lastName;
-  String? country;
-  String? region;
-  String? city;
-  String? notes;
+  final String? email;
+  final String? password;
+  final String? firstName;
+  final String? lastName;
+  final String? country;
+  final String? region;
+  final String? city;
+  final String? notes;
 
   @override
   int get hashCode {
@@ -21,14 +21,14 @@ class NewUserData {
   }
 
   NewUserData({
-    this.email,
-    this.password,
-    this.firstName,
-    this.lastName,
-    this.country,
-    this.region,
-    this.city,
-    this.notes,
+    required this.email,
+    required this.password,
+    required this.firstName,
+    required this.lastName,
+    required this.country,
+    required this.region,
+    required this.city,
+    required this.notes,
   });
 
   @override

@@ -60,9 +60,11 @@ class Order {
             : List<dynamic>.from(json["refunds"]!.map((x) => x)),
         variants: json["variants"] == null
             ? []
-            : List<VariantElement?>.from(json["variants"]!.map(
-                (x) => VariantElement.fromJson(x),
-              )),
+            : List<VariantElement?>.from(
+                json["variants"]!.map(
+                  (x) => VariantElement.fromJson(x),
+                ),
+              ),
       );
 
   Map<String, dynamic> toJson() => {
@@ -72,7 +74,7 @@ class Order {
         "total": total,
         "notes": notes,
         "status": status,
-        "tags": tags == null ? [] : List<dynamic>.from(tags!.map((x) => x)),
+        "tags": List<dynamic>.from(tags ?? []),
         "extra_fields": extraFields,
         "is_refunded_by_platform": isRefundedByPlatform,
         "platform_fee": platformFee,
@@ -81,11 +83,8 @@ class Order {
         "links": links,
         "payment": payment,
         "shipping": shipping,
-        "refunds":
-            refunds == null ? [] : List<dynamic>.from(refunds!.map((x) => x)),
-        "variants": variants == null
-            ? []
-            : List<dynamic>.from(variants!.map((x) => x!.toJson())),
+        "refunds": List<dynamic>.from(refunds ?? []),
+        "variants": List<dynamic>.from(variants ?? []),
       };
 }
 

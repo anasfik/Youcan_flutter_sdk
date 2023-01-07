@@ -7,7 +7,7 @@ import 'package:youcan_flutter_sdk/src/store_front/core/api_links/endpoints.dart
 import 'package:youcan_flutter_sdk/src/store_front/core/exception/unauthorized_exception.dart';
 import 'package:youcan_flutter_sdk/src/store_front/http_requests/http_requests.dart';
 
-import '../../../core/models/review/user_info.dart';
+import '../../../core/models/auth/user_info.dart';
 import 'package:http/http.dart' as http;
 
 extension CustomerAccountExtension on HttpRequests {

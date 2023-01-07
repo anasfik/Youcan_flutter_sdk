@@ -11,7 +11,7 @@ import 'package:youcan_flutter_sdk/src/store_front/instance/customers/extensions
 import '../../core/base/customers_base.dart';
 import '../../core/models/auth/customer_creation_response.dart';
 import '../../core/models/auth/new_user_data.dart';
-import '../../core/models/review/user_info.dart';
+import '../../core/models/auth/user_info.dart';
 
 class Customers with RequestsClient implements CustomersBase {
   @override

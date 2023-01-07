@@ -2,13 +2,13 @@
 import 'package:collection/collection.dart';
 
 class Review {
-  final String id;
-  final int ratings;
-  final String firstName;
-  final String lastName;
-  final String content;
-  final List<String> imagesUrls;
-  final DateTime createdAt;
+  String? id;
+  int? ratings;
+  String? firstName;
+  String? lastName;
+  String? content;
+  List<String>? imagesUrls;
+  String? createdAt;
 
   @override
   int get hashCode {
@@ -22,13 +22,13 @@ class Review {
   }
 
   Review({
-    required this.id,
-    required this.ratings,
-    required this.firstName,
-    required this.lastName,
-    required this.content,
-    required this.imagesUrls,
-    required this.createdAt,
+    this.id,
+    this.ratings,
+    this.firstName,
+    this.lastName,
+    this.content,
+    this.imagesUrls,
+    this.createdAt,
   });
 
   factory Review.fromJson(Map<String, dynamic> json) => Review(
@@ -38,7 +38,7 @@ class Review {
         lastName: json["last_name"],
         content: json["content"],
         imagesUrls: List<String>.from(json["images_urls"].map((x) => x)),
-        createdAt: DateTime.parse(json["created_at"]),
+        createdAt: json["created_at"],
       );
 
   Map<String, dynamic> toJson() => {
@@ -47,8 +47,8 @@ class Review {
         "first_name": firstName,
         "last_name": lastName,
         "content": content,
-        "images_urls": List<dynamic>.from(imagesUrls.map((x) => x)),
-        "created_at": createdAt.toIso8601String(),
+        "images_urls": List<dynamic>.from((imagesUrls ?? []).map((x) => x)),
+        "created_at": createdAt,
       };
 
   @override

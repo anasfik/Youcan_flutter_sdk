@@ -7,12 +7,12 @@ class OptionalUserInformations {
   final String? notes;
 
   OptionalUserInformations({
-    this.firstName,
-    this.lastName,
-    this.city,
-    this.country,
-    this.notes,
-    this.region,
+    required this.firstName,
+    required this.lastName,
+    required this.city,
+    required this.country,
+    required this.notes,
+    required this.region,
   });
 
   Map<String, dynamic> toMap() {

@@ -5,19 +5,19 @@ import 'package:youcan_flutter_sdk/src/store_front/instance/reviews/reviews.dart
 
 class Product with RequestsClient {
   final String id;
-  final String name;
-  final String slug;
-  final String publicUrl;
-  final String thumbnail;
-  final String description;
-  final double price;
-  final dynamic compareAtPrice;
-  final bool hasVariants;
-  final int variantsCount;
-  final List<VariantOption> variantOptions;
-  final bool trackInventory;
-  final ProductMeta meta;
-  final List<Image> images;
+  final String? name;
+  final String? slug;
+  final String? publicUrl;
+  final String? thumbnail;
+  final String? description;
+  final double? price;
+  final dynamic? compareAtPrice;
+  final bool? hasVariants;
+  final int? variantsCount;
+  final List<VariantOption>? variantOptions;
+  final bool? trackInventory;
+  final ProductMeta? meta;
+  final List<Image>? images;
 
   Reviews get reviews => Reviews(productId: id);
 
@@ -41,19 +41,19 @@ class Product with RequestsClient {
 
   Product({
     required this.id,
-    required this.name,
-    required this.slug,
-    required this.publicUrl,
-    required this.thumbnail,
-    required this.description,
-    required this.price,
-    required this.compareAtPrice,
-    required this.hasVariants,
-    required this.variantsCount,
-    required this.variantOptions,
-    required this.trackInventory,
-    required this.meta,
-    required this.images,
+    this.name,
+    this.slug,
+    this.publicUrl,
+    this.thumbnail,
+    this.description,
+    this.price,
+    this.compareAtPrice,
+    this.hasVariants,
+    this.variantsCount,
+    this.variantOptions,
+    this.trackInventory,
+    this.meta,
+    this.images,
   });
 
   factory Product.fromJson(Map<String, dynamic> json) => Product(
@@ -68,7 +68,10 @@ class Product with RequestsClient {
         hasVariants: json["has_variants"],
         variantsCount: json["variants_count"],
         variantOptions: List<VariantOption>.from(
-            json["variant_options"].map((x) => VariantOption.fromJson(x))),
+          json["variant_options"].map(
+            (x) => VariantOption.fromJson(x),
+          ),
+        ),
         trackInventory: json["track_inventory"],
         meta: ProductMeta.fromJson(json["meta"]),
         images: List<Image>.from(json["images"].map((x) => Image.fromJson(x))),
@@ -86,10 +89,10 @@ class Product with RequestsClient {
         "has_variants": hasVariants,
         "variants_count": variantsCount,
         "variant_options":
-            List<dynamic>.from(variantOptions.map((x) => x.toJson())),
+            List<dynamic>.from((variantOptions ?? []).map((x) => x.toJson())),
         "track_inventory": trackInventory,
-        "meta": meta.toJson(),
-        "images": List<dynamic>.from(images.map((x) => x.toJson())),
+        "meta": meta?.toJson(),
+        "images": List<dynamic>.from((images ?? []).map((x) => x.toJson())),
       };
 
   @override
@@ -120,12 +123,12 @@ class Product with RequestsClient {
 }
 
 class Image {
-  final String id;
-  final String name;
-  final int type;
-  final String url;
-  final int order;
-  final Variations variations;
+  String? id;
+  String? name;
+  int? type;
+  String? url;
+  int? order;
+  Variations? variations;
 
   @override
   int get hashCode {
@@ -138,12 +141,12 @@ class Image {
   }
 
   Image({
-    required this.id,
-    required this.name,
-    required this.type,
-    required this.url,
-    required this.order,
-    required this.variations,
+    this.id,
+    this.name,
+    this.type,
+    this.url,
+    this.order,
+    this.variations,
   });
 
   factory Image.fromJson(Map<String, dynamic> json) => Image(
@@ -161,7 +164,7 @@ class Image {
         "type": type,
         "url": url,
         "order": order,
-        "variations": variations.toJson(),
+        "variations": variations?.toJson(),
       };
 
   @override
@@ -251,17 +254,17 @@ class ProductMeta {
 }
 
 class VariantOption {
-  final String name;
-  final int type;
-  final List<String> values;
+  String? name;
+  int? type;
+  List<String>? values;
 
   @override
   int get hashCode => name.hashCode ^ type.hashCode ^ values.hashCode;
 
   VariantOption({
-    required this.name,
-    required this.type,
-    required this.values,
+    this.name,
+    this.type,
+    this.values,
   });
 
   factory VariantOption.fromJson(Map<String, dynamic> json) => VariantOption(
@@ -273,7 +276,7 @@ class VariantOption {
   Map<String, dynamic> toJson() => {
         "name": name,
         "type": type,
-        "values": List<dynamic>.from(values.map((x) => x)),
+        "values": List<dynamic>.from((values ?? []).map((x) => x)),
       };
 
   @override
