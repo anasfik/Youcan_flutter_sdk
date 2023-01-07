@@ -28,13 +28,20 @@ extension LoginExtension on HttpRequests {
       },
     );
 
-    if (response.statusCode == 200) {
-      final body = response.body;
-      final mapBody = jsonDecode(body);
+    final body = response.body;
+    final mapBody = jsonDecode(body);
 
+    if (response.statusCode == 200) {
       return mapBody["token"];
     } else if (response.statusCode == 422) {
-      throw InvalidDataException("The given data was invalid.");
+      final invalidationMessage =
+          mapBody["detail"] ?? "The given data was invalid.";
+      final metaBody = mapBody["meta"] ?? {};
+
+      throw InvalidDataException(
+        invalidationMessage,
+        InvalidDataExceptionMeta.fromMap(metaBody),
+      );
     } else {
       throw Exception("Error: ${response.statusCode}");
     }

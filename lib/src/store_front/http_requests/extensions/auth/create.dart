@@ -41,14 +41,18 @@ extension CreateRequestExtension on HttpRequests {
       body: createCustomerBody,
     );
 
+    final body = response.body;
+    Map<String, dynamic> mapBody = jsonDecode(body) as Map<String, dynamic>;
     if (response.statusCode == 200 || response.statusCode == 201) {
-      final body = response.body;
-      Map<String, dynamic> mapBody = jsonDecode(body) as Map<String, dynamic>;
-
       return CustomerCreationResponse.fromJson(mapBody);
     } else if (response.statusCode == 422) {
+      final invalidationMessage =
+          mapBody["detail"] ?? "The given data was invalid.";
+      final metaBody = mapBody["meta"] ?? {};
+
       throw InvalidDataException(
-        "You have entered invalid data, please try again",
+        invalidationMessage,
+        InvalidDataExceptionMeta.fromMap(metaBody),
       );
     } else if (response.statusCode == 401 || response.statusCode == 403) {
       throw UnauthorizedException("Unauthorized");
