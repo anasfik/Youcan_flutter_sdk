@@ -36,10 +36,8 @@ const config = {
         docs: {
           routeBasePath: "/",
           sidebarPath: require.resolve("./sidebars.js"),
-          // Please change this to your repo.
-          // Remove this to remove the "edit this page" links.
           editUrl:
-            "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/",
+            "https://github.com/anasfik/Youcan_flutter_sdk/tree/main/docs/my-website",
         },
         blog: false,
         theme: {
@@ -63,10 +61,10 @@ const config = {
             type: "doc",
             docId: "intro",
             position: "left",
-            label: "Documenttaion",
+            label: "Documentation",
           },
           {
-            href: "https://github.com/facebook/docusaurus",
+            href: "https://github.com/anasfik/Youcan_Flutter_SDK",
             label: "GitHub",
             position: "right",
           },

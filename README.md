@@ -44,9 +44,29 @@ void main() {
 }
 ```
 
+### Authentication
+
+You can authenticate your customers to your store by calling the `login()` and `create()` methods on the customers instance like this:
+
+```dart
+// Login
+String loginToken = await YouCan.instance.customers.login(
+        email: "YOUR EMAIL HERE",
+        password: "YOUR PASSWORD HERE",
+      );
+
+// Sign Up.
+CustomerCreationResponse customerCreationResult = await YouCan.instance.customers.create(
+        email: "YOUR EMAIL HERE",
+        password: "YOUR PASSWORD HERE",
+        confirmPassword: "THE PASSWORD CONFIRMATION HERE",
+      );
+
+```
+
 ### Get Products
 
-To get a `List<Product>` with all your store's products:
+To get a List<Product>` with all your store's products:
 
 ```dart
   List<Product> products = await YouCan.instance.products.all();
