@@ -1,7 +1,7 @@
 import 'package:test/test.dart';
 import 'package:youcan_flutter_sdk/src/store_front/core/models/review/review.dart';
 import 'package:youcan_flutter_sdk/src/store_front/instance/reviews/reviews.dart';
-import 'package:youcan_flutter_sdk/src/store_front/instance/youcan_instance.dart';
+import 'package:youcan_flutter_sdk/src/store_front/instance/you_can_instance.dart';
 
 import 'constants.dart';
 

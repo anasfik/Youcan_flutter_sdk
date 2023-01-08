@@ -11,7 +11,7 @@ import 'package:youcan_flutter_sdk/src/store_front/instance/pages/extensions/all
 import 'package:youcan_flutter_sdk/src/store_front/instance/pages/extensions/limit.dart';
 import 'package:youcan_flutter_sdk/src/store_front/instance/pages/extensions/search.dart';
 
-import '../../../../youcan_flutter_sdk.dart';
+import '../../../../you_can_flutter_sdk.dart';
 import '../../core/base/pages_base.dart';
 import '../../core/models/page/page.dart';
 

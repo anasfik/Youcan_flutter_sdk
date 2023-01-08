@@ -4,7 +4,7 @@ import 'package:youcan_flutter_sdk/src/store_front/core/api_links/reviews_api_li
 import 'package:youcan_flutter_sdk/src/store_front/instance/reviews/extensions/limitExtension.dart';
 import 'package:youcan_flutter_sdk/src/store_front/instance/reviews/extensions/reviews_extension.dart';
 
-import '../../../../youcan_flutter_sdk.dart';
+import '../../../../you_can_flutter_sdk.dart';
 import '../../core/api_links/endpoints.dart';
 import '../../core/base/reviews_base.dart';
 import '../../core/mixins/requests_client.dart';

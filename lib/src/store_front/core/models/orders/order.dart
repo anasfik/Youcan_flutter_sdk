@@ -331,7 +331,7 @@ class VariantVariant {
   VariantImage? image;
   String? createdAt;
   String? updatedAt;
-  Product? product;
+  OrderProduct? product;
 
   VariantVariant({
     this.id,
@@ -417,7 +417,7 @@ class VariantImage {
       };
 }
 
-class Product {
+class OrderProduct {
   String? id;
   String? name;
   String? slug;
@@ -433,14 +433,14 @@ class Product {
   List<dynamic>? variantOptions;
   int? inventory;
   bool? trackInventory;
-  Meta? meta;
+  OrderMeta? meta;
   AdvancedOptions? advancedOptions;
   String? createdAt;
   String? updatedAt;
   bool? deletedAt;
-  List<ProductImage?>? images;
+  List<OrderProductImage?>? images;
 
-  Product({
+  OrderProduct({
     this.id,
     this.name,
     this.slug,
@@ -464,7 +464,7 @@ class Product {
     this.images,
   });
 
-  factory Product.fromJson(Map<String, dynamic> json) => Product(
+  factory OrderProduct.fromJson(Map<String, dynamic> json) => OrderProduct(
         id: json["id"],
         name: json["name"],
         slug: json["slug"],
@@ -489,8 +489,8 @@ class Product {
         deletedAt: json["deleted_at"],
         images: json["images"] == null
             ? []
-            : List<ProductImage?>.from(json["images"]!.map(
-                (x) => ProductImage.fromJson(x),
+            : List<OrderProductImage?>.from(json["images"]!.map(
+                (x) => OrderProductImage.fromJson(x),
               )),
       );
 
@@ -525,30 +525,30 @@ class Product {
 
 class AdvancedOptions {
   bool? enabled;
-  List<dynamic>? relatedProducts;
+  List<dynamic>? relatedOrderProducts;
 
   AdvancedOptions({
     this.enabled,
-    this.relatedProducts,
+    this.relatedOrderProducts,
   });
 
   factory AdvancedOptions.fromJson(Map<String, dynamic> json) =>
       AdvancedOptions(
         enabled: json["enabled"],
-        relatedProducts: json["related_products"] == null
+        relatedOrderProducts: json["related_products"] == null
             ? []
             : List<dynamic>.from(json["related_products"]!.map((x) => x)),
       );
 
   Map<String, dynamic> toJson() => {
         "enabled": enabled,
-        "related_products": relatedProducts == null
+        "related_products": relatedOrderProducts == null
             ? []
-            : List<dynamic>.from(relatedProducts!.map((x) => x)),
+            : List<dynamic>.from(relatedOrderProducts!.map((x) => x)),
       };
 }
 
-class ProductImage {
+class OrderProductImage {
   String? id;
   String? name;
   int? type;
@@ -556,7 +556,7 @@ class ProductImage {
   int? order;
   ImageVariations? variations;
 
-  ProductImage({
+  OrderProductImage({
     this.id,
     this.name,
     this.type,
@@ -565,7 +565,8 @@ class ProductImage {
     this.variations,
   });
 
-  factory ProductImage.fromJson(Map<String, dynamic> json) => ProductImage(
+  factory OrderProductImage.fromJson(Map<String, dynamic> json) =>
+      OrderProductImage(
         id: json["id"],
         name: json["name"],
         type: json["type"],
@@ -613,24 +614,24 @@ class ImageVariations {
       };
 }
 
-class Meta {
+class OrderMeta {
   String? title;
   String? description;
-  List<MetaImage?>? images;
+  List<OrderMetaImage?>? images;
 
-  Meta({
+  OrderMeta({
     this.title,
     this.description,
     this.images,
   });
 
-  factory Meta.fromJson(Map<String, dynamic> json) => Meta(
+  factory OrderMeta.fromJson(Map<String, dynamic> json) => OrderMeta(
         title: json["title"],
         description: json["description"],
         images: json["images"] == null
             ? []
-            : List<MetaImage?>.from(
-                json["images"]!.map((x) => MetaImage.fromJson(x))),
+            : List<OrderMetaImage?>.from(
+                json["images"]!.map((x) => OrderMetaImage.fromJson(x))),
       );
 
   Map<String, dynamic> toJson() => {
@@ -642,16 +643,16 @@ class Meta {
       };
 }
 
-class MetaImage {
+class OrderMetaImage {
   String? path;
   String? link;
 
-  MetaImage({
+  OrderMetaImage({
     this.path,
     this.link,
   });
 
-  factory MetaImage.fromJson(Map<String, dynamic> json) => MetaImage(
+  factory OrderMetaImage.fromJson(Map<String, dynamic> json) => OrderMetaImage(
         path: json["path"],
         link: json["link"],
       );

@@ -12,7 +12,7 @@ import '../../core/api_links/products_api_link_builder/products_api_link_builder
 import '../../core/base/products_base.dart';
 import '../../core/mixins/requests_client.dart';
 import '../../core/models/product/product.dart';
-import '../youcan_instance.dart';
+import '../you_can_instance.dart';
 
 class Products with RequestsClient implements ProductsBase<Product> {
   /// This is the page number of the products.

@@ -1,6 +1,6 @@
 import 'package:youcan_flutter_sdk/src/store_front/core/exception/invalid_data.dart';
 import 'package:youcan_flutter_sdk/src/store_front/core/models/auth/new_user_data.dart';
-import 'package:youcan_flutter_sdk/youcan_flutter_sdk.dart';
+import 'package:youcan_flutter_sdk/you_can_flutter_sdk.dart';
 
 void main() async {
   YouCan.instance.storeLink = 'https://georgena.shop';

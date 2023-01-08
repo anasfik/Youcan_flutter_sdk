@@ -28,7 +28,7 @@ extension UpdateAccExtension on HttpRequests {
         'Content-Type': 'application/json',
         "accept": "application/json",
       },
-      body: newUserData.toPersonalizedMap(),
+      body: jsonEncode(newUserData.toPersonalizedMap()),
     );
     final body = jsonDecode(response.body);
 

@@ -1,6 +1,6 @@
 import 'package:test/test.dart';
 import 'package:youcan_flutter_sdk/src/store_front/instance/contact/contact.dart';
-import 'package:youcan_flutter_sdk/src/store_front/instance/youcan_instance.dart';
+import 'package:youcan_flutter_sdk/src/store_front/instance/you_can_instance.dart';
 
 import 'constants.dart';
 

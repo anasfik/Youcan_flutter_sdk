@@ -2,7 +2,7 @@
 import 'package:collection/collection.dart';
 
 class Category {
-  final String? id;
+  final String id;
   final String? name;
   final String? image;
   final String? slug;
@@ -12,9 +12,9 @@ class Category {
   final bool? hasParent;
   final dynamic? parentId;
   final bool? isDefault;
-  final Images? images;
+  final CategoryImages? images;
   final int? depth;
-  final Meta? meta;
+  final CategoryMeta? meta;
   final String? createdAt;
   final String? updatedAt;
   final dynamic? deletedAt;
@@ -72,9 +72,11 @@ class Category {
         hasParent: json["has_parent"],
         parentId: json["parent_id"],
         isDefault: json["is_default"],
-        images: Images.fromJson(json["images"]),
+        images: json["images"] is Map
+            ? CategoryImages.fromJson(json["images"])
+            : null,
         depth: json["depth"],
-        meta: Meta.fromJson(json["meta"]),
+        meta: CategoryMeta.fromJson(json["meta"]),
         createdAt: json["created_at"],
         updatedAt: json["updated_at"],
         deletedAt: json["deleted_at"],
@@ -131,20 +133,20 @@ class Category {
   }
 }
 
-class Images {
+class CategoryImages {
   final String? original;
   final String? sm;
   final String? md;
   final String? lg;
 
-  Images({
+  CategoryImages({
     required this.original,
     required this.sm,
     required this.md,
     required this.lg,
   });
 
-  factory Images.fromJson(Map<String, dynamic> json) => Images(
+  factory CategoryImages.fromJson(Map<String, dynamic> json) => CategoryImages(
         original: json["original"],
         sm: json["sm"],
         md: json["md"],
@@ -159,20 +161,20 @@ class Images {
       };
 }
 
-class Meta {
+class CategoryMeta {
   final String? title;
   final String? description;
   final List<dynamic>? images;
   final List<dynamic>? imagesUrls;
 
-  Meta({
-    required this.title,
-    required this.description,
-    required this.images,
-    required this.imagesUrls,
+  CategoryMeta({
+    this.title,
+    this.description,
+    this.images,
+    this.imagesUrls,
   });
 
-  factory Meta.fromJson(Map<String, dynamic> json) => Meta(
+  factory CategoryMeta.fromJson(Map<String, dynamic> json) => CategoryMeta(
         title: json["title"],
         description: json["description"],
         images: List<dynamic>.from(json["images"].map((x) => x)),

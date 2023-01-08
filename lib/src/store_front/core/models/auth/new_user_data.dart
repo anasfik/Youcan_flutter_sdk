@@ -21,14 +21,14 @@ class NewUserData {
   }
 
   NewUserData({
-    required this.email,
-    required this.password,
-    required this.firstName,
-    required this.lastName,
-    required this.country,
-    required this.region,
-    required this.city,
-    required this.notes,
+    this.email,
+    this.password,
+    this.firstName,
+    this.lastName,
+    this.country,
+    this.region,
+    this.city,
+    this.notes,
   });
 
   @override

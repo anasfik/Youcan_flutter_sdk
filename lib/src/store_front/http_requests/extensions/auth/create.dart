@@ -48,7 +48,7 @@ extension CreateRequestExtension on HttpRequests {
     } else if (response.statusCode == 422) {
       final invalidationMessage =
           mapBody["detail"] ?? "The given data was invalid.";
-      final metaBody = mapBody["meta"] ?? {};
+      final metaBody = mapBody["meta"]["fields"] ?? {};
 
       throw InvalidDataException(
         invalidationMessage,
