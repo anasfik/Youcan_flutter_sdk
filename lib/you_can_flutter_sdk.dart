@@ -1,4 +1,4 @@
-library youcan_flutter_sdk;
+library you_can_flutter_sdk;
 
 export 'src/store_front/instance/you_can_instance.dart';
 export 'src/store_front/core/exception/exceptions.dart';
