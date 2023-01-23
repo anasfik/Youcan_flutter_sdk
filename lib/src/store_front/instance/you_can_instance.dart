@@ -9,35 +9,79 @@ import 'store/store.dart';
 
 export 'categories/categories.dart';
 
+/// The main class of the [YouCan] package, this is the singleton class that you will use to access the api.
+/// You can access the api using the predefined [instance] of this class.
+/// Example:
+/// ```dart
+/// YouCan.instance
+/// ```
 class YouCan {
   /// Internal singleton instance of [YouCan].
+  /// This is the only instance of [YouCan] that will be used.
+  /// This is a private constructor.
+  /// You can only access the instance using the predefined [instance].
+
   static YouCan _instance = YouCan._();
 
   // The internal store link.
   static String? _internalStoreLink;
 
   /// The singleton instance of [YouCan].
+  /// This is the only instance of [YouCan] that will be used.
+  /// Example:
+  /// ```dart
+  /// YouCan.instance
+  /// ```
   static YouCan get instance => _instance;
 
-  /// The public store instance, use this when you want to access the store informations api.
+  /// The public [store] instance, use this when you want to access the store informations api.
+  /// Example:
+  /// ```dart
+  /// YouCan.instance.store
+  /// ```
   Store get store => Store();
 
-  /// The public products instance, use this when you want to access the products api.
+  /// The public [products] instance, use this when you want to access the products api.
+  /// Example:
+  /// ```dart
+  /// YouCan.instance.products
+  /// ```
   Products get products => Products();
 
-  /// The public categories instance, use this when you want to access the categories api.
+  /// The public [categories] instance, use this when you want to access the categories api.
+  /// Example:
+  /// ```dart
+  /// YouCan.instance.categories
+  /// ```
   Categories get categories => Categories();
 
-  /// The public customers instance, use this when you want to access the customers api.
+  /// The public [customers] instance, use this when you want to access the customers api.
+  /// Example:
+  /// ```dart
+  /// YouCan.instance.customers
+  /// ```
   Customers get customers => Customers();
 
-  /// The public pages instance, use this when you want to access the pages api.
+  /// The public [pages] instance, use this when you want to access the pages api.
+  /// Example:
+  /// ```dart
+  /// YouCan.instance.pages
+  /// ```
   Pages get pages => Pages();
 
-  /// The public contact instance, use this when you want to access the contact api.
+  /// The public [contact] instance, use this when you want to access the contact api.
+  /// Example:
+  /// ```dart
+  /// YouCan.instance.contact
+  /// ```
   Contact get contact => Contact();
 
   /// The public store link, if this is not set, it will throw an exception.
+  /// use this when you want to access the store link.
+  /// Example:
+  /// ```dart
+  /// YouCan.instance.storeLink
+  /// ```
   String get storeLink {
     if (_internalStoreLink == null) {
       throw StoreLinkNotFoundException(
@@ -52,6 +96,11 @@ class YouCan {
   }
 
   /// The public api link of the store.
+  /// use this when you want to access the api link of the store.
+  /// Example:
+  /// ```dart
+  /// YouCan.instance.storeApiLink
+  /// ```
   String get storeApiLink => storeLink.asApi();
 
   set storeLink(String newStoreLink) {
@@ -73,6 +122,7 @@ class YouCan {
 
 // This is a private extension on the api link of the [YouCan] class.
 extension _asApi on String {
+  /// This will return the api link of the store.
   String asApi() {
     return '$this/api';
   }
