@@ -25,8 +25,8 @@ class Products with RequestsClient implements ProductsBase<Product> {
   String? searchQuery;
 
   /// This is the limit query of the products.
-  /// if this is not set, then the products will be from all categories.
-  /// if this is set, then the products will not be limited and will return all the products.
+  /// if this is not set, then the products will not be limited and will return all the products.
+  /// if this is set, the products number will be limited.
   /// Note: the Rest API expose a limit query from tha path of the endpoint, but this is set using the [Iterable.limit] method.
   int? limitQuery;
 

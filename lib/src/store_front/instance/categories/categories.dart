@@ -13,21 +13,27 @@ import '../../core/models/category/category.dart';
 
 import "package:meta/meta.dart";
 
+///
 class Categories with RequestsClient implements CategoriesBase {
-  // This an internal variable used to store the limit query.
+  /// This is the limit query of the catgeories.
+  /// if this is not set, then the categories will not be limited and will return all.
+  /// if this is set, the categories number will be limited.
+  /// Note: the Rest API expose a limit query from tha path of the endpoint, but this is set using the [Iterable.limit] method.
   int? _limitQuery;
 
-  // This is an internal categoryId variable, it's used to store the categoryId, and it's used to access the products api, of the category.
+  /// This is an internal categoryId variable, it's used to store the categoryId, and it's used to access the products api, of the category.
+  /// This is set using the [category] method.
   String? _categoryId;
 
-  // This is an internal instance of [Products], it's used to access the products api.
+  /// This is an internal instance of [Products], it's used to access the products api.
   Products _internalProductsInstance = Products();
 
-  /// This is the products instance of the category, after specifying the category using `category()`, you can use this instance to access the products api.
+  /// This is the products instance of the category, after specifying the category using [category], you can use this instance to access the products api.
+  /// This is an public instance of [Products].
   Products get products => _internalProductsInstance;
 
   /// The limit query is used to limit the number of categories returned from the api, if not specified, the api will return all the categories.
-  /// This is set using the `limit()` method.
+  /// This is set using the [limit] method.
   int? get limitQuery => _limitQuery;
 
   /// This is the endpoint of the api, it's used to access the api.
@@ -37,7 +43,7 @@ class Categories with RequestsClient implements CategoriesBase {
   ///
   /// `https://api.youcan.shop/v1/stores/{store_id}/categories/{category_id}`
   ///
-  /// Now this after we access "/products", it will show the products of that category normally without issues :
+  /// Now this after we access **"/products"***, it will show the products of that category normally without issues :
   ///
   ///  `https://api.youcan.shop/v1/stores/{store_id}/categories/{category_id}/products`
   @override
@@ -50,7 +56,10 @@ class Categories with RequestsClient implements CategoriesBase {
   }
 
   @override
-  int get hashCode => limitQuery.hashCode;
+  int get hashCode =>
+      limitQuery.hashCode ^
+      _categoryId.hashCode ^
+      _internalProductsInstance.hashCode;
 
   set products(Products newProductsInstance) {
     _internalProductsInstance = newProductsInstance;
@@ -60,7 +69,11 @@ class Categories with RequestsClient implements CategoriesBase {
     this._limitQuery,
   ]);
 
-  // This is a factory constructor used to create a new instance of [Categories], and it was designed to not be instantiated outside the [YouCan] class.
+  /// This is a factory constructor used to create a new instance of [Categories], and it was designed to not be instantiated outside the [YouCan] class.
+  /// This is used to access the categories api.
+  /// Note: the api don't allow access to endpoint of just the categories, you need to access it's products.
+  ///
+  /// Give a quick look to [endPoint].
   factory Categories([int? limitQuery]) {
     return Categories._(limitQuery);
   }
@@ -88,7 +101,9 @@ class Categories with RequestsClient implements CategoriesBase {
   bool operator ==(covariant Categories other) {
     if (identical(this, other)) return true;
 
-    return other.limitQuery == limitQuery;
+    return other.limitQuery == limitQuery &&
+        other._categoryId == _categoryId &&
+        other._internalProductsInstance == _internalProductsInstance;
   }
 
   @override
