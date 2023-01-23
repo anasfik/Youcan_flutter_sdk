@@ -13,9 +13,9 @@ import '../../core/models/auth/new_user_data.dart';
 import '../../core/models/auth/user_info.dart';
 
 class Customers with RequestsClient implements CustomersBase {
+  /// Login to the store, this will return a token that can be used in the future requests, or throw exception if the login failed.
+  ///
   @override
-
-  /// Login to the store, this will return a token that will be used in the future requests, or throw exception if the login failed.
   Future<String> login({
     required String email,
     required String password,
@@ -25,7 +25,8 @@ class Customers with RequestsClient implements CustomersBase {
 
   @override
 
-  /// Create a new customer, this will return a token that will be used in the future requests, or throw exception if the creation failed.
+  /// Creates a new customer, this will return a [CustomerCreationResponse] that can be used in the future requests, or throw exception if the creation failed.
+  ///
   Future<CustomerCreationResponse> create({
     required String email,
     required String password,
@@ -40,7 +41,7 @@ class Customers with RequestsClient implements CustomersBase {
     );
   }
 
-  /// This will return a [CustomerAccountInformations] that contains the details informations about the user such it's id, email, name, etc.
+  /// This will return a [CustomerAccountInformations] that contains the details informations about the created customer account such it's id, email, name, etc.
   ///
   /// This throws exception if the request failed.
   Future<CustomerAccountInformations> customerAccount({
@@ -50,6 +51,8 @@ class Customers with RequestsClient implements CustomersBase {
   }
 
   /// This is the global method to update the authenticated customer account informations.
+  /// You need an authenticated [userToken] token to update the account details with.
+  ///
   Future<void> updateCustomerAccount({
     required String userToken,
     required NewUserData newUserData,
@@ -61,6 +64,8 @@ class Customers with RequestsClient implements CustomersBase {
   }
 
   /// This should be used to get the authenticated customer's orders.
+  ///
+  /// You need an authenticated [userToken] token to get the orders with.
   Future<List<Order>> orders({
     required String userToken,
   }) async {
