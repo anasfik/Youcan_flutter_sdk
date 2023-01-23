@@ -1,5 +1,5 @@
 import 'package:test/test.dart';
-import 'package:youcan_flutter_sdk/src/store_front/instance/you_can_instance.dart';
+import 'package:you_can_flutter_sdk/src/store_front/instance/you_can_instance.dart';
 
 import 'constants.dart';
 

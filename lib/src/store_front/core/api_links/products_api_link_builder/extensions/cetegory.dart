@@ -1,4 +1,4 @@
-import 'package:youcan_flutter_sdk/src/store_front/core/api_links/products_api_link_builder/products_api_link_builder.dart';
+import 'package:you_can_flutter_sdk/src/store_front/core/api_links/products_api_link_builder/products_api_link_builder.dart';
 
 extension CategoryExtension on ProductsApiLinkBuilder {
   /// This method is used to add the category to the API link.

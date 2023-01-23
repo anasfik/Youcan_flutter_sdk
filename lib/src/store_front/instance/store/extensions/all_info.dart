@@ -1,4 +1,4 @@
-import 'package:youcan_flutter_sdk/src/store_front/http_requests/extensions/store/all_info.dart';
+import 'package:you_can_flutter_sdk/src/store_front/http_requests/extensions/store/all_info.dart';
 
 import '../../../core/models/store/store_informations.dart';
 import '../store.dart';

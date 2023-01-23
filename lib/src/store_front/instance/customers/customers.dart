@@ -1,12 +1,11 @@
-import 'package:youcan_flutter_sdk/src/store_front/core/mixins/requests_client.dart';
-import 'package:youcan_flutter_sdk/src/store_front/core/models/auth/optional_user_informations.dart';
-import 'package:youcan_flutter_sdk/src/store_front/core/models/orders/order.dart';
-import 'package:youcan_flutter_sdk/src/store_front/http_requests/extensions/auth/login.dart';
-import 'package:youcan_flutter_sdk/src/store_front/instance/customers/extensions/create_extension.dart';
-import 'package:youcan_flutter_sdk/src/store_front/instance/customers/extensions/customer_ccount_extension.dart';
-import 'package:youcan_flutter_sdk/src/store_front/instance/customers/extensions/login.dart';
-import 'package:youcan_flutter_sdk/src/store_front/instance/customers/extensions/orders_extension.dart';
-import 'package:youcan_flutter_sdk/src/store_front/instance/customers/extensions/update.dart';
+import 'package:you_can_flutter_sdk/src/store_front/core/mixins/requests_client.dart';
+import 'package:you_can_flutter_sdk/src/store_front/core/models/auth/optional_user_informations.dart';
+import 'package:you_can_flutter_sdk/src/store_front/core/models/orders/order.dart';
+import 'package:you_can_flutter_sdk/src/store_front/instance/customers/extensions/create_extension.dart';
+import 'package:you_can_flutter_sdk/src/store_front/instance/customers/extensions/customer_ccount_extension.dart';
+import 'package:you_can_flutter_sdk/src/store_front/instance/customers/extensions/login.dart';
+import 'package:you_can_flutter_sdk/src/store_front/instance/customers/extensions/orders_extension.dart';
+import 'package:you_can_flutter_sdk/src/store_front/instance/customers/extensions/update.dart';
 
 import '../../core/base/customers_base.dart';
 import '../../core/models/auth/customer_creation_response.dart';

@@ -1,9 +1,9 @@
 import 'dart:convert';
 
-import 'package:youcan_flutter_sdk/src/store_front/core/api_links/pages_api_link_builder/extensions/endpoint.dart';
-import 'package:youcan_flutter_sdk/src/store_front/core/api_links/pages_api_link_builder/extensions/limit.dart';
-import 'package:youcan_flutter_sdk/src/store_front/core/api_links/pages_api_link_builder/extensions/search.dart';
-import 'package:youcan_flutter_sdk/src/store_front/core/models/page/page.dart';
+import 'package:you_can_flutter_sdk/src/store_front/core/api_links/pages_api_link_builder/extensions/endpoint.dart';
+import 'package:you_can_flutter_sdk/src/store_front/core/api_links/pages_api_link_builder/extensions/limit.dart';
+import 'package:you_can_flutter_sdk/src/store_front/core/api_links/pages_api_link_builder/extensions/search.dart';
+import 'package:you_can_flutter_sdk/src/store_front/core/models/page/page.dart';
 
 import '../../../core/api_links/endpoints.dart';
 import '../../../core/api_links/pages_api_link_builder/Pages_api_link_builder.dart';

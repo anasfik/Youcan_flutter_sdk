@@ -1,14 +1,15 @@
 name: you_can_flutter_sdk
 description: he YouCan E-commerce platform SDK for Flutter/Dart, built for a better developer experience
-version: 1.0.0
-
+version: 1.0.2
+repository: https://github.com/anasfik/Youcan_Flutter_SDK
 environment:
   sdk: ">=2.18.5 <3.0.0"
 
 dependencies:
   dart_code_metrics: ^5.3.0
   http: ^0.13.5
-
+  collection: ^1.17.0
+  meta: ^1.8.0
 dev_dependencies:
   lints: ^2.0.0
   test: ^1.16.0

@@ -1,5 +1,5 @@
-import 'package:youcan_flutter_sdk/src/store_front/core/mixins/requests_client.dart';
-import 'package:youcan_flutter_sdk/src/store_front/http_requests/extensions/contact/send_message.dart';
+import 'package:you_can_flutter_sdk/src/store_front/core/mixins/requests_client.dart';
+import 'package:you_can_flutter_sdk/src/store_front/http_requests/extensions/contact/send_message.dart';
 
 import '../../core/base/contact_base.dart';
 

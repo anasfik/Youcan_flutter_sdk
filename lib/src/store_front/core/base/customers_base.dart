@@ -1,4 +1,4 @@
-import 'package:youcan_flutter_sdk/src/store_front/core/interfaces/endpoint.dart';
+import 'package:you_can_flutter_sdk/src/store_front/core/interfaces/endpoint.dart';
 
 import '../interfaces/Login.dart';
 import '../interfaces/create_impl.dart';

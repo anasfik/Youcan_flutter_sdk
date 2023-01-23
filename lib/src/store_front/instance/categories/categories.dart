@@ -1,9 +1,9 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
-import 'package:youcan_flutter_sdk/src/store_front/core/api_links/categories_api_builder/categories_api_link_builder.dart';
-import 'package:youcan_flutter_sdk/src/store_front/core/api_links/categories_api_builder/extensions/endpoint.dart';
-import 'package:youcan_flutter_sdk/src/store_front/instance/categories/extensions/all.dart';
-import 'package:youcan_flutter_sdk/src/store_front/instance/categories/extensions/limit.dart';
-import 'package:youcan_flutter_sdk/src/store_front/instance/products/products.dart';
+import 'package:you_can_flutter_sdk/src/store_front/core/api_links/categories_api_builder/categories_api_link_builder.dart';
+import 'package:you_can_flutter_sdk/src/store_front/core/api_links/categories_api_builder/extensions/endpoint.dart';
+import 'package:you_can_flutter_sdk/src/store_front/instance/categories/extensions/all.dart';
+import 'package:you_can_flutter_sdk/src/store_front/instance/categories/extensions/limit.dart';
+import 'package:you_can_flutter_sdk/src/store_front/instance/products/products.dart';
 
 import '../../../../you_can_flutter_sdk.dart';
 import '../../core/api_links/endpoints.dart';

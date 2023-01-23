@@ -1,4 +1,4 @@
-import 'package:youcan_flutter_sdk/src/store_front/core/base/api_link_builder_base.dart';
+import 'package:you_can_flutter_sdk/src/store_front/core/base/api_link_builder_base.dart';
 
 class CustomersApiLinkBuilder implements ApiLinkBuilder {
   final String api;

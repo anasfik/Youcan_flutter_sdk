@@ -1,5 +1,5 @@
-import 'package:youcan_flutter_sdk/src/store_front/instance/customers/customers.dart';
-import 'package:youcan_flutter_sdk/src/store_front/instance/pages/pages.dart';
+import 'package:you_can_flutter_sdk/src/store_front/instance/customers/customers.dart';
+import 'package:you_can_flutter_sdk/src/store_front/instance/pages/pages.dart';
 
 import '../core/exception/store_link_not_found.dart';
 import 'categories/categories.dart';

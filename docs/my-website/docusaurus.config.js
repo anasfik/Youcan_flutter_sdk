@@ -9,7 +9,7 @@ const config = {
   title: "YouCan API - Flutter",
   tagline: "YouCan API - Flutter",
   url: "https://anasfik.github.io",
-  baseUrl: "/Youcan_flutter_sdk/",
+  baseUrl: "/you_can_flutter_sdk/",
   onBrokenLinks: "throw",
   onBrokenMarkdownLinks: "warn",
   favicon: "img/favicon.ico",
@@ -18,7 +18,7 @@ const config = {
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
   organizationName: "anasfik", // Usually your GitHub org/user name.
-  projectName: "Youcan_flutter_sdk", // Usually your repo name.
+  projectName: "you_can_flutter_sdk", // Usually your repo name.
 
   // Even if you don't use internalization, you can use this field to set useful
   // metadata like html lang. For example, if your site is Chinese, you may want
@@ -37,7 +37,7 @@ const config = {
           routeBasePath: "/",
           sidebarPath: require.resolve("./sidebars.js"),
           editUrl:
-            "https://github.com/anasfik/Youcan_flutter_sdk/tree/main/docs/my-website",
+            "https://github.com/anasfik/you_can_flutter_sdk/tree/main/docs/my-website",
         },
         blog: false,
         theme: {
@@ -64,7 +64,7 @@ const config = {
             label: "Documentation",
           },
           {
-            href: "https://github.com/anasfik/Youcan_Flutter_SDK",
+            href: "https://github.com/anasfik/you_can_flutter_sdk",
             label: "GitHub",
             position: "right",
           },

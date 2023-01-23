@@ -1,5 +1,5 @@
-import 'package:youcan_flutter_sdk/src/store_front/http_requests/extensions/auth/update_acc.dart';
-import 'package:youcan_flutter_sdk/src/store_front/instance/customers/customers.dart';
+import 'package:you_can_flutter_sdk/src/store_front/http_requests/extensions/auth/update_acc.dart';
+import 'package:you_can_flutter_sdk/src/store_front/instance/customers/customers.dart';
 
 import '../../../core/models/auth/new_user_data.dart';
 

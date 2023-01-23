@@ -1,9 +1,8 @@
 import 'dart:convert';
 
-import 'package:youcan_flutter_sdk/src/store_front/core/api_links/contact_api_link_builder/extensions/endpoint.dart';
-import 'package:youcan_flutter_sdk/src/store_front/core/api_links/endpoints.dart';
-import 'package:youcan_flutter_sdk/src/store_front/core/exception/service_not_available.dart';
-import 'package:youcan_flutter_sdk/src/store_front/http_requests/http_requests.dart';
+import 'package:you_can_flutter_sdk/src/store_front/core/api_links/contact_api_link_builder/extensions/endpoint.dart';
+import 'package:you_can_flutter_sdk/src/store_front/core/api_links/endpoints.dart';
+import 'package:you_can_flutter_sdk/src/store_front/http_requests/http_requests.dart';
 
 import 'package:http/http.dart' as http;
 

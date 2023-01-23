@@ -1,7 +1,7 @@
 import 'package:collection/collection.dart';
 
-import 'package:youcan_flutter_sdk/src/store_front/core/mixins/requests_client.dart';
-import 'package:youcan_flutter_sdk/src/store_front/instance/reviews/reviews.dart';
+import 'package:you_can_flutter_sdk/src/store_front/core/mixins/requests_client.dart';
+import 'package:you_can_flutter_sdk/src/store_front/instance/reviews/reviews.dart';
 
 class Product with RequestsClient {
   final String id;

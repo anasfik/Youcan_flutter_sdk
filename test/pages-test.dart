@@ -1,7 +1,7 @@
 import 'package:test/test.dart';
-import 'package:youcan_flutter_sdk/src/store_front/core/models/page/page.dart';
-import 'package:youcan_flutter_sdk/src/store_front/instance/pages/pages.dart';
-import 'package:youcan_flutter_sdk/you_can_flutter_sdk.dart';
+import 'package:you_can_flutter_sdk/src/store_front/core/models/page/page.dart';
+import 'package:you_can_flutter_sdk/src/store_front/instance/pages/pages.dart';
+import 'package:you_can_flutter_sdk/you_can_flutter_sdk.dart';
 
 import 'constants.dart';
 

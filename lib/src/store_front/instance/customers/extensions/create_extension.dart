@@ -1,4 +1,4 @@
-import 'package:youcan_flutter_sdk/src/store_front/http_requests/extensions/auth/create.dart';
+import 'package:you_can_flutter_sdk/src/store_front/http_requests/extensions/auth/create.dart';
 
 import '../../../core/models/auth/customer_creation_response.dart';
 import '../../../core/models/auth/optional_user_informations.dart';

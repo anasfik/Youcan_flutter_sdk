@@ -1,8 +1,8 @@
 import 'package:test/test.dart';
-import 'package:youcan_flutter_sdk/src/store_front/core/exception/store_link_not_found.dart';
-import 'package:youcan_flutter_sdk/src/store_front/core/models/product/product.dart';
-import 'package:youcan_flutter_sdk/src/store_front/instance/products/products.dart';
-import 'package:youcan_flutter_sdk/src/store_front/instance/you_can_instance.dart';
+import 'package:you_can_flutter_sdk/src/store_front/core/exception/store_link_not_found.dart';
+import 'package:you_can_flutter_sdk/src/store_front/core/models/product/product.dart';
+import 'package:you_can_flutter_sdk/src/store_front/instance/products/products.dart';
+import 'package:you_can_flutter_sdk/src/store_front/instance/you_can_instance.dart';
 
 import 'constants.dart';
 

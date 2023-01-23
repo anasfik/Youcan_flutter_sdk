@@ -1,14 +1,14 @@
 <br>
 <p align='center' >
-<img src="docs/assets/banner-logo.png" width='300px'/>
+<img src="https://imgur.com/qqnkQDr.png" width='300px'/>
 <h1 align='center'>YouCan API </h1>
 <br>
-<p align="center"><img alt="GitHub" src="https://img.shields.io/github/license/anasfik/Youcan_Flutter_SDK?style=for-the-badge" />
-<img alt="Star on GitHub" src="https://img.shields.io/github/stars/anasfik/Youcan_Flutter_SDK.svg?style=for-the-badge" />
-<img alt="GitHub contributors" src="https://img.shields.io/github/contributors/anasfik/Youcan_Flutter_SDK?style=for-the-badge">
-<img alt="GitHub commit activity" src="https://img.shields.io/github/commit-activity/y/anasfik/Youcan_Flutter_SDK?color=red&style=for-the-badge">
-<img alt="GitHub top language" src="https://img.shields.io/github/languages/top/anasfik/Youcan_Flutter_SDK?style=for-the-badge" />
-<img alt="GitHub language count" src="https://img.shields.io/github/languages/count/anasfik/Youcan_Flutter_SDK?style=for-the-badge">
+<p align="center"><img alt="GitHub" src="https://img.shields.io/github/license/anasfik/youcan_flutter_sdk?style=for-the-badge" />
+<img alt="Star on GitHub" src="https://img.shields.io/github/stars/anasfik/youcan_flutter_sdk.svg?style=for-the-badge" />
+<img alt="GitHub contributors" src="https://img.shields.io/github/contributors/anasfik/youcan_flutter_sdk?style=for-the-badge">
+<img alt="GitHub commit activity" src="https://img.shields.io/github/commit-activity/y/anasfik/youcan_flutter_sdk?color=red&style=for-the-badge">
+<img alt="GitHub top language" src="https://img.shields.io/github/languages/top/anasfik/youcan_flutter_sdk?style=for-the-badge" />
+<img alt="GitHub language count" src="https://img.shields.io/github/languages/count/anasfik/youcan_flutter_sdk?style=for-the-badge">
 </p></p>
 
 <h3><p align='center'>A wrapper into the YouCan platform API that enables developers to extend its features inside a Dart/Flutter project</p></h3>
@@ -30,7 +30,7 @@ NOTE: This is still under development
 
 # Documentation
 
-Get the full documentation of all that this library offers <a href="https://anasfik.github.io/Youcan_flutter_sdk">from this link </a>
+Get the full documentation of all that this library offers <a href="https://anasfik.github.io/youcan_flutter_sdk">from this link </a>
 
 ## Usage
 
