@@ -4,9 +4,10 @@ import 'package:you_can_flutter_sdk/src/store_front/http_requests/extensions/con
 import '../../core/base/contact_base.dart';
 
 class Contact with RequestsClient implements ContactBase {
-  // No need to implement the constructor directly.
+  /// This is an private constructor, You can get the [Contact] instance by the factory [Contact()] constructor directly.
   Contact._();
 
+  /// This is a factory constructor, You can get the [Contact] instance by this.
   factory Contact() {
     return Contact._();
   }
